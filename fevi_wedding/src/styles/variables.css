@@ -1,0 +1,38 @@
+:root {
+  /* Backgrounds */
+  --parchment: #F1EBD8;
+  --ivory: #FAF7EE;
+  --cream: #E8DFC9;
+
+  /* Gold */
+  --gold: #A88A55;
+  --ochre: #C19A4B;
+
+  /* Browns */
+  --brown: #765435;
+  --deep-brown: #4A3428;
+  --espresso: #302623;
+
+  /* Accents */
+  --burgundy: #70413E;
+  --sage: #777762;
+
+  /* Typography */
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-body: "Montserrat", Arial, sans-serif;
+
+  /* Shadows */
+  --shadow-soft:
+    0 20px 60px rgba(74, 52, 40, 0.12);
+
+  --shadow-small:
+    0 8px 25px rgba(74, 52, 40, 0.10);
+
+  /* Borders */
+  --border-gold:
+    1px solid rgba(168, 138, 85, 0.45);
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+}
