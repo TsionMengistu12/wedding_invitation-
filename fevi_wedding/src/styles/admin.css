@@ -270,4 +270,113 @@
 /* Admin workspace and gate layout refinements */
 .admin-workspace { display: grid; gap: 26px; }.admin-workspace > .admin-title { margin: 0; }.section-eyebrow,.step-label { margin: 0; color: var(--gold); font-size: 10px; font-weight: 700; letter-spacing: .17em; text-transform: uppercase; }.upload-card input[type="file"] { position:absolute; inline-size:1px; block-size:1px; opacity:0; pointer-events:none; }.upload-card .upload-button { display:inline-block; cursor:pointer; }.upload-message { margin:0!important; padding:14px 18px!important; border-left:3px solid var(--gold)!important; background:var(--ivory); box-shadow:var(--shadow-small); }.upload-message p { margin:0; }.upload-message.is-error { border-left-color:var(--burgundy)!important; }.upload-message.is-success { border-left-color:var(--sage)!important; }.guest-list { margin:0; padding:0; overflow:hidden; }.guest-list-header { display:flex; align-items:center; justify-content:space-between; gap:18px; padding:22px 28px; }.guest-list-header h2 { margin:5px 0 0; }.guest-list-header > span { white-space:nowrap; color:var(--brown); font-size:12px; }.guest-list th,.guest-list td { padding:13px 28px; }.card-actions,.reset-row { display:flex; flex-wrap:wrap; gap:10px; padding:22px 28px; }.primary-button,.secondary-button,.text-button { margin:0!important; padding:11px 16px!important; border:1px solid var(--gold)!important; font-size:10px!important; font-weight:600; letter-spacing:.1em!important; text-transform:uppercase; }.primary-button { background:var(--gold)!important; color:var(--ivory)!important; }.secondary-button,.text-button { background:transparent!important; color:var(--deep-brown)!important; }.text-button { padding:8px 0!important; border-width:0 0 1px!important; }.invitation-link { color:var(--deep-brown); text-decoration:underline; text-underline-offset:3px; }
 .gate-page { min-height:100vh; padding-bottom:44px; background:radial-gradient(circle at top right,#faf7ee,#f1ebd8 55%,#e7dcc3); }.gate-header { min-height:80px; padding:14px max(24px,calc((100% - 1080px)/2)); display:flex; align-items:center; justify-content:space-between; gap:20px; background:var(--deep-brown); color:var(--ivory); }.gate-header h1 { margin:4px 0 0; font-family:var(--font-display); font-size:30px; font-weight:500; }.gate-page #qr-reader { margin:24px auto 0; overflow:hidden; }.gate-page hr { border:0; border-top:1px solid rgba(168,138,85,.28); margin:26px 0; }.gate-page section p { color:var(--brown); }
+
+.wish-moderation {
+  padding: 32px;
+  background: var(--ivory);
+  border: var(--border-gold);
+  box-shadow: var(--shadow-small);
+}
+
+.wish-moderation__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.wish-moderation__header h2 {
+  margin: 6px 0 8px;
+  font-family: var(--font-display);
+  font-size: 34px;
+  font-weight: 500;
+  color: var(--deep-brown);
+}
+
+.wish-moderation__intro {
+  margin: 0;
+  color: var(--brown);
+  font-size: 14px;
+}
+
+.wish-moderation__stats {
+  margin-bottom: 24px;
+}
+
+.wish-moderation__list {
+  display: grid;
+  gap: 16px;
+}
+
+.wish-moderation__card {
+  padding: 22px 24px;
+  background: rgba(250, 247, 238, 0.85);
+  border: 1px solid rgba(168, 138, 85, 0.28);
+}
+
+.wish-moderation__meta {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.wish-moderation__meta strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 24px;
+  color: var(--deep-brown);
+}
+
+.wish-moderation__meta span {
+  display: block;
+  margin-top: 4px;
+  color: var(--brown);
+  font-size: 12px;
+}
+
+.wish-moderation__meta time {
+  color: var(--brown);
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.wish-moderation__message {
+  margin: 0 0 18px;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--espresso);
+}
+
+.wish-moderation__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.wish-moderation__actions .primary-button,
+.wish-moderation__actions .secondary-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.wish-moderation__empty,
+.wish-moderation__empty-card {
+  padding: 28px;
+  text-align: center;
+  color: var(--brown);
+}
+
+.wish-moderation__empty-card {
+  display: grid;
+  gap: 10px;
+  justify-items: center;
+  background: rgba(250, 247, 238, 0.85);
+  border: 1px dashed rgba(168, 138, 85, 0.35);
+}
+
 @media (max-width:650px) { .admin-header { padding:14px 18px; align-items:flex-start; }.admin-brand { font-size:22px; }.admin-label { display:block; margin:4px 0 0; }.guest-list-header,.card-actions,.reset-row { padding:18px; }.guest-list-header { align-items:flex-start; }.guest-list th,.guest-list td { padding:12px 18px; }.guest-list { overflow-x:auto; }.guest-list table { min-width:520px; }.gate-header { padding:14px 20px; }.gate-header h1 { font-size:25px; }.gate-page>section,.gate-page>div { width:calc(100% - 30px); margin:22px auto; padding:24px 18px; } }

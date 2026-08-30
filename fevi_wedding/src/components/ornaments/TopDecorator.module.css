@@ -1,0 +1,39 @@
+.wrapper {
+  --ornament-max-width: 640px;
+
+  position: relative;
+  width: 100%;
+  max-width: var(--ornament-max-width);
+  margin-inline: auto;
+  pointer-events: none;
+  user-select: none;
+  line-height: 0;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .wrapper {
+    width: 94%;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .wrapper {
+    width: 96%;
+  }
+}
+
+/* Small phones */
+@media (max-width: 380px) {
+  .wrapper {
+    width: 98%;
+  }
+}

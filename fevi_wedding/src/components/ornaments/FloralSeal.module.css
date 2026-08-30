@@ -1,0 +1,80 @@
+.wrapper {
+  /*
+   * The component is fluid, but never grows beyond maxWidth.
+   * The CSS custom property is supplied by the React prop.
+   */
+  width: min(100%, var(--max-width));
+
+  margin-inline: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /*
+   * Important for transparent PNG artwork:
+   * the image remains an ornament rather than behaving like
+   * a rectangular card.
+   */
+  line-height: 0;
+
+  box-sizing: border-box;
+}
+
+.image {
+  display: block;
+
+  /*
+   * Preserve the original proportions of the artwork.
+   */
+  width: 100%;
+  height: auto;
+
+  object-fit: contain;
+
+  /*
+   * Don't apply a filter here.
+   * The uploaded artwork already contains its intended
+   * cream flowers, brown branches and wax seal.
+   */
+}
+
+
+/*
+ * Tablet
+ *
+ * The image remains fluid, but gets a little more breathing
+ * room from the edges.
+ */
+@media (max-width: 900px) {
+  .wrapper {
+    width: min(100%, 70vw);
+  }
+}
+
+
+/*
+ * Mobile
+ *
+ * The mobileWidth prop controls the size.
+ *
+ * Example:
+ *   <FloralSeal mobileWidth="72vw" />
+ */
+@media (max-width: 600px) {
+  .wrapper {
+    width: min(100%, var(--mobile-width));
+  }
+}
+
+
+/*
+ * Very small phones
+ *
+ * Keep the ornament from becoming too dominant.
+ */
+@media (max-width: 380px) {
+  .wrapper {
+    width: min(100%, 78vw);
+  }
+}

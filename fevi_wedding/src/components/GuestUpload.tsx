@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { createInvitations } from "../services/invitations";
 import { generateInvitationCSV } from "../services/invitationExport";
+import { getInvitationUrl } from "../utils/invitationUrl";
 
 interface GuestRow {
   name: string;
@@ -227,10 +228,6 @@ export default function GuestUpload() {
     generateInvitationCSV(createdGuests);
 
     setSuccess("Your invitation list has been downloaded.");
-  }
-
-  function getInvitationUrl(token: string) {
-    return `${window.location.origin}/invite/${token}`;
   }
 
   function getGuestAllowanceText(limit: number) {

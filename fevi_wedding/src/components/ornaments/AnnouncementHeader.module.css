@@ -1,0 +1,72 @@
+.wrapper {
+  /*
+   * The artwork scales down with its container while preserving
+   * its original proportions.
+   */
+  width: min(100%, var(--max-width));
+
+  margin-inline: auto;
+
+  display: block;
+
+  /*
+   * Prevent accidental horizontal overflow from the image.
+   */
+  box-sizing: border-box;
+
+  line-height: 0;
+}
+
+.image {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  /*
+   * Preserve the exact proportions of the supplied artwork.
+   */
+  object-fit: contain;
+
+  /*
+   * No filter is applied because the uploaded artwork already
+   * contains the intended warm-brown ornament color.
+   */
+}
+
+
+/* ============================================================
+   TABLET
+   ============================================================ */
+
+@media (max-width: 900px) {
+  .wrapper {
+    width: min(100%, 94vw);
+  }
+}
+
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 600px) {
+  .wrapper {
+    /*
+     * Uses the mobileWidth prop, but still cannot exceed
+     * the available viewport width.
+     */
+    width: min(100%, var(--mobile-width));
+  }
+}
+
+
+/* ============================================================
+   VERY SMALL PHONES
+   ============================================================ */
+
+@media (max-width: 380px) {
+  .wrapper {
+    width: 100%;
+  }
+}

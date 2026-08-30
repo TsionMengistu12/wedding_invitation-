@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Html5Qrcode, Html5QrcodeScannerState } from "html5-qrcode";
 
 import { supabase } from "../lib/supabase";
+import { parseInvitationToken } from "../utils/invitationUrl";
 import "../styles/admin.css";
 
 interface CheckInResult {
@@ -134,30 +135,7 @@ export default function GatePage() {
     setError("");
     setResult(null);
 
-    let invitationToken = decodedText.trim();
-
-    /*
-     * We expect:
-     *
-     * https://website.com/invite/TOKEN
-     *
-     * But we also accept the raw token.
-     */
-
-    try {
-      const url = new URL(decodedText);
-
-      const parts = url.pathname.split("/").filter(Boolean);
-
-      const inviteIndex = parts.indexOf("invite");
-
-      if (inviteIndex !== -1 && parts[inviteIndex + 1]) {
-        invitationToken = parts[inviteIndex + 1];
-      }
-    } catch {
-      // Not a URL.
-      // Treat the QR content as the token.
-    }
+    const invitationToken = parseInvitationToken(decodedText);
 
     if (!invitationToken) {
       setError("Invalid QR code.");

@@ -1,6 +1,1039 @@
-.invitation-page{overflow:hidden;min-height:100vh;color:#4a3428;background:radial-gradient(circle at 50% 18%,rgba(255,250,235,.92),transparent 42rem),repeating-linear-gradient(0deg,rgba(107,68,33,.035) 0 1px,transparent 1px 5px),#f3ead5}.invitation-loading{min-height:100vh;display:grid;place-items:center;color:#70413e;font:500 12px var(--font-body);letter-spacing:.16em;text-transform:uppercase}
-/* Parchment hero modelled on the supplied reference. */
-.invitation-hero{position:relative;isolation:isolate;box-sizing:border-box;min-height:920px;max-width:1366px;margin:0 auto;padding:150px clamp(70px,12vw,165px) 200px;overflow:hidden;background:radial-gradient(ellipse at 46% 43%,rgba(255,252,238,.8),transparent 53%),repeating-radial-gradient(ellipse at 20% 28%,rgba(118,84,53,.055) 0 1px,transparent 1px 5px),#efe3c9}.invitation-hero::before{content:"";position:absolute;inset:33px;z-index:4;border:1px solid rgba(111,72,35,.24);pointer-events:none}.top-corner-ornament{position:absolute;z-index:5;top:24px;left:20px;width:calc(100% - 40px);height:185px;object-fit:fill;opacity:.88;pointer-events:none}.hero-inner{position:relative;z-index:3;width:min(54%,615px);text-align:left}.hero-cross{display:block;width:48px;height:72px;margin:-88px auto 17px;object-fit:contain}.scripture{margin:0 auto 49px;text-align:center;color:#714635;font:400 18px/1.65 Georgia,serif}.scripture span{font-style:normal;color:#573a2e}.hero-copy{max-width:580px;color:#48352c;font:22px/1.52 Georgia,serif}.hero-copy p{margin:0 0 20px}.hero-copy strong{color:#3d2c25}.hero-copy h2{margin:20px 0 17px;color:#3d2c25;font:500 clamp(35px,3.55vw,52px)/1.05 var(--font-display),Georgia,serif}.hero-copy h2 span{margin:0 9px;color:#795544;font-size:.6em;font-style:italic}.signature{margin-top:24px!important;color:#754739;font-style:italic}.signature strong{font-style:normal}
-.couple-portrait{position:absolute;z-index:2;right:clamp(8px,2vw,35px);bottom:92px;width:min(49%,630px);height:620px}.couple-portrait::before{content:"";position:absolute;inset:-36px;background:radial-gradient(ellipse,rgba(161,126,87,.42),transparent 67%);filter:blur(18px)}.couple-portrait img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;mix-blend-mode:multiply;-webkit-mask-image:radial-gradient(ellipse 63% 67% at 53% 53%,#000 46%,rgba(0,0,0,.78) 63%,transparent 82%);mask-image:radial-gradient(ellipse 63% 67% at 53% 53%,#000 46%,rgba(0,0,0,.78) 63%,transparent 82%)}.portrait-haze{position:absolute;z-index:1;inset:-8%;background:radial-gradient(ellipse at center,transparent 52%,rgba(239,227,201,.2) 68%,#efe3c9 88%);pointer-events:none}.hero-ribbon{position:absolute;z-index:3;right:0;bottom:66px;left:0;height:78px;border-block:1px solid rgba(101,62,25,.45);background:linear-gradient(to bottom,rgba(207,161,75,.9),rgba(146,95,30,.95),rgba(197,147,60,.9));box-shadow:0 2px 8px rgba(53,33,17,.18)}.hero-bottom{position:absolute;z-index:5;right:11%;bottom:-20px;left:11%;height:205px;display:flex;align-items:end;justify-content:space-between;pointer-events:none}.hero-flower{width:37%;height:190px;object-fit:contain;object-position:bottom}.hero-seal{width:145px;height:145px;object-fit:contain;filter:drop-shadow(0 7px 6px rgba(65,31,12,.32))}
-.event-card{padding:65px 25px;text-align:center;background:rgba(150,105,45,.11);border-block:1px solid rgba(138,97,45,.32)}.section-eyebrow{margin:0;color:#936b35;font:600 10px var(--font-body);letter-spacing:.28em;text-transform:uppercase}.event-card h2,.wishes-section h2,.ticket h2{margin:16px 0;color:#4c3027;font:500 clamp(32px,5vw,48px) var(--font-display)}.event-separator{display:block;width:105px;height:22px;margin:15px auto;object-fit:contain}.event-card>div:last-child{display:flex;justify-content:center;gap:clamp(25px,7vw,85px);margin-top:25px}.event-card p{margin:0;color:#5f4334;font:15px/1.65 Georgia,serif}.event-card b{color:#723b30}.ticket-section{padding:90px 20px}.ticket{max-width:460px;margin:auto;padding:48px 28px;text-align:center;background:#fcf7ea;border:1px solid rgba(151,107,48,.6);box-shadow:0 15px 45px rgba(70,44,25,.16)}.ticket>p:not(.section-eyebrow):not(.ticket-footer){font:15px Georgia,serif}.guest-allowance{margin:25px 0;padding:14px;border-block:1px solid rgba(151,107,48,.4)}.guest-allowance span,.ticket-footer{display:block;color:#906c38;font:600 9px var(--font-body);letter-spacing:.16em}.guest-allowance strong{display:block;margin-top:7px;font:500 27px var(--font-display)}.ticket canvas{margin:7px auto 20px}.ticket-footer{line-height:1.5}.wishes-section{padding:75px 24px;text-align:center}.primary-button{margin-top:15px;padding:13px 23px;border:1px solid #9d742f;background:#a87929;color:#fff8eb;font:600 10px var(--font-body);letter-spacing:.16em}.invitation-footer{padding:36px 24px;text-align:center;border-top:1px solid rgba(151,107,48,.4);color:#684433;font:italic 18px var(--font-display)}.invitation-footer strong{margin-left:6px;color:#6a382f;font-style:normal}.wish-modal{position:fixed;inset:0;z-index:10;display:grid;place-items:center;padding:20px;background:rgba(48,38,35,.55);backdrop-filter:blur(5px)}.wish-modal-card{position:relative;width:min(560px,100%);padding:42px 32px;background:var(--ivory);border:1px solid var(--gold);box-shadow:var(--shadow-soft);text-align:center}.wish-modal-close{position:absolute;top:8px;right:14px;border:0;background:transparent;color:var(--burgundy);font-size:28px}.wish-modal-card textarea{width:100%;margin-top:16px;padding:14px;border:var(--border-gold);background:#fffdf7;resize:vertical}.wish-modal-card button[type="submit"]{margin-top:14px;padding:12px 18px;border:1px solid var(--gold);background:var(--gold);color:var(--ivory)}
-@media(max-width:850px){.invitation-hero{min-height:980px;padding:140px 55px 230px}.hero-inner{width:60%}.hero-copy{font-size:18px}.couple-portrait{width:51%;height:500px;bottom:105px}.hero-bottom{right:4%;left:4%}.hero-flower{width:40%}}@media(max-width:620px){.invitation-hero{min-height:auto;padding:120px 28px 330px}.invitation-hero::before{inset:12px}.top-corner-ornament{top:11px;left:3px;width:calc(100% - 6px);height:117px;opacity:.82}.hero-inner{width:100%}.hero-cross{width:37px;height:56px;margin:-67px auto 13px}.scripture{margin-bottom:39px;font-size:13px}.hero-copy{max-width:100%;font-size:16px;line-height:1.52}.hero-copy p{margin-bottom:16px}.hero-copy h2{margin:17px 0 14px;font-size:clamp(32px,10vw,43px)}.hero-copy h2 span{display:block;margin:3px 0}.couple-portrait{right:-25px;bottom:88px;width:93%;height:420px;opacity:.76}.hero-ribbon{bottom:56px;height:56px}.hero-bottom{right:-7%;bottom:-11px;left:-7%;height:140px}.hero-flower{width:43%;height:135px}.hero-seal{width:100px;height:100px}.event-card>div:last-child{flex-direction:column;gap:18px}.ticket-section{padding:65px 20px}}
+/* ============================================================
+   WEDDING COLOR PALETTE
+============================================================ */
+
+:root {
+  --parchment: #f1ebd8;
+  --ivory: #faf7ee;
+  --cream: #e8dfc9;
+
+  --antique-gold: #a88a55;
+  --ochre: #c19a4b;
+
+  --warm-brown: #765435;
+  --deep-brown: #4a3428;
+  --espresso: #302623;
+
+  --burgundy: #70413e;
+}
+
+
+/* ============================================================
+   BASIC RESET
+============================================================ */
+
+* {
+  box-sizing: border-box;
+}
+
+
+html,
+body {
+  margin: 0;
+
+  padding: 0;
+
+  background: var(--parchment);
+
+  color: var(--espresso);
+}
+
+
+body {
+  overflow-x: hidden;
+}
+
+
+/* ============================================================
+   LOADING + DETAILS
+============================================================ */
+
+.invitation-loading {
+  min-height: 100vh;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 24px;
+
+  text-align: center;
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size: clamp(20px, 3vw, 28px);
+
+  color: var(--espresso);
+}
+
+.invitation-details {
+  position: relative;
+}
+
+.invitation-back-button {
+  position: fixed;
+
+  top: 20px;
+
+  left: 20px;
+
+  z-index: 50;
+
+  padding: 10px 16px;
+
+  border: 1px solid var(--antique-gold);
+
+  border-radius: 999px;
+
+  background: rgba(250, 247, 238, 0.92);
+
+  color: var(--burgundy);
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size: 15px;
+
+  letter-spacing: 0.5px;
+
+  backdrop-filter: blur(6px);
+}
+
+.invitation-back-button:hover {
+  background: var(--ivory);
+}
+
+
+.invitation-page {
+  position: relative;
+
+  background: var(--parchment);
+}
+
+.invitation-sections {
+  position: relative;
+
+  z-index: 1;
+
+  /*
+   * Pull sections up so they begin appearing
+   * while the cover fades out on scroll.
+   */
+  margin-top: -35vh;
+}
+
+
+/* ============================================================
+   HERO / OPENING
+============================================================ */
+
+.invitation-hero {
+  position: relative;
+
+  height: 165vh;
+
+  background:
+    url("/assets/ornaments/background1.jpg")
+    center / cover;
+
+  background-color: var(--parchment);
+}
+
+
+.invitation-hero__sticky {
+  position: sticky;
+
+  top: 0;
+
+  width: 100%;
+
+  height: 100vh;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 24px;
+
+  overflow: hidden;
+
+  transform-origin: center center;
+
+  will-change: transform, opacity;
+}
+
+
+/* ============================================================
+   ENTRANCE FRAME
+============================================================ */
+
+.invitation-entrance {
+  width: min(560px, 92vw);
+}
+
+.invitation-entrance__frame {
+  position: relative;
+
+  padding: 34px 26px 56px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(250, 247, 238, 0.96) 0%,
+      rgba(241, 235, 216, 0.98) 100%
+    );
+
+  border: 1px solid rgba(74, 52, 40, 0.55);
+
+  box-shadow:
+    inset 0 0 0 1px rgba(168, 138, 85, 0.45),
+    0 24px 60px rgba(48, 38, 35, 0.18);
+}
+
+.invitation-entrance__corner {
+  position: absolute;
+
+  width: clamp(42px, 8vw, 58px);
+
+  pointer-events: none;
+
+  opacity: 0.92;
+}
+
+.invitation-entrance__corner--tl {
+  top: 10px;
+
+  left: 10px;
+}
+
+.invitation-entrance__corner--tr {
+  top: 10px;
+
+  right: 10px;
+
+  transform: scaleX(-1);
+}
+
+.invitation-entrance__corner--bl {
+  bottom: 10px;
+
+  left: 10px;
+
+  transform: scaleY(-1);
+}
+
+.invitation-entrance__corner--br {
+  right: 10px;
+
+  bottom: 10px;
+
+  transform: scale(-1);
+}
+
+.invitation-entrance__card-shell {
+  position: relative;
+
+  width: 100%;
+
+  aspect-ratio: 1 / 1.08;
+
+  max-height: min(68vh, 580px);
+
+  margin: 0 auto;
+
+  overflow: hidden;
+
+  border-radius: 50%;
+
+  box-shadow:
+    inset 0 0 0 2px rgba(168, 138, 85, 0.35);
+}
+
+.invitation-entrance__card-shell .invitation-card {
+  width: 100%;
+
+  height: 100%;
+
+  clip-path: circle(50% at 50% 44%);
+}
+
+.invitation-entrance__bottom-floral {
+  position: absolute;
+
+  left: 50%;
+
+  bottom: 8px;
+
+  width: min(92%, 480px);
+
+  max-height: 72px;
+
+  object-fit: contain;
+
+  transform: translateX(-50%);
+
+  pointer-events: none;
+
+  opacity: 0.95;
+}
+
+
+/* ============================================================
+   ENVELOPE (legacy – kept for reference)
+============================================================ */
+
+.envelope {
+  position: relative;
+
+  width: min(900px, 88vw);
+
+  /*
+   * We use aspect-ratio rather than fixed height.
+   *
+   * This is important for mobile.
+   */
+  aspect-ratio: 1.5 / 1;
+
+  max-height: 650px;
+
+  perspective: 1600px;
+
+  transform-style: preserve-3d;
+}
+
+
+/* ============================================================
+   INVITATION CARD
+============================================================ */
+
+.envelope__card {
+  position: absolute;
+
+  top: 3%;
+
+  left: 5%;
+
+  width: 90%;
+
+  height: 94%;
+
+  z-index: 3;
+
+  transform-style: preserve-3d;
+}
+
+
+.invitation-card {
+  position: relative;
+
+  width: 100%;
+
+  height: 100%;
+
+  overflow: hidden;
+
+  background: var(--espresso);
+
+  color: var(--ivory);
+
+  isolation: isolate;
+}
+
+
+/* ============================================================
+   FOREST IMAGE
+============================================================ */
+
+.invitation-card__photo {
+  position: absolute;
+
+  top: 0;
+
+  left: 0;
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+  object-position: center;
+
+  z-index: -3;
+}
+
+
+/* ============================================================
+   IMAGE OVERLAY
+============================================================ */
+
+.invitation-card__photo-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: -2;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(48, 38, 35, 0.08),
+      rgba(48, 38, 35, 0.35)
+    );
+}
+
+
+/* ============================================================
+   CURVED / ARCH-LIKE BOTTOM
+============================================================ */
+
+/*
+ * Your reference doesn't look like a normal rectangular photo.
+ *
+ * The bottom curves deeply downward.
+ *
+ * This mask gives us that shape.
+ */
+
+.invitation-card {
+  clip-path: ellipse(
+    75% 75%
+    at 50% 30%
+  );
+}
+
+
+/* ============================================================
+   WHITE CIRCULAR BOTANICAL FRAME
+============================================================ */
+
+.invitation-card__circle {
+  position: absolute;
+
+  /*
+   * Center the circle.
+   */
+  left: 50%;
+
+  top: 47%;
+
+  transform: translate(
+    -50%,
+    -50%
+  );
+
+  /*
+   * Responsive size.
+   */
+  width: min(
+    56%,
+    500px
+  );
+
+  aspect-ratio: 1;
+
+  border:
+    2px solid
+    rgba(250, 247, 238, 0.95);
+
+  border-radius: 50%;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+
+/*
+ * Inner circular line.
+ */
+
+.invitation-card__circle::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 9px;
+
+  border:
+    1px solid
+    rgba(250, 247, 238, 0.85);
+
+  border-radius: 50%;
+}
+
+
+/* ============================================================
+   INVITATION CONTENT
+============================================================ */
+
+.invitation-card__content {
+  position: relative;
+
+  z-index: 5;
+
+  width: 90%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  text-align: center;
+}
+
+
+/* ============================================================
+   GREETING
+============================================================ */
+
+.invitation-card__greeting {
+  margin: 0 0 14px;
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size: clamp(
+    12px,
+    1.4vw,
+    18px
+  );
+
+  letter-spacing: 2px;
+
+  font-weight: 500;
+}
+
+
+/* ============================================================
+   SUBTITLE
+============================================================ */
+
+.invitation-card__subtitle {
+  margin: 0;
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size: clamp(
+    14px,
+    1.8vw,
+    23px
+  );
+
+  line-height: 1.2;
+}
+
+
+/* ============================================================
+   COUPLE NAMES
+============================================================ */
+
+.invitation-card__names {
+  margin: 18px 0 16px;
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size: clamp(
+    40px,
+    6vw,
+    82px
+  );
+
+  font-weight: 400;
+
+  line-height: 0.87;
+
+  letter-spacing: 1px;
+
+  text-shadow:
+    0 2px 8px
+    rgba(0, 0, 0, 0.25);
+}
+
+
+/* ============================================================
+   QR CODE
+============================================================ */
+
+.invitation-card__qr {
+  width: clamp(
+    75px,
+    9vw,
+    125px
+  );
+
+  aspect-ratio: 1;
+
+  padding: 7px;
+
+  background: var(--ivory);
+
+  border:
+    2px solid
+    var(--antique-gold);
+
+  box-shadow:
+    0 5px 15px
+    rgba(0, 0, 0, 0.25);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+
+.invitation-card__qr canvas {
+  display: block;
+
+  width: 100% !important;
+
+  height: 100% !important;
+}
+
+
+/* ============================================================
+   BOTANICAL CIRCLE DECORATIONS
+============================================================ */
+
+.circle-decoration {
+  position: absolute;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  z-index: 6;
+
+  color: var(--ivory);
+
+  pointer-events: none;
+}
+
+
+/* Top decoration */
+
+.circle-decoration--top {
+  top: -15px;
+
+  font-size: 50px;
+}
+
+
+/* Bottom flower */
+
+.circle-decoration--bottom {
+  bottom: -23px;
+
+  font-size: 45px;
+}
+
+
+/* ============================================================
+   ENVELOPE BODY
+============================================================ */
+
+.envelope__body {
+  position: absolute;
+
+  inset: 0;
+
+  overflow: hidden;
+
+  background: var(--ivory);
+
+  box-shadow:
+    0 30px 70px
+    rgba(48, 38, 35, 0.25);
+
+  z-index: 2;
+}
+
+
+/* Left flap */
+
+.envelope__left {
+  position: absolute;
+
+  inset: 0 auto 0 0;
+
+  width: 50%;
+
+  height: 100%;
+
+  background: var(--cream);
+
+  clip-path:
+    polygon(
+      0 0,
+      100% 50%,
+      0 100%
+    );
+}
+
+
+/* Right flap */
+
+.envelope__right {
+  position: absolute;
+
+  inset: 0 0 0 auto;
+
+  width: 50%;
+
+  height: 100%;
+
+  background: var(--cream);
+
+  clip-path:
+    polygon(
+      100% 0,
+      0 50%,
+      100% 100%
+    );
+}
+
+
+/* Bottom flap */
+
+.envelope__bottom {
+  position: absolute;
+
+  left: 0;
+
+  bottom: 0;
+
+  width: 100%;
+
+  height: 72%;
+
+  background: var(--ivory);
+
+  clip-path:
+    polygon(
+      0 100%,
+      50% 0,
+      100% 100%
+    );
+}
+
+
+/* ============================================================
+   TOP FLAP
+============================================================ */
+
+.envelope__flap {
+  position: absolute;
+
+  top: 0;
+
+  left: 0;
+
+  width: 100%;
+
+  height: 55%;
+
+  background: var(--ivory);
+
+  clip-path:
+    polygon(
+      0 0,
+      100% 0,
+      50% 100%
+    );
+
+  transform-origin: top center;
+
+  transform-style: preserve-3d;
+
+  backface-visibility: hidden;
+
+  z-index: 10;
+}
+
+
+/* ============================================================
+   SCROLL INDICATOR
+============================================================ */
+
+.scroll-indicator {
+  position: fixed;
+
+  left: 50%;
+
+  bottom: 25px;
+
+  transform:
+    translateX(-50%);
+
+  z-index: 100;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 6px;
+
+  color: var(--antique-gold);
+
+  pointer-events: none;
+}
+
+
+.scroll-indicator__arrow {
+  font-size: 19px;
+
+  line-height: 1;
+}
+
+
+.scroll-indicator__text {
+  font-family:
+    Georgia,
+    serif;
+
+  font-size: 10px;
+
+  letter-spacing: 4px;
+}
+
+
+.scroll-indicator__line {
+  width: 1px;
+
+  height: 42px;
+
+  background: var(--antique-gold);
+
+  transform-origin: top;
+}
+
+/* ============================================================
+   TABLET
+============================================================ */
+
+@media (max-width: 768px) {
+
+  .invitation-hero {
+    height: 155vh;
+  }
+
+
+  .invitation-hero__sticky {
+    padding: 16px;
+  }
+
+
+  .invitation-entrance {
+    width: min(520px, 94vw);
+  }
+
+
+  .invitation-entrance__frame {
+    padding: 28px 18px 50px;
+  }
+
+
+  .invitation-entrance__card-shell {
+    max-height: min(62vh, 520px);
+  }
+
+
+  .invitation-card__circle {
+    width: 68%;
+
+    top: 45%;
+  }
+
+
+  .invitation-card__names {
+    font-size: clamp(
+      34px,
+      9vw,
+      58px
+    );
+
+    margin: 13px 0;
+  }
+
+
+  .invitation-card__subtitle {
+    font-size: 13px;
+  }
+
+
+  .invitation-card__greeting {
+    font-size: 10px;
+
+    letter-spacing: 1.5px;
+  }
+
+
+  .invitation-card__qr {
+    width: clamp(
+      65px,
+      18vw,
+      95px
+    );
+
+    padding: 5px;
+  }
+
+
+  .circle-decoration--top {
+    font-size: 36px;
+
+    top: -10px;
+  }
+
+
+  .circle-decoration--bottom {
+    font-size: 34px;
+
+    bottom: -18px;
+  }
+
+
+  .scroll-indicator {
+    bottom: 17px;
+  }
+
+
+  .scroll-indicator__line {
+    height: 32px;
+  }
+}
+
+
+/* ============================================================
+   SMALL PHONES
+============================================================ */
+
+@media (max-width: 480px) {
+
+  .invitation-hero {
+    height: 150vh;
+  }
+
+
+  .invitation-hero__sticky {
+    padding: 10px;
+  }
+
+
+  .invitation-entrance__frame {
+    padding: 22px 14px 44px;
+  }
+
+
+  .invitation-entrance__corner {
+    width: 34px;
+  }
+
+
+  .invitation-card__circle {
+    width: 72%;
+
+    top: 44%;
+  }
+
+
+  .invitation-card__circle::before {
+    inset: 5px;
+  }
+
+
+  .invitation-card__content {
+    width: 86%;
+  }
+
+
+  .invitation-card__greeting {
+    font-size: 8px;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 7px;
+  }
+
+
+  .invitation-card__subtitle {
+    font-size: 10px;
+  }
+
+
+  .invitation-card__names {
+    font-size: clamp(
+      27px,
+      10vw,
+      45px
+    );
+
+    line-height: 0.9;
+
+    margin: 10px 0;
+  }
+
+
+  .invitation-card__qr {
+    width: 62px;
+
+    padding: 4px;
+
+    border-width: 1px;
+  }
+
+
+  .circle-decoration--top {
+    font-size: 27px;
+
+    top: -8px;
+  }
+
+
+  .circle-decoration--bottom {
+    font-size: 27px;
+
+    bottom: -15px;
+  }
+
+
+  .scroll-indicator {
+    bottom: 12px;
+  }
+
+
+  .scroll-indicator__text {
+    font-size: 8px;
+
+    letter-spacing: 3px;
+  }
+
+
+  .scroll-indicator__line {
+    height: 27px;
+  }
+}

@@ -1,1 +1,266 @@
 @import "tailwindcss";
+.envelope {
+    position: relative;
+
+    width: min(900px, 88vw);
+    height: min(600px, 65vh);
+
+    perspective: 1400px;
+}
+
+
+/* ------------------------------
+   ENVELOPE BODY
+-------------------------------- */
+
+.envelope__body {
+    position: absolute;
+
+    inset: 0;
+
+    background: #f1ebd8;
+
+    overflow: hidden;
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 25px 60px rgba(48, 38, 35, 0.25);
+
+    z-index: 2;
+}
+
+
+/* Left triangular section */
+
+.envelope__left {
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 0;
+    height: 0;
+
+    border-top: 300px solid transparent;
+    border-bottom: 300px solid transparent;
+    border-left: 450px solid #e8dfc9;
+}
+
+
+/* Right triangular section */
+
+.envelope__right {
+    position: absolute;
+
+    right: 0;
+    bottom: 0;
+
+    width: 0;
+    height: 0;
+
+    border-top: 300px solid transparent;
+    border-bottom: 300px solid transparent;
+    border-right: 450px solid #e8dfc9;
+}
+
+
+/* Bottom flap */
+
+.envelope__bottom {
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 0;
+    height: 0;
+
+    border-left: 450px solid transparent;
+    border-right: 450px solid transparent;
+    border-bottom: 300px solid #faf7ee;
+}
+
+
+/* ------------------------------
+   TOP FLAP
+-------------------------------- */
+
+.envelope__flap {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 55%;
+
+    background: #faf7ee;
+
+    clip-path: polygon(
+        0 0,
+        100% 0,
+        50% 100%
+    );
+
+    transform-origin: top center;
+
+    z-index: 5;
+
+    backface-visibility: hidden;
+
+    box-shadow:
+        0 8px 20px rgba(48, 38, 35, 0.15);
+}
+
+
+/* ------------------------------
+   INVITATION CARD
+-------------------------------- */
+
+.envelope__card {
+    position: absolute;
+
+    left: 7%;
+    top: 5%;
+
+    width: 86%;
+    height: 90%;
+
+    z-index: 3;
+}
+
+
+.invitation-card {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    background: #302623;
+
+    color: #faf7ee;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 40px;
+}
+
+
+.invitation-card h1 {
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(42px, 6vw, 76px);
+
+    line-height: 0.95;
+
+    font-weight: 400;
+
+    margin: 20px 0;
+}
+
+
+.invitation-card__greeting {
+    font-family: serif;
+
+    letter-spacing: 2px;
+
+    font-size: 14px;
+}
+
+
+.invitation-card__subtitle {
+    font-family: serif;
+
+    font-size: 18px;
+}
+
+
+.invitation-card__couple img {
+    width: 150px;
+    height: 150px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border: 2px solid #a88a55;
+}
+.scroll-indicator {
+    position: absolute;
+
+    bottom: 30px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 7px;
+
+    z-index: 20;
+
+    color: #a88a55;
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    pointer-events: none;
+}
+
+
+.scroll-indicator__arrow {
+    font-size: 18px;
+
+    line-height: 1;
+}
+
+
+.scroll-indicator__line {
+    width: 1px;
+
+    height: 45px;
+
+    background: #a88a55;
+
+    transform-origin: top;
+}
+.invitation-hero {
+    position: relative;
+
+    height: 180vh;
+
+    background: #f1ebd8;
+}
+
+
+.invitation-hero__content {
+    position: sticky;
+
+    top: 0;
+
+    height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
+}

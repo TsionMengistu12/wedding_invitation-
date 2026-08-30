@@ -1,0 +1,707 @@
+/* =========================================================
+   LEAVE WISH MODAL
+   ========================================================= */
+
+.wish-modal-overlay {
+  --ivory: #f0e0d0;
+  --cream: #f7ebdd;
+  --parchment: #e8d4bd;
+  --gold: #c99a5b;
+  --light-gold: #d8b27a;
+  --burgundy: #641010;
+  --burgundy-light: #7a2424;
+  --brown: #4a3529;
+
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+
+  background:
+    rgba(53, 31, 21, 0.48);
+
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  animation: wishOverlayIn 220ms ease forwards;
+}
+
+
+/* =========================================================
+   MODAL PAPER
+   ========================================================= */
+
+.wish-modal {
+  position: relative;
+
+  width: min(440px, 100%);
+  max-height: calc(100vh - 48px);
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(247, 235, 221, 0.98),
+      rgba(240, 224, 208, 0.98)
+    );
+
+  border: 1px solid rgba(201, 154, 91, 0.62);
+
+  border-radius: 5px;
+
+  box-shadow:
+    0 25px 65px rgba(48, 27, 18, 0.28),
+    0 5px 18px rgba(74, 53, 41, 0.12),
+    inset 0 0 30px rgba(201, 154, 91, 0.08);
+
+  animation: wishModalIn 300ms cubic-bezier(
+    0.22,
+    1,
+    0.36,
+    1
+  ) forwards;
+}
+
+
+/* =========================================================
+   INNER PAPER BORDER
+   ========================================================= */
+
+.wish-modal::before {
+  content: "";
+
+  position: absolute;
+  inset: 9px;
+
+  border: 1px solid rgba(201, 154, 91, 0.27);
+
+  border-radius: 3px;
+
+  pointer-events: none;
+
+  z-index: 2;
+}
+
+
+/* =========================================================
+   PAPER TEXTURE
+   ========================================================= */
+
+.wish-modal-texture {
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  opacity: 0.38;
+
+  background-image:
+    radial-gradient(
+      rgba(74, 53, 41, 0.08) 0.55px,
+      transparent 0.7px
+    ),
+    radial-gradient(
+      rgba(201, 154, 91, 0.06) 0.55px,
+      transparent 0.7px
+    );
+
+  background-size:
+    15px 15px,
+    21px 21px;
+
+  background-position:
+    0 0,
+    7px 9px;
+
+  mix-blend-mode: multiply;
+
+  z-index: 0;
+}
+
+
+/* =========================================================
+   CONTENT
+   ========================================================= */
+
+.wish-modal-content {
+  position: relative;
+  z-index: 3;
+
+  padding: 37px 42px 30px;
+}
+
+
+/* =========================================================
+   CLOSE BUTTON
+   ========================================================= */
+
+.wish-modal-close {
+  position: absolute;
+  top: 17px;
+  right: 17px;
+
+  z-index: 10;
+
+  width: 29px;
+  height: 29px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: 1px solid rgba(100, 16, 16, 0.18);
+  border-radius: 50%;
+
+  background: rgba(247, 235, 221, 0.65);
+
+  color: var(--burgundy);
+
+  cursor: pointer;
+
+  transition:
+    background 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.wish-modal-close:hover {
+  background: var(--burgundy);
+  color: var(--cream);
+
+  transform: rotate(5deg);
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.wish-modal-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+}
+
+.wish-modal-title-icon {
+  color: var(--gold);
+
+  margin-bottom: 7px;
+
+  opacity: 0.9;
+}
+
+.wish-modal-header h2 {
+  margin: 0;
+
+  color: var(--burgundy);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 1.45rem;
+  font-weight: 500;
+
+  letter-spacing: 0.055em;
+
+  text-transform: uppercase;
+}
+
+.wish-modal-header p {
+  margin: 8px 0 0;
+
+  color: rgba(74, 53, 41, 0.68);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 0.72rem;
+  line-height: 1.55;
+
+  font-style: italic;
+}
+
+
+/* =========================================================
+   DECORATIVE DIVIDER
+   ========================================================= */
+
+.wish-modal-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 145px;
+
+  margin-top: 10px;
+
+  color: var(--gold);
+}
+
+.wish-modal-divider span {
+  height: 1px;
+  flex: 1;
+
+  background:
+    linear-gradient(
+      to right,
+      transparent,
+      var(--gold)
+    );
+}
+
+.wish-modal-divider span:last-child {
+  background:
+    linear-gradient(
+      to left,
+      transparent,
+      var(--gold)
+    );
+}
+
+.wish-modal-divider svg {
+  margin: 0 8px;
+}
+
+
+/* =========================================================
+   FORM
+   ========================================================= */
+
+.wish-form {
+  margin-top: 25px;
+}
+
+.wish-field {
+  position: relative;
+
+  margin-bottom: 15px;
+}
+
+.wish-field label {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+
+  padding: 0;
+  margin: -1px;
+
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+
+  white-space: nowrap;
+
+  border: 0;
+}
+
+
+/* =========================================================
+   INPUT + TEXTAREA
+   ========================================================= */
+
+.wish-field input,
+.wish-field textarea {
+  display: block;
+
+  width: 100%;
+
+  box-sizing: border-box;
+
+  border: 1px solid rgba(201, 154, 91, 0.34);
+
+  border-radius: 5px;
+
+  background:
+    rgba(247, 235, 221, 0.63);
+
+  color: var(--brown);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 0.76rem;
+
+  outline: none;
+
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease;
+}
+
+.wish-field input {
+  height: 43px;
+
+  padding: 0 13px;
+}
+
+.wish-field textarea {
+  min-height: 126px;
+
+  resize: vertical;
+
+  padding: 13px;
+
+  line-height: 1.6;
+}
+
+.wish-field input::placeholder,
+.wish-field textarea::placeholder {
+  color: rgba(74, 53, 41, 0.54);
+}
+
+.wish-field input:focus,
+.wish-field textarea:focus {
+  border-color: rgba(100, 16, 16, 0.55);
+
+  background:
+    rgba(247, 235, 221, 0.86);
+
+  box-shadow:
+    0 0 0 3px rgba(201, 154, 91, 0.10);
+}
+
+
+/* =========================================================
+   CHARACTER COUNT
+   ========================================================= */
+
+.wish-character-count {
+  position: absolute;
+
+  right: 9px;
+  bottom: 7px;
+
+  color: rgba(74, 53, 41, 0.42);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 0.58rem;
+}
+
+.wish-form-error {
+  margin: 0 0 12px;
+
+  padding: 10px 12px;
+
+  border-left: 3px solid #641010;
+
+  background: rgba(100, 16, 16, 0.08);
+
+  color: #641010;
+
+  font-family: "Cormorant Garamond", Georgia, serif;
+
+  font-size: 15px;
+}
+
+
+/* =========================================================
+   SEND BUTTON
+   ========================================================= */
+
+.wish-submit-button {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  width: 100%;
+  height: 43px;
+
+  margin-top: 20px;
+
+  border: 1px solid #a87937;
+
+  border-radius: 5px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #c99a5b 0%,
+      #b17e3b 100%
+    );
+
+  color: #fff8ef;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 0.78rem;
+
+  letter-spacing: 0.075em;
+
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 3px 8px rgba(100, 16, 16, 0.14),
+    inset 0 1px rgba(255, 255, 255, 0.28);
+
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    filter 180ms ease;
+}
+
+.wish-submit-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 6px 14px rgba(100, 16, 16, 0.18),
+    inset 0 1px rgba(255, 255, 255, 0.3);
+
+  filter: brightness(1.04);
+}
+
+.wish-submit-button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.wish-submit-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.wish-submit-heart {
+  position: absolute;
+  right: 13px;
+}
+
+
+/* =========================================================
+   BOTTOM ORNAMENT
+   ========================================================= */
+
+.wish-bottom-ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 20px;
+
+  opacity: 0.82;
+}
+
+.wish-bottom-ornament img {
+  display: block;
+
+  width: min(135px, 48%);
+
+  height: auto;
+
+  object-fit: contain;
+}
+
+
+/* =========================================================
+   CORNER ORNAMENTS
+   ========================================================= */
+
+.wish-corner {
+  position: absolute;
+
+  z-index: 4;
+
+  width: 48px;
+  height: 48px;
+
+  object-fit: contain;
+
+  pointer-events: none;
+
+  opacity: 0.8;
+}
+
+.wish-corner-top-left {
+  top: 12px;
+  left: 12px;
+}
+
+.wish-corner-top-right {
+  top: 12px;
+  right: 12px;
+
+  transform: scaleX(-1);
+}
+
+.wish-corner-bottom-left {
+  bottom: 12px;
+  left: 12px;
+
+  transform: scaleY(-1);
+}
+
+.wish-corner-bottom-right {
+  right: 12px;
+  bottom: 12px;
+
+  transform: scale(-1);
+}
+
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+
+@keyframes wishOverlayIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes wishModalIn {
+  from {
+    opacity: 0;
+    transform:
+      translateY(18px)
+      scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 600px) {
+  .wish-modal-overlay {
+    padding: 16px;
+  }
+
+  .wish-modal-content {
+    padding:
+      35px
+      30px
+      27px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 450px) {
+  .wish-modal-overlay {
+    padding: 12px;
+  }
+
+  .wish-modal {
+    max-height: calc(100vh - 24px);
+
+    overflow-y: auto;
+  }
+
+  .wish-modal-content {
+    padding:
+      35px
+      23px
+      25px;
+  }
+
+  .wish-modal-header h2 {
+    font-size: 1.25rem;
+  }
+
+  .wish-modal-header p {
+    font-size: 0.68rem;
+  }
+
+  .wish-field textarea {
+    min-height: 115px;
+  }
+
+  .wish-corner {
+    width: 40px;
+    height: 40px;
+  }
+
+  .wish-corner-top-left,
+  .wish-corner-top-right {
+    top: 10px;
+  }
+
+  .wish-corner-bottom-left,
+  .wish-corner-bottom-right {
+    bottom: 10px;
+  }
+
+  .wish-corner-top-left,
+  .wish-corner-bottom-left {
+    left: 9px;
+  }
+
+  .wish-corner-top-right,
+  .wish-corner-bottom-right {
+    right: 9px;
+  }
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+.wish-modal-close:focus-visible,
+.wish-submit-button:focus-visible,
+.wish-field input:focus-visible,
+.wish-field textarea:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .wish-modal-overlay,
+  .wish-modal {
+    animation: none;
+  }
+
+  .wish-modal-close,
+  .wish-submit-button,
+  .wish-field input,
+  .wish-field textarea {
+    transition: none;
+  }
+}

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "../lib/supabase";
 import GuestUpload from "../components/GuestUpload";
+import WishModeration from "../components/WishModeration";
 import "../styles/admin.css";
 
 export default function AdminPage() {
@@ -51,8 +52,9 @@ export default function AdminPage() {
         <button className="admin-logout" onClick={handleLogout}>Logout</button>
       </header>
 
-      <div className="admin-content">
+      <div className="admin-content admin-workspace">
         <GuestUpload />
+        <WishModeration />
       </div>
     </main>
   );

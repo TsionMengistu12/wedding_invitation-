@@ -1,3 +1,5 @@
+import { getInvitationUrl } from "../utils/invitationUrl";
+
 interface GeneratedInvitation {
   name: string;
   guest_limit: number;
@@ -19,8 +21,6 @@ function getAllowanceText(limit: number) {
 export function generateInvitationCSV(
   invitations: GeneratedInvitation[]
 ) {
-  const baseUrl = window.location.origin;
-
   const headers = [
     "Guest Name",
     "Allowed Guests",
@@ -29,8 +29,7 @@ export function generateInvitationCSV(
   ];
 
   const rows = invitations.map((guest) => {
-    const invitationLink =
-      `${baseUrl}/invite/${guest.invitation_token}`;
+    const invitationLink = getInvitationUrl(guest.invitation_token);
 
     const message =
       `Hi ${guest.name}! \n\n` +

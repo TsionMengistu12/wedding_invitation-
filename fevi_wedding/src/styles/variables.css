@@ -1,21 +1,21 @@
 :root {
   /* Backgrounds */
-  --parchment: #F1EBD8;
-  --ivory: #FAF7EE;
-  --cream: #E8DFC9;
+  --parchment: #f8eedc;
+  --ivory: #fff8ea;
+  --cream: #eee0c6;
 
   /* Gold */
-  --gold: #A88A55;
-  --ochre: #C19A4B;
+  --gold: #c19a65;
+  --ochre: #b78046;
 
   /* Browns */
-  --brown: #765435;
-  --deep-brown: #4A3428;
-  --espresso: #302623;
+  --brown: #74513d;
+  --deep-brown: #3e2b23;
+  --espresso: #2d211c;
 
   /* Accents */
-  --burgundy: #70413E;
-  --sage: #777762;
+  --burgundy: #742c31;
+  --sage: #6e6651;
 
   /* Typography */
   --font-display: "Cormorant Garamond", Georgia, serif;

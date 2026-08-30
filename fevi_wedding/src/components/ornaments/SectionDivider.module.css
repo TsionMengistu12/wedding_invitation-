@@ -1,0 +1,52 @@
+.divider {
+  /*
+   * The width is controlled by the maxWidth prop.
+   * width: 100% lets the divider shrink naturally on smaller screens.
+   */
+  width: 100%;
+
+  margin-inline: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /*
+   * Prevents the image from accidentally creating
+   * extra inline-element whitespace.
+   */
+  line-height: 0;
+
+  /*
+   * The divider should never become wider than its parent.
+   */
+  box-sizing: border-box;
+}
+
+.image {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  /*
+   * Keeps the original artwork's proportions.
+   */
+  object-fit: contain;
+
+  /*
+   * The uploaded artwork already contains the desired
+   * gold/brown ornament styling, so no filter is applied.
+   */
+}
+
+
+/*
+ * On smaller screens, allow the divider to use a little
+ * more of the available width while keeping safe side margins.
+ */
+@media (max-width: 600px) {
+  .divider {
+    width: min(100%, 90vw);
+  }
+}

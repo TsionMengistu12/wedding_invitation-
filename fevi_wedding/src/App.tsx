@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Navigate, Routes, Route } from "react-router-dom";
 
 import LoginPage from "./pages/LoginPage";
 import AdminPage from "./pages/AdminPage";
@@ -9,14 +9,15 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Public */}
         <Route path="/invite/:token" element={<InvitationPage />} />
 
-        {/* Staff */}
+        <Route
+          path="/invite/:token/details"
+          element={<Navigate to=".." replace />}
+        />
+
         <Route path="/login" element={<LoginPage />} />
-
         <Route path="/admin" element={<AdminPage />} />
-
         <Route path="/gate" element={<GatePage />} />
       </Routes>
     </BrowserRouter>
