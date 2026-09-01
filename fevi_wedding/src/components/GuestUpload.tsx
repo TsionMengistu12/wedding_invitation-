@@ -1,12 +1,10 @@
 import { useState } from "react";
-import { createInvitations } from "../services/invitations";
+import { createGuests } from "../services/invitations";
 import { generateInvitationCSV } from "../services/invitationExport";
 import { getInvitationUrl } from "../utils/invitationUrl";
-
-interface GuestRow {
-  name: string;
-  guest_limit: number;
-}
+import { parseGuestCSV } from "../utils/guestParser";
+import type { GuestUploadRow } from "../types/guest";
+import type { AnnouncementType } from "../types/invitation";
 
 interface CreatedGuest {
   id: string;
@@ -15,8 +13,16 @@ interface CreatedGuest {
   invitation_token: string;
 }
 
-export default function GuestUpload() {
-  const [guests, setGuests] = useState<GuestRow[]>([]);
+interface GuestUploadProps {
+  announcementType: AnnouncementType;
+  onAnnouncementTypeChange: (type: AnnouncementType) => void;
+}
+
+export default function GuestUpload({
+  announcementType,
+  onAnnouncementTypeChange,
+}: GuestUploadProps) {
+  const [guests, setGuests] = useState<GuestUploadRow[]>([]);
   const [createdGuests, setCreatedGuests] = useState<CreatedGuest[]>([]);
 
   const [fileName, setFileName] = useState("");
@@ -56,9 +62,7 @@ export default function GuestUpload() {
       }
 
       try {
-        const parsedGuests = parseCSV(text);
-
-        setGuests(parsedGuests);
+        setGuests(parseGuestCSV(text, announcementType));
       } catch (err) {
         setError(
           err instanceof Error ? err.message : "Could not read the guest list.",
@@ -73,120 +77,6 @@ export default function GuestUpload() {
     reader.readAsText(file);
   }
 
-  function parseCSV(csv: string): GuestRow[] {
-    // Remove UTF-8 BOM if Excel added one.
-    const cleanedCSV = csv.replace(/^\uFEFF/, "").trim();
-
-    const lines = cleanedCSV
-      .split(/\r?\n/)
-      .filter((line) => line.trim() !== "");
-
-    if (lines.length < 2) {
-      throw new Error(
-        "The CSV file must contain a header and at least one guest.",
-      );
-    }
-
-    const headers = parseCSVLine(lines[0]).map((header) =>
-      header.trim().toLowerCase(),
-    );
-
-    if (
-      headers.length !== 2 ||
-      headers[0] !== "name" ||
-      headers[1] !== "guest_limit"
-    ) {
-      throw new Error(
-        "The CSV must have exactly these columns: name, guest_limit",
-      );
-    }
-
-    const parsed: GuestRow[] = [];
-    const names = new Set<string>();
-
-    for (let i = 1; i < lines.length; i++) {
-      const values = parseCSVLine(lines[i]);
-
-      if (values.length !== 2) {
-        throw new Error(
-          `Row ${i + 1}: expected 2 columns (name, guest_limit).`,
-        );
-      }
-
-      const name = values[0].trim();
-      const guestLimit = Number(values[1].trim());
-
-      if (!name) {
-        throw new Error(`Row ${i + 1}: guest name is missing.`);
-      }
-
-      if (!Number.isInteger(guestLimit)) {
-        throw new Error(`Row ${i + 1}: guest_limit must be a whole number.`);
-      }
-
-      if (![1, 2, 3].includes(guestLimit)) {
-        throw new Error(`Row ${i + 1}: guest_limit must be 1, 2, or 3.`);
-      }
-
-      const normalizedName = name.toLowerCase();
-
-      if (names.has(normalizedName)) {
-        throw new Error(`Duplicate guest name found: "${name}".`);
-      }
-
-      names.add(normalizedName);
-
-      parsed.push({
-        name,
-        guest_limit: guestLimit,
-      });
-    }
-
-    if (parsed.length === 0) {
-      throw new Error("No guests were found in the file.");
-    }
-
-    return parsed;
-  }
-
-  /**
-   * Basic CSV parser.
-   *
-   * Supports values wrapped in quotes, which is useful
-   * when a guest name contains a comma.
-   */
-  function parseCSVLine(line: string): string[] {
-    const values: string[] = [];
-    let current = "";
-    let insideQuotes = false;
-
-    for (let i = 0; i < line.length; i++) {
-      const character = line[i];
-
-      if (character === '"') {
-        if (insideQuotes && line[i + 1] === '"') {
-          current += '"';
-          i++;
-        } else {
-          insideQuotes = !insideQuotes;
-        }
-      } else if (character === "," && !insideQuotes) {
-        values.push(current);
-        current = "";
-      } else {
-        current += character;
-      }
-    }
-
-    if (insideQuotes) {
-      throw new Error("The CSV contains an unmatched quotation mark.");
-    }
-
-    values.push(current);
-
-    return values;
-  }
-
   async function handleCreateInvitations() {
     if (guests.length === 0) {
       setError("Please upload a guest list first.");
@@ -199,7 +89,10 @@ export default function GuestUpload() {
     setCreatedGuests([]);
 
     try {
-      const created = await createInvitations(guests);
+      // The selected host is the source of truth; it is never read from CSV.
+      const created = await createGuests(
+        guests.map((guest) => ({ ...guest, announcement_type: announcementType })),
+      );
 
       setCreatedGuests(created);
 
@@ -275,6 +168,21 @@ export default function GuestUpload() {
       <section className="upload-card">
         <p className="step-label">Step 1</p>
         <h2>Upload Guest List</h2>
+
+        <label className="guest-list-type" htmlFor="announcement-type">
+          Invitation hosts
+          <select
+            id="announcement-type"
+            value={announcementType}
+            onChange={(event) => {
+              onAnnouncementTypeChange(event.target.value as AnnouncementType);
+              handleReset();
+            }}
+          >
+            <option value="bride">Bride&apos;s parents</option>
+            <option value="groom">Groom&apos;s parents</option>
+          </select>
+        </label>
 
         <p>Your CSV must contain:</p>
 

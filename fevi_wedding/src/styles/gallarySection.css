@@ -1,27 +1,42 @@
 /* ============================================================
-   GALLERY
+   WEDDING GALLERY
    ============================================================ */
 
 .gallery-section {
+  /* ==========================================================
+     YOUR NEW COLOR PALETTE
+     ========================================================== */
 
-  --parchment: #f1ebd8;
-  --surface: #faf7ee;
-  --cream: #e8dfc9;
-  --gold: #a88a55;
-  --ochre: #c19a4b;
-  --brown: #765435;
-  --deep-brown: #4a3428;
-  --espresso: #302623;
-  --burgundy: #70413e;
+  --primary-ivory: #f5ebdd;
+  --light-ivory: #fbf6ea;
+  --parchment: #e9d8bf;
+  --deep-parchment: #d8c09f;
+
+  --champagne-gold: #d4ad6a;
+  --antique-gold: #b8873e;
+  --deep-gold: #8e642c;
+
+  --primary-text: #422b1b;
+  --secondary-text: #704a2b;
+
+  --burgundy: #641010;
+  --wine: #7d2525;
+  --dusty-rose: #a65d5d;
+
+  --pearl: #f9f3e6;
+  --lace: #efe2cc;
+  --lace-shadow: #d2b88f;
 
   position: relative;
 
-  min-height: 360px;
+  width: 100%;
+
+  min-height: 100vh;
 
   padding:
-    38px
+    70px
     30px
-    42px;
+    65px;
 
   display: flex;
 
@@ -34,38 +49,66 @@
   background:
     radial-gradient(
       ellipse at center,
-      rgba(250, 247, 238, 0.75),
-      transparent 75%
-    ),
-    var(--parchment);
+      rgba(251, 246, 234, 0.95),
+      rgba(245, 235, 221, 0.92) 65%,
+      rgba(233, 216, 191, 0.9)
+    );
 
-  color: var(--espresso);
+  color: var(--primary-text);
 }
 
 
 /* ============================================================
-   SUBTLE BORDER
+   SUBTLE PAPER TEXTURE
    ============================================================ */
 
-.gallery-section::before {
-
+.gallery-section::after {
   content: "";
 
   position: absolute;
 
-  inset:
-    6px
-    0;
+  inset: 0;
+
+  pointer-events: none;
+
+  opacity: 0.16;
+
+  background-image:
+    radial-gradient(
+      rgba(142, 100, 44, 0.12) 0.7px,
+      transparent 0.7px
+    );
+
+  background-size: 5px 5px;
+}
+
+
+/* ============================================================
+   TOP / BOTTOM FINE BORDERS
+   ============================================================ */
+
+.gallery-section::before {
+  content: "";
+
+  position: absolute;
+
+  top: 7px;
+  bottom: 7px;
+
+  left: 0;
+  right: 0;
 
   border-top:
     1px solid
-    rgba(168, 138, 85, 0.25);
+    rgba(184, 135, 62, 0.3);
 
   border-bottom:
     1px solid
-    rgba(168, 138, 85, 0.25);
+    rgba(184, 135, 62, 0.3);
 
   pointer-events: none;
+
+  z-index: 1;
 }
 
 
@@ -74,21 +117,25 @@
    ============================================================ */
 
 .gallery-section__texture {
-
   position: absolute;
 
   inset: 0;
 
   pointer-events: none;
 
-  opacity: 0.25;
+  opacity: 0.12;
 
-  /*
-   * If you have your parchment texture:
-   *
-   * background-image:
-   *   url("/images/textures/parchment.png");
-   */
+  background:
+    radial-gradient(
+      circle at 20% 30%,
+      rgba(216, 192, 159, 0.35),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 80% 65%,
+      rgba(216, 192, 159, 0.28),
+      transparent 30%
+    );
 }
 
 
@@ -97,14 +144,132 @@
    ============================================================ */
 
 .gallery-section__content {
-
   position: relative;
 
-  z-index: 2;
+  z-index: 3;
 
   width: 100%;
 
-  max-width: 1150px;
+  max-width: 1220px;
+
+  margin: 0 auto;
+}
+
+
+/* ============================================================
+   DECORATIVE CORNER FLOWERS
+   ============================================================ */
+
+.gallery-section__corner {
+  position: absolute;
+
+  z-index: 2;
+
+  width: 190px;
+
+  height: 250px;
+
+  pointer-events: none;
+
+  opacity: 0.8;
+}
+
+
+/*
+ * These are intentionally subtle CSS ornaments.
+ *
+ * If you already have your transparent corner ornament PNG/SVG,
+ * you can replace the background below with your actual asset.
+ */
+
+.gallery-section__corner--left {
+  top: 20px;
+  left: 20px;
+
+  background:
+    radial-gradient(
+      circle at 35% 22%,
+      rgba(216, 192, 159, 0.55) 0 12px,
+      transparent 13px
+    ),
+    radial-gradient(
+      circle at 48% 27%,
+      rgba(184, 135, 62, 0.38) 0 20px,
+      transparent 21px
+    );
+}
+
+.gallery-section__corner--right {
+  top: 20px;
+  right: 20px;
+
+  transform: scaleX(-1);
+
+  background:
+    radial-gradient(
+      circle at 35% 22%,
+      rgba(216, 192, 159, 0.55) 0 12px,
+      transparent 13px
+    ),
+    radial-gradient(
+      circle at 48% 27%,
+      rgba(184, 135, 62, 0.38) 0 20px,
+      transparent 21px
+    );
+}
+
+
+/* ============================================================
+   EYEBROW
+   ============================================================ */
+
+.gallery-section__eyebrow {
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 22px;
+
+  margin-bottom: 12px;
+
+  color: var(--deep-gold);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 15px;
+
+  letter-spacing: 0.22em;
+
+  font-weight: 500;
+}
+
+
+.gallery-section__eyebrow-line {
+  width: 65px;
+
+  height: 1px;
+
+  background:
+    linear-gradient(
+      to right,
+      transparent,
+      var(--antique-gold)
+    );
+}
+
+
+.gallery-section__eyebrow-line:last-child {
+  background:
+    linear-gradient(
+      to left,
+      transparent,
+      var(--antique-gold)
+    );
 }
 
 
@@ -113,82 +278,265 @@
    ============================================================ */
 
 .gallery-section__heading {
-
   text-align: center;
 
-  margin-bottom: 15px;
+  margin-bottom: 42px;
 }
 
 
 .gallery-section__heading h2 {
-
   margin: 0;
 
-  color: var(--deep-brown);
+  color: var(--burgundy);
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: clamp(
+    64px,
+    8vw,
+    108px
+  );
+
+  line-height: 0.95;
+
+  font-weight: 500;
+
+  letter-spacing: -0.025em;
+}
+
+
+.gallery-section__heading p {
+  margin:
+    22px
+    auto
+    0;
+
+  color: var(--secondary-text);
 
   font-family:
     "Cormorant Garamond",
     Georgia,
     serif;
 
-  font-size: 29px;
+  font-size: clamp(
+    18px,
+    2vw,
+    25px
+  );
 
-  font-weight: 500;
-
-  font-variant: small-caps;
-
-  letter-spacing: 0.08em;
+  line-height: 1.4;
 }
 
 
 /* ============================================================
-   HEADING DIVIDER
+   HEADING ORNAMENT
    ============================================================ */
 
-.gallery-section__divider {
-
-  width: 90px;
-
-  margin:
-    7px auto
-    0;
-
+.gallery-section__heading-ornament {
   display: flex;
+
+  justify-content: center;
 
   align-items: center;
 
-  gap: 7px;
+  gap: 9px;
+
+  width: 115px;
+
+  margin:
+    22px
+    auto
+    0;
+
+  color: var(--antique-gold);
 }
 
 
-.gallery-section__divider span {
+.gallery-section__heading-ornament span {
+  flex: 1;
 
   height: 1px;
 
-  flex: 1;
-
   background:
-    var(--gold);
+    var(--antique-gold);
 }
 
 
-.gallery-section__divider-symbol {
+.gallery-section__heading-ornament b {
+  font-size: 18px;
 
-  flex: none !important;
-
-  height: auto !important;
-
-  color: var(--gold);
-
-  font-size: 11px;
+  font-weight: 400;
 }
 
 
 /* ============================================================
-   PHOTO STRIP
+   SLIDESHOW
    ============================================================ */
 
-.gallery-section__photos {
+.gallery-slideshow {
+  position: relative;
+
+  width: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+}
+
+
+/* ============================================================
+   LARGE MAIN PHOTO
+   ============================================================ */
+
+.gallery-main-photo {
+  position: relative;
+
+  width: min(
+    920px,
+    88vw
+  );
+
+  margin: 0 auto;
+}
+
+.gallery-main-photo__button {
+  display: block;
+
+  width: 100%;
+
+  padding: 0;
+
+  border: 0;
+
+  background: transparent;
+
+  cursor: zoom-in;
+}
+
+
+/* ============================================================
+   MAIN PHOTO FRAME
+   ============================================================ */
+
+.gallery-main-photo__frame {
+  position: relative;
+  display: block;
+  width: 100%;
+  min-height: 360px;
+  height: min(70vh, 760px);
+
+  /*
+   * IMPORTANT:
+   * No white frame around the photograph.
+   */
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  overflow: hidden;
+}
+
+
+
+/* ============================================================
+   MAIN PHOTO
+   ============================================================ */
+
+.gallery-main-photo__image {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  /*
+   * Keep the full photograph visible and avoid center cropping.
+   */
+  object-fit: contain;
+
+  object-position: center;
+
+  filter:
+    saturate(0.94)
+    sepia(0.035);
+
+  transition:
+    filter 400ms ease;
+}
+
+
+/* ============================================================
+   CORNER FRAME MARKS
+   ============================================================ */
+
+.gallery-main-photo__frame::before,
+.gallery-main-photo__frame::after {
+  content: "";
+
+  position: absolute;
+
+  width: 62px;
+
+  height: 62px;
+
+  z-index: 2;
+
+  pointer-events: none;
+}
+
+
+/* Top-left */
+
+.gallery-main-photo__frame::before {
+  top: 10px;
+  left: 10px;
+
+  border-top:
+    2px solid
+    rgba(184, 135, 62, 0.78);
+
+  border-left:
+    2px solid
+    rgba(184, 135, 62, 0.78);
+}
+
+
+/* Bottom-right */
+
+.gallery-main-photo__frame::after {
+  right: 10px;
+  bottom: 10px;
+
+  border-right:
+    2px solid
+    rgba(184, 135, 62, 0.78);
+
+  border-bottom:
+    2px solid
+    rgba(184, 135, 62, 0.78);
+}
+
+
+/* ============================================================
+   ZOOM ICON
+   ============================================================ */
+
+.gallery-main-photo__zoom {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  transform:
+    translate(-50%, -50%);
+
+  width: 88px;
+  height: 88px;
 
   display: flex;
 
@@ -196,33 +544,190 @@
 
   align-items: center;
 
-  gap: 13px;
+  border-radius: 50%;
 
-  width: 100%;
+  background:
+    rgba(255, 255, 255, 0.14);
 
-  margin-top: 5px;
+  border:
+    1px solid
+    rgba(184, 135, 62, 0.8);
+
+  color: rgba(184, 135, 62, 0.9);
+
+  font-size: 28px;
+
+  opacity: 0;
+
+  transition:
+    opacity 250ms ease,
+    transform 250ms ease,
+    box-shadow 250ms ease;
+
+  pointer-events: none;
+
+  box-shadow:
+    0 10px 22px
+      rgba(66, 43, 27, 0.18),
+    inset 0 0 0 1px
+      rgba(251, 246, 234, 0.5);
+
+  backdrop-filter: blur(1px);
+}
+
+.gallery-main-photo__zoom span {
+  position: relative;
+  display: block;
+  width: 26px;
+  height: 26px;
+}
+
+.gallery-main-photo__zoom span::before,
+.gallery-main-photo__zoom span::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  border: 1px solid currentColor;
+  border-radius: 2px;
+  opacity: 0.8;
+}
+
+.gallery-main-photo__zoom span::before {
+  width: 18px;
+  height: 18px;
+  border-top: 0;
+  border-left: 0;
+  transform: rotate(45deg);
+}
+
+.gallery-main-photo__zoom span::after {
+  width: 10px;
+  height: 10px;
+  border-top: 0;
+  border-left: 0;
+  transform: rotate(45deg) translate(-1px, -1px);
+}
+
+.gallery-main-photo__button:hover
+.gallery-main-photo__image {
+  filter:
+    saturate(1)
+    sepia(0);
 }
 
 
 /* ============================================================
-   MEMORY PHOTO BUTTON
+   SLIDESHOW ARROWS
    ============================================================ */
 
-.memory-photo {
+.gallery-main-photo__arrow {
+  position: absolute;
 
-  /*
-   * CSS variable supplied by React.
-   */
-  --rotation: 0deg;
+  top: 50%;
 
+  z-index: 5;
+
+  transform:
+    translateY(-50%);
+
+  width: 52px;
+
+  height: 52px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  border:
+    1px solid
+    rgba(184, 135, 62, 0.55);
+
+  border-radius: 50%;
+
+  background:
+    rgba(251, 246, 234, 0.92);
+
+  color:
+    var(--deep-gold);
+
+  cursor: pointer;
+
+  box-shadow:
+    0 5px 15px
+      rgba(66, 43, 27, 0.13);
+
+  transition:
+    background 200ms ease,
+    color 200ms ease,
+    transform 200ms ease;
+}
+
+
+.gallery-main-photo__arrow:hover {
+  background:
+    var(--burgundy);
+
+  color:
+    var(--light-ivory);
+
+  transform:
+    translateY(-50%)
+    scale(1.06);
+}
+
+
+.gallery-main-photo__arrow--left {
+  left: -26px;
+}
+
+
+.gallery-main-photo__arrow--right {
+  right: -26px;
+}
+
+
+/* ============================================================
+   THUMBNAILS
+   ============================================================ */
+
+.gallery-thumbnails {
+  width: min(
+    960px,
+    90vw
+  );
+
+  margin:
+    34px
+    auto
+    0;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 17px;
+}
+
+/* ============================================================
+   THUMBNAIL BUTTON
+   ============================================================ */
+
+.gallery-thumbnail {
   position: relative;
 
   flex:
-    1 1 0;
+    1
+    1
+    0;
 
   min-width: 0;
 
-  max-width: 205px;
+  max-width: 180px;
 
   padding: 0;
 
@@ -232,82 +737,91 @@
 
   cursor: pointer;
 
-  transform:
-    rotate(var(--rotation));
-
   transition:
-    transform 250ms ease;
+    transform 300ms ease;
+}
 
-  -webkit-tap-highlight-color:
-    transparent;
+
+.gallery-thumbnail:hover {
+  transform:
+    translateY(-5px);
 }
 
 
 /* ============================================================
-   PHOTO FRAME
-
-   This creates the physical photograph/card appearance.
+   THUMBNAIL FRAME
    ============================================================ */
 
-.memory-photo__frame {
-
+.gallery-thumbnail__frame {
   display: block;
 
   position: relative;
 
-  padding:
-    8px
-    8px
-    18px;
+  /*
+   * No white border.
+   */
+  padding: 0;
 
-  background:
-    var(--surface);
+  background: transparent;
 
   border:
     1px solid
-    rgba(168, 138, 85, 0.22);
+    rgba(184, 135, 62, 0.45);
 
   box-shadow:
-    0
-    4px
-    10px
-    rgba(74, 52, 40, 0.12);
+    0 5px 12px
+    rgba(66, 43, 27, 0.12);
 
-  /*
-   * This is intentionally slightly irregular-looking
-   * rather than a perfectly clean UI card.
-   */
+  transition:
+    border-color 250ms ease,
+    box-shadow 250ms ease;
 }
 
 
-/* ============================================================
-   PHOTO
-   ============================================================ */
-
-.memory-photo__image {
-
+.gallery-thumbnail__image {
   display: block;
 
   width: 100%;
 
-  aspect-ratio: 0.82;
+  aspect-ratio: 1.25;
 
   object-fit: cover;
 
-  object-position: center;
-
   filter:
-    saturate(0.88)
-    sepia(0.06);
+    saturate(0.72)
+    sepia(0.07);
 
   transition:
-    filter 300ms ease;
+    filter 300ms ease,
+    opacity 300ms ease;
+}
+
+/* ============================================================
+   ACTIVE THUMBNAIL
+   ============================================================ */
+
+.gallery-thumbnail--active {
+  transform:
+    translateY(-4px);
 }
 
 
-.memory-photo:hover
-.memory-photo__image {
+.gallery-thumbnail--active
+.gallery-thumbnail__frame {
+  border:
+    2px solid
+    var(--burgundy);
 
+  box-shadow:
+    0 7px 18px
+      rgba(100, 16, 16, 0.22),
+    inset 0 0 0 2px
+      rgba(212, 173, 106, 0.5);
+}
+
+
+.gallery-thumbnail--active
+.gallery-thumbnail__image {
   filter:
     saturate(1)
     sepia(0);
@@ -315,51 +829,122 @@
 
 
 /* ============================================================
-   DOTS
+   PROGRESS LINES
    ============================================================ */
 
-.gallery-section__dots {
-
+.gallery-progress {
   display: flex;
 
   justify-content: center;
 
   align-items: center;
 
-  gap: 9px;
+  gap: 8px;
 
-  margin-top: 17px;
+  margin-top: 30px;
+
+  width: min(
+    490px,
+    80vw
+  );
 }
 
 
-.gallery-dot {
+.gallery-progress__item {
+  flex: 1;
 
-  width: 7px;
+  height: 4px;
 
-  height: 7px;
+  padding: 0;
 
-  border:
-    1px solid
-    var(--gold);
-
-  border-radius: 50%;
-
-  background: transparent;
-}
-
-
-.gallery-dot--active {
+  border: 0;
 
   background:
-    var(--gold);
+    var(--deep-parchment);
+
+  cursor: pointer;
+
+  transition:
+    background 350ms ease,
+    transform 350ms ease,
+    opacity 350ms ease;
 }
+
+
+.gallery-progress__item--active {
+  background:
+    var(--burgundy);
+
+  transform:
+    scaleY(1.35);
+}
+
+
+/* ============================================================
+   BOTTOM ORNAMENT
+   ============================================================ */
+
+.gallery-bottom-ornament {
+  width: min(
+    420px,
+    65vw
+  );
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 12px;
+
+  margin:
+    34px
+    auto
+    0;
+
+  color: var(--antique-gold);
+}
+
+
+.gallery-bottom-ornament span {
+  flex: 1;
+
+  max-width: 160px;
+
+  height: 1px;
+
+  background:
+    linear-gradient(
+      to right,
+      transparent,
+      var(--champagne-gold)
+    );
+}
+
+
+.gallery-bottom-ornament span:last-child {
+  background:
+    linear-gradient(
+      to left,
+      transparent,
+      var(--champagne-gold)
+    );
+}
+
+
+.gallery-bottom-ornament b {
+  font-size: 14px;
+
+  font-weight: 400;
+}
+
 
 /* ============================================================
    LIGHTBOX
    ============================================================ */
 
 .gallery-lightbox {
-
   position: fixed;
 
   inset: 0;
@@ -373,76 +958,46 @@
   align-items: center;
 
   padding:
-    60px
-    80px;
-
-  background:
-    rgba(48, 38, 35, 0.96);
+    55px
+    90px;
 
   outline: none;
 }
 
 
 /* ============================================================
-   CLOSE BUTTON
+   LIGHTBOX BACKDROP
    ============================================================ */
 
-.gallery-lightbox__close {
-
+.gallery-lightbox__backdrop {
   position: absolute;
 
-  top: 25px;
+  inset: 0;
 
-  right: 30px;
+  width: 100%;
+  height: 100%;
 
-  width: 48px;
-
-  height: 48px;
-
-  display: flex;
-
-  justify-content: center;
-
-  align-items: center;
-
-  color:
-    var(--surface);
-
-  background: transparent;
-
-  border:
-    1px solid
-    rgba(193, 154, 75, 0.55);
-
-  border-radius: 50%;
-
-  cursor: pointer;
-
-  transition:
-    background 200ms ease,
-    transform 200ms ease;
-}
-
-
-.gallery-lightbox__close:hover {
+  border: 0;
 
   background:
-    rgba(193, 154, 75, 0.15);
+    rgba(48, 26, 20, 0.94);
 
-  transform:
-    rotate(90deg);
+  cursor: default;
 }
 
 
 /* ============================================================
-   LARGE IMAGE
+   LIGHTBOX IMAGE
    ============================================================ */
 
 .gallery-lightbox__image-wrapper {
+  position: relative;
 
-  max-width: 75vw;
+  z-index: 2;
 
-  max-height: 82vh;
+  max-width: 82vw;
+
+  max-height: 84vh;
 
   display: flex;
 
@@ -450,24 +1005,22 @@
 
   align-items: center;
 
-  /*
-   * A subtle photograph frame.
-   */
   padding: 10px;
 
   background:
-    var(--surface);
+    var(--light-ivory);
+
+  border:
+    1px solid
+    rgba(212, 173, 106, 0.55);
 
   box-shadow:
-    0
-    15px
-    50px
-    rgba(0, 0, 0, 0.35);
+    0 25px 70px
+      rgba(0, 0, 0, 0.4);
 }
 
 
 .gallery-lightbox__image {
-
   display: block;
 
   max-width: 100%;
@@ -483,21 +1036,21 @@
 
 
 /* ============================================================
-   NAVIGATION BUTTONS
+   CLOSE BUTTON
    ============================================================ */
 
-.gallery-lightbox__navigation {
-
+.gallery-lightbox__close {
   position: absolute;
 
-  top: 50%;
+  z-index: 5;
 
-  transform:
-    translateY(-50%);
+  top: 22px;
 
-  width: 55px;
+  right: 25px;
 
-  height: 55px;
+  width: 48px;
+
+  height: 48px;
 
   display: flex;
 
@@ -505,45 +1058,95 @@
 
   align-items: center;
 
-  color:
-    var(--surface);
-
-  background:
-    transparent;
-
   border:
     1px solid
-    rgba(193, 154, 75, 0.65);
+    rgba(212, 173, 106, 0.65);
 
   border-radius: 50%;
+
+  background:
+    rgba(66, 43, 27, 0.3);
+
+  color:
+    var(--light-ivory);
 
   cursor: pointer;
 
   transition:
     background 200ms ease,
-    border-color 200ms ease,
+    transform 200ms ease;
+}
+
+
+.gallery-lightbox__close:hover {
+  background:
+    var(--burgundy);
+
+  transform:
+    rotate(90deg);
+}
+
+
+/* ============================================================
+   LIGHTBOX ARROWS
+   ============================================================ */
+
+.gallery-lightbox__navigation {
+  position: absolute;
+
+  z-index: 5;
+
+  top: 50%;
+
+  transform:
+    translateY(-50%);
+
+  width: 58px;
+
+  height: 58px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  border:
+    1px solid
+    rgba(212, 173, 106, 0.7);
+
+  border-radius: 50%;
+
+  background:
+    rgba(66, 43, 27, 0.35);
+
+  color:
+    var(--light-ivory);
+
+  cursor: pointer;
+
+  transition:
+    background 200ms ease,
     transform 200ms ease;
 }
 
 
 .gallery-lightbox__navigation:hover {
-
   background:
-    rgba(193, 154, 75, 0.15);
+    var(--burgundy);
 
-  border-color:
-    var(--ochre);
+  transform:
+    translateY(-50%)
+    scale(1.06);
 }
 
 
 .gallery-lightbox__navigation--previous {
-
   left: 25px;
 }
 
 
 .gallery-lightbox__navigation--next {
-
   right: 25px;
 }
 
@@ -553,10 +1156,11 @@
    ============================================================ */
 
 .gallery-lightbox__counter {
-
   position: absolute;
 
-  bottom: 25px;
+  z-index: 5;
+
+  bottom: 20px;
 
   left: 50%;
 
@@ -564,60 +1168,187 @@
     translateX(-50%);
 
   color:
-    rgba(250, 247, 238, 0.8);
+    rgba(251, 246, 234, 0.88);
 
   font-family:
     "Cormorant Garamond",
     Georgia,
     serif;
 
-  font-size: 16px;
+  font-size: 17px;
 
-  letter-spacing: 0.08em;
+  letter-spacing: 0.14em;
 }
 
+
 /* ============================================================
-   MOBILE GALLERY
+   MOBILE
    ============================================================ */
 
 @media (max-width: 700px) {
 
   .gallery-section {
-
     min-height: auto;
 
     padding:
-      55px
-      15px
-      45px;
+      65px
+      14px
+      48px;
+  }
+
+
+  /* ----------------------------------------------
+     Hide large decorative corners on small screens
+     ---------------------------------------------- */
+
+  .gallery-section__corner {
+    width: 100px;
+
+    height: 130px;
+
+    opacity: 0.35;
+  }
+
+
+  .gallery-section__corner--left {
+    left: -15px;
+
+    top: 15px;
+  }
+
+
+  .gallery-section__corner--right {
+    right: -15px;
+
+    top: 15px;
+  }
+
+
+  /* ----------------------------------------------
+     Eyebrow
+     ---------------------------------------------- */
+
+  .gallery-section__eyebrow {
+    gap: 10px;
+
+    font-size: 10px;
+
+    letter-spacing: 0.15em;
+  }
+
+
+  .gallery-section__eyebrow-line {
+    width: 30px;
+  }
+
+
+  /* ----------------------------------------------
+     Heading
+     ---------------------------------------------- */
+
+  .gallery-section__heading {
+    margin-bottom: 28px;
   }
 
 
   .gallery-section__heading h2 {
-
-    font-size: 26px;
+    font-size: clamp(
+      52px,
+      17vw,
+      72px
+    );
   }
 
 
-  /*
-   * Instead of squeezing five photographs into
-   * one tiny row, allow horizontal scrolling.
-   */
+  .gallery-section__heading p {
+    max-width: 330px;
 
-  .gallery-section__photos {
+    margin-top: 15px;
+
+    font-size: 17px;
+  }
+
+
+  /* ----------------------------------------------
+     Main photograph
+     ---------------------------------------------- */
+
+  .gallery-main-photo {
+    width: calc(
+      100vw - 42px
+    );
+  }
+
+
+  .gallery-main-photo__frame {
+    padding: 7px;
+    min-height: 320px;
+    height: min(58vh, 470px);
+  }
+
+
+  .gallery-main-photo__image {
+    height: 100%;
+    min-height: 300px;
+  }
+
+
+  /* ----------------------------------------------
+     Main arrows
+     ---------------------------------------------- */
+
+  .gallery-main-photo__arrow {
+    width: 42px;
+
+    height: 42px;
+
+    background:
+      rgba(251, 246, 234, 0.95);
+  }
+
+
+  .gallery-main-photo__arrow--left {
+    left: -8px;
+  }
+
+
+  .gallery-main-photo__arrow--right {
+    right: -8px;
+  }
+
+
+  /* ----------------------------------------------
+     Hide zoom icon
+     ---------------------------------------------- */
+
+  .gallery-main-photo__zoom {
+    width: 58px;
+
+    height: 58px;
+
+    font-size: 22px;
+
+    opacity: 0.9;
+  }
+
+
+  /* ----------------------------------------------
+     Thumbnails
+     ---------------------------------------------- */
+
+  .gallery-thumbnails {
+    width: 100%;
 
     justify-content: flex-start;
 
     overflow-x: auto;
 
-    overflow-y: visible;
-
     padding:
-      15px
+      5px
       12px
-      20px;
+      10px;
 
-    gap: 15px;
+    gap: 12px;
 
     scroll-snap-type:
       x mandatory;
@@ -626,65 +1357,73 @@
   }
 
 
-  .gallery-section__photos::-webkit-scrollbar {
-
+  .gallery-thumbnails::-webkit-scrollbar {
     display: none;
   }
 
 
-  .memory-photo {
-
+  .gallery-thumbnail {
     flex:
-      0 0 155px;
+      0 0 92px;
 
-    max-width: 155px;
+    max-width: 92px;
 
     scroll-snap-align: center;
   }
 
 
-  .memory-photo__frame {
-
-    padding:
-      7px
-      7px
-      14px;
+  .gallery-thumbnail__frame {
+    padding: 4px;
   }
 
 
-  /*
-   * Slightly reduce the rotation on phones.
-   */
-
-  .memory-photo:nth-child(even) {
-
-    transform:
-      rotate(1deg);
+  .gallery-thumbnail__image {
+    aspect-ratio: 1.15;
   }
 
 
-  .memory-photo:nth-child(odd) {
+  /* ----------------------------------------------
+     Progress
+     ---------------------------------------------- */
 
-    transform:
-      rotate(-1deg);
+  .gallery-progress {
+    width: 80%;
+
+    gap: 5px;
+
+    margin-top: 18px;
   }
 
 
-  /*
-   * Lightbox
-   */
+  .gallery-progress__item {
+    height: 3px;
+  }
+
+
+  /* ----------------------------------------------
+     Bottom ornament
+     ---------------------------------------------- */
+
+  .gallery-bottom-ornament {
+    width: 75%;
+
+    margin-top: 25px;
+  }
+
+
+  /* ----------------------------------------------
+     Lightbox
+     ---------------------------------------------- */
 
   .gallery-lightbox {
-
     padding:
-      50px
-      15px;
+      55px
+      8px;
   }
 
 
   .gallery-lightbox__image-wrapper {
-
-    max-width: 88vw;
+    max-width: 92vw;
 
     max-height: 78vh;
 
@@ -693,42 +1432,41 @@
 
 
   .gallery-lightbox__image {
+    max-width: 88vw;
 
-    max-width: 86vw;
-
-    max-height: 75vh;
+    max-height: 72vh;
   }
 
 
-  /*
-   * Smaller navigation buttons.
-   */
+  /* ----------------------------------------------
+     Lightbox arrows
+     ---------------------------------------------- */
 
   .gallery-lightbox__navigation {
+    width: 43px;
 
-    width: 42px;
-
-    height: 42px;
+    height: 43px;
   }
 
 
   .gallery-lightbox__navigation--previous {
-
-    left: 8px;
+    left: 7px;
   }
 
 
   .gallery-lightbox__navigation--next {
-
-    right: 8px;
+    right: 7px;
   }
 
 
+  /* ----------------------------------------------
+     Close
+     ---------------------------------------------- */
+
   .gallery-lightbox__close {
+    top: 12px;
 
-    top: 15px;
-
-    right: 15px;
+    right: 12px;
 
     width: 42px;
 
@@ -736,22 +1474,70 @@
   }
 
 
-  .gallery-lightbox__counter {
+  /* ----------------------------------------------
+     Counter
+     ---------------------------------------------- */
 
-    bottom: 15px;
+  .gallery-lightbox__counter {
+    bottom: 13px;
 
     font-size: 14px;
   }
+}
 
 
-  /*
-   * Hide the dots on very small screens because
-   * the horizontal gallery itself communicates that
-   * there are more photographs.
-   */
+/* ============================================================
+   VERY SMALL PHONES
+   ============================================================ */
 
-  .gallery-section__dots {
+@media (max-width: 380px) {
 
-    margin-top: 5px;
+  .gallery-section {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+
+  .gallery-main-photo {
+    width: calc(
+      100vw - 34px
+    );
+  }
+
+
+  .gallery-main-photo__image {
+    height: 58vh;
+
+    min-height: 290px;
+  }
+
+
+  .gallery-thumbnail {
+    flex-basis: 78px;
+
+    max-width: 78px;
+  }
+
+
+  .gallery-main-photo__arrow {
+    width: 38px;
+
+    height: 38px;
+  }
+}
+
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .gallery-main-photo__image,
+  .gallery-thumbnail,
+  .gallery-progress__item,
+  .gallery-lightbox__navigation,
+  .gallery-lightbox__close {
+    transition: none;
   }
 }

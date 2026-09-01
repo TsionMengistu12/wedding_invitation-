@@ -58,7 +58,7 @@ export default function AnnouncementHeader({
       aria-hidden={label ? undefined : true}
     >
       <img
-        src="/images/ornaments/announcement-header.png"
+        src="/ornaments/announcement-header.png"
         alt=""
         className={styles.image}
       />

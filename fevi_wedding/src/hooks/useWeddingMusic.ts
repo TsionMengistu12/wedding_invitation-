@@ -9,7 +9,7 @@ interface UseWeddingMusicOptions {
 interface UseWeddingMusicReturn {
   isPlaying: boolean;
   isMuted: boolean;
-  play: () => Promise<void>;
+  play: () => Promise<boolean>;
   pause: () => void;
   toggleMute: () => Promise<void>;
 }
@@ -74,15 +74,16 @@ export function useWeddingMusic({
    * play() returns a Promise because the browser may reject
    * playback if its autoplay policy doesn't allow it.
    */
-  const play = useCallback(async () => {
+  const play = useCallback(async (): Promise<boolean> => {
     const audio = audioRef.current;
 
     if (!audio) {
-      return;
+      return false;
     }
 
     try {
       await audio.play();
+      return true;
     } catch (error) {
       /**
        * The browser blocked playback.
@@ -91,6 +92,7 @@ export function useWeddingMusic({
        * shouldn't break the wedding invitation.
        */
       console.log("Browser blocked automatic music playback.", error);
+      return false;
     }
   }, []);
 

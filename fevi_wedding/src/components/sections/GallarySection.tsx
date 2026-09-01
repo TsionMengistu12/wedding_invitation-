@@ -1,10 +1,33 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
 import "../../styles/gallarySection.css";
+
+// ============================================================
+// GALLERY BACKGROUND
+// ============================================================
+//
+// Put your background image inside the `public` folder.
+//
+// Example:
+//
+// public/
+// └── images/
+//     └── gallery/
+//         └── gallery-background.png
+//
+// Then use:
+//
+// "/images/gallery/gallery-background.png"
+//
+// If you don't want a background image, simply use:
+// ""
+// ============================================================
+
+const galleryBackground = "/ornaments/background.jpg";
 
 // ============================================================
 // TYPES
@@ -14,48 +37,37 @@ interface GalleryImage {
   id: number;
   src: string;
   alt: string;
-  rotation: number;
 }
 
 // ============================================================
-// YOUR WEDDING PHOTOS
-//
-// Replace these paths with your actual photographs.
-//
-// Keeping the data separate from the JSX makes this component
-// reusable and very easy to update.
+// WEDDING PHOTOS
 // ============================================================
 
 const galleryImages: GalleryImage[] = [
   {
     id: 1,
-    src: "/assets/couples/p1.jpg",
+    src: "/couple/center.JPG",
     alt: "Feven and Abenezer",
-    rotation: -2,
   },
   {
     id: 2,
-    src: "/assets/couples/p1.jpg",
+    src: "/couple/one.JPG",
     alt: "Feven and Abenezer",
-    rotation: 1.5,
   },
   {
     id: 3,
-    src: "/assets/couples/p1.jpg",
+    src: "/couple/two.JPG",
     alt: "Feven and Abenezer",
-    rotation: -1,
   },
   {
     id: 4,
-    src: "/assets/couples/p1.jpg",
+    src: "/couple/three.JPG",
     alt: "Feven and Abenezer",
-    rotation: 2,
   },
   {
     id: 5,
-    src: "/assets/couples/p1.jpg",
+    src: "/couple/four.JPG",
     alt: "Feven and Abenezer",
-    rotation: -1.5,
   },
 ];
 
@@ -64,24 +76,71 @@ const galleryImages: GalleryImage[] = [
 // ============================================================
 
 export default function GallerySection() {
-  /*
-   * null means that no image is currently enlarged.
-   *
-   * When an image is clicked, we store its index here.
-   */
+  // ----------------------------------------------------------
+  // ACTIVE SLIDESHOW PHOTO
+  // ----------------------------------------------------------
+
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  // ----------------------------------------------------------
+  // LIGHTBOX
+  //
+  // null = closed
+  // number = selected image
+  // ----------------------------------------------------------
+
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
+  // ----------------------------------------------------------
+  // THUMBNAIL STRIP
+  // ----------------------------------------------------------
+
+  const thumbnailsRef = useRef<HTMLDivElement | null>(null);
+
   // ==========================================================
-  // OPEN IMAGE
+  // AUTOMATIC SLIDESHOW
+  // ==========================================================
+
+  useEffect(() => {
+    // Pause the automatic slideshow while the lightbox is open.
+    if (selectedIndex !== null) {
+      return;
+    }
+
+    const interval = window.setInterval(() => {
+      setActiveIndex((current) => {
+        return (current + 1) % galleryImages.length;
+      });
+    }, 5000);
+
+    return () => {
+      window.clearInterval(interval);
+    };
+  }, [selectedIndex]);
+
+  // ==========================================================
+  // KEEP ACTIVE THUMBNAIL VISIBLE
+  // ==========================================================
+
+  useEffect(() => {
+    const thumbnail = thumbnailsRef.current?.children[activeIndex] as
+      | HTMLElement
+      | undefined;
+
+    thumbnail?.scrollIntoView({
+      behavior: "smooth",
+      block: "nearest",
+      inline: "center",
+    });
+  }, [activeIndex]);
+
+  // ==========================================================
+  // OPEN LIGHTBOX
   // ==========================================================
 
   const openImage = (index: number) => {
     setSelectedIndex(index);
 
-    /*
-     * Prevent the page underneath the lightbox
-     * from scrolling.
-     */
     document.body.style.overflow = "hidden";
   };
 
@@ -92,31 +151,34 @@ export default function GallerySection() {
   const closeImage = () => {
     setSelectedIndex(null);
 
-    /*
-     * Restore normal page scrolling.
-     */
     document.body.style.overflow = "";
   };
 
   // ==========================================================
-  // PREVIOUS IMAGE
-  // ==========================================================
-
-  const showPrevious = () => {
-    if (selectedIndex === null) {
-      return;
-    }
-
-    setSelectedIndex(
-      selectedIndex === 0 ? galleryImages.length - 1 : selectedIndex - 1,
-    );
-  };
-
-  // ==========================================================
-  // NEXT IMAGE
+  // NEXT MAIN PHOTO
   // ==========================================================
 
   const showNext = () => {
+    setActiveIndex((current) => {
+      return (current + 1) % galleryImages.length;
+    });
+  };
+
+  // ==========================================================
+  // PREVIOUS MAIN PHOTO
+  // ==========================================================
+
+  const showPrevious = () => {
+    setActiveIndex((current) => {
+      return current === 0 ? galleryImages.length - 1 : current - 1;
+    });
+  };
+
+  // ==========================================================
+  // LIGHTBOX NEXT
+  // ==========================================================
+
+  const showNextLightbox = () => {
     if (selectedIndex === null) {
       return;
     }
@@ -127,28 +189,70 @@ export default function GallerySection() {
   };
 
   // ==========================================================
-  // KEYBOARD NAVIGATION
-  //
-  // This is a nice little accessibility feature.
-  //
-  // Left arrow  → previous
-  // Right arrow → next
-  // Escape      → close
+  // LIGHTBOX PREVIOUS
   // ==========================================================
 
-  const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
-    if (event.key === "Escape") {
-      closeImage();
+  const showPreviousLightbox = () => {
+    if (selectedIndex === null) {
+      return;
     }
 
-    if (event.key === "ArrowLeft") {
-      showPrevious();
-    }
-
-    if (event.key === "ArrowRight") {
-      showNext();
-    }
+    setSelectedIndex(
+      selectedIndex === 0 ? galleryImages.length - 1 : selectedIndex - 1,
+    );
   };
+
+  // ==========================================================
+  // SELECT THUMBNAIL
+  // ==========================================================
+
+  const selectPhoto = (index: number) => {
+    setActiveIndex(index);
+  };
+
+  // ==========================================================
+  // KEYBOARD CONTROLS
+  // ==========================================================
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (selectedIndex === null) {
+        return;
+      }
+
+      if (event.key === "Escape") {
+        closeImage();
+      }
+
+      if (event.key === "ArrowLeft") {
+        showPreviousLightbox();
+      }
+
+      if (event.key === "ArrowRight") {
+        showNextLightbox();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [selectedIndex]);
+
+  // ==========================================================
+  // CLEAN UP BODY SCROLL
+  // ==========================================================
+
+  useEffect(() => {
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, []);
+
+  // ==========================================================
+  // RENDER
+  // ==========================================================
 
   return (
     <>
@@ -156,12 +260,48 @@ export default function GallerySection() {
           GALLERY SECTION
       ======================================================= */}
 
-      <section className="gallery-section" id="memories">
+      <section
+        className="gallery-section"
+        id="memories"
+        style={
+          galleryBackground
+            ? {
+                backgroundImage: `
+                  linear-gradient(
+                    rgba(245, 235, 221, 0.28),
+                    rgba(245, 235, 221, 0.28)
+                  ),
+                  url("${galleryBackground}")
+                `,
+              }
+            : undefined
+        }
+      >
         {/* ----------------------------------------------------
-            SUBTLE DECORATIVE BACKGROUND
+            DECORATIVE TEXTURE
         ----------------------------------------------------- */}
 
         <div className="gallery-section__texture" aria-hidden="true" />
+
+        {/* ----------------------------------------------------
+            CORNER DECORATIONS
+        ----------------------------------------------------- */}
+
+        <div
+          className="
+            gallery-section__corner
+            gallery-section__corner--left
+          "
+          aria-hidden="true"
+        />
+
+        <div
+          className="
+            gallery-section__corner
+            gallery-section__corner--right
+          "
+          aria-hidden="true"
+        />
 
         {/* ----------------------------------------------------
             MAIN CONTENT
@@ -187,96 +327,182 @@ export default function GallerySection() {
           }}
         >
           {/* ==================================================
+              EYEBROW
+          =================================================== */}
+
+          {/* <div className="gallery-section__eyebrow">
+            <span className="gallery-section__eyebrow-line" />
+
+            <span>OUR STORY IN PICTURES</span>
+
+            <span className="gallery-section__eyebrow-line" />
+          </div> */}
+
+          {/* ==================================================
               TITLE
           =================================================== */}
 
           <div className="gallery-section__heading">
-            <h2>Our Memories</h2>
+            <h2>Gallery</h2>
 
-            <div className="gallery-section__divider" aria-hidden="true">
+            {/* <p>Every photograph holds a moment, every moment tells our story</p> */}
+
+            {/* <div
+              className="gallery-section__heading-ornament"
+              aria-hidden="true"
+            >
               <span />
-              <span className="gallery-section__divider-symbol">❦</span>
+              <b>•</b>
+              <span />
+            </div> */}
+          </div>
+
+          {/* ==================================================
+              SLIDESHOW
+          =================================================== */}
+
+          <div className="gallery-slideshow">
+            {/* ------------------------------------------------
+                MAIN PHOTO
+            ------------------------------------------------- */}
+
+            <div className="gallery-main-photo">
+              {/* Previous */}
+
+              <button
+                type="button"
+                className="
+                  gallery-main-photo__arrow
+                  gallery-main-photo__arrow--left
+                "
+                onClick={showPrevious}
+                aria-label="Previous photograph"
+              >
+                <ChevronLeft size={27} strokeWidth={1.4} />
+              </button>
+
+              {/* Main image */}
+
+              <AnimatePresence mode="wait">
+                <motion.button
+                  key={galleryImages[activeIndex].id}
+                  type="button"
+                  className="gallery-main-photo__button"
+                  onClick={() => openImage(activeIndex)}
+                  initial={{
+                    opacity: 0,
+                  }}
+                  animate={{
+                    opacity: 1,
+                  }}
+                  exit={{
+                    opacity: 0,
+                  }}
+                  transition={{
+                    duration: 0.55,
+                    ease: "easeInOut",
+                  }}
+                  aria-label={`Open ${galleryImages[activeIndex].alt}`}
+                >
+                  <span className="gallery-main-photo__frame">
+                    <img
+                      src={galleryImages[activeIndex].src}
+                      alt={galleryImages[activeIndex].alt}
+                      className="gallery-main-photo__image"
+                    />
+
+                    {/* Zoom indicator */}
+
+                    <span className="gallery-main-photo__zoom">
+                      <span>↗</span>
+                    </span>
+                  </span>
+                </motion.button>
+              </AnimatePresence>
+
+              {/* Next */}
+
+              <button
+                type="button"
+                className="
+                  gallery-main-photo__arrow
+                  gallery-main-photo__arrow--right
+                "
+                onClick={showNext}
+                aria-label="Next photograph"
+              >
+                <ChevronRight size={27} strokeWidth={1.4} />
+              </button>
+            </div>
+
+            {/* =================================================
+                THUMBNAILS
+            ================================================== */}
+
+            <div
+              ref={thumbnailsRef}
+              className="gallery-thumbnails"
+              aria-label="Gallery photographs"
+            >
+              {galleryImages.map((image, index) => (
+                <motion.button
+                  key={image.id}
+                  type="button"
+                  className={
+                    index === activeIndex
+                      ? "gallery-thumbnail gallery-thumbnail--active"
+                      : "gallery-thumbnail"
+                  }
+                  onClick={() => selectPhoto(index)}
+                  whileHover={{
+                    y: -4,
+                  }}
+                  whileTap={{
+                    scale: 0.97,
+                  }}
+                  aria-label={`Show photograph ${index + 1}`}
+                  aria-current={index === activeIndex ? "true" : undefined}
+                >
+                  <span className="gallery-thumbnail__frame">
+                    <img
+                      src={image.src}
+                      alt=""
+                      className="gallery-thumbnail__image"
+                    />
+                  </span>
+                </motion.button>
+              ))}
+            </div>
+
+            {/* =================================================
+                SLIDESHOW INDICATOR
+            ================================================== */}
+
+            <div className="gallery-progress" aria-hidden="true">
+              {galleryImages.map((image, index) => (
+                <button
+                  key={image.id}
+                  type="button"
+                  className={
+                    index === activeIndex
+                      ? "gallery-progress__item gallery-progress__item--active"
+                      : "gallery-progress__item"
+                  }
+                  onClick={() => selectPhoto(index)}
+                  aria-label={`Show photograph ${index + 1}`}
+                />
+              ))}
+            </div>
+
+            {/* =================================================
+                BOTTOM ORNAMENT
+            ================================================== */}
+
+            <div className="gallery-bottom-ornament" aria-hidden="true">
+              <span />
+              <b>✦</b>
               <span />
             </div>
-          </div>
-
-          {/* ==================================================
-              PHOTO STRIP
-          =================================================== */}
-
-          <div className="gallery-section__photos">
-            {galleryImages.map((image, index) => (
-              <motion.button
-                key={image.id}
-                type="button"
-                className="memory-photo"
-                style={
-                  {
-                    "--rotation": `${image.rotation}deg`,
-                  } as React.CSSProperties
-                }
-                onClick={() => openImage(index)}
-                initial={{
-                  opacity: 0,
-                  y: 30,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                viewport={{
-                  once: true,
-                }}
-                transition={{
-                  duration: 0.6,
-                  delay: index * 0.08,
-                }}
-                whileHover={{
-                  y: -8,
-                  rotate: 0,
-                  scale: 1.03,
-                }}
-                whileTap={{
-                  scale: 0.98,
-                }}
-                aria-label={`Open memory ${index + 1}`}
-              >
-                {/* ------------------------------------------
-                    PHOTOGRAPH FRAME
-                ------------------------------------------- */}
-
-                <span className="memory-photo__frame">
-                  <img
-                    src={image.src}
-                    alt={image.alt}
-                    className="memory-photo__image"
-                  />
-                </span>
-              </motion.button>
-            ))}
-          </div>
-
-          {/* ==================================================
-              DOT INDICATORS
-
-              These are intentionally NOT buttons/arrows.
-
-              They visually tell the user there are multiple
-              memories without making the gallery feel like a
-              conventional carousel.
-          =================================================== */}
-
-          <div className="gallery-section__dots" aria-hidden="true">
-            {galleryImages.map((image, index) => (
-              <span
-                key={image.id}
-                className={
-                  index === 0
-                    ? "gallery-dot gallery-dot--active"
-                    : "gallery-dot"
-                }
-              />
-            ))}
           </div>
         </motion.div>
       </section>
@@ -291,8 +517,7 @@ export default function GallerySection() {
             className="gallery-lightbox"
             role="dialog"
             aria-modal="true"
-            tabIndex={0}
-            onKeyDown={handleKeyDown}
+            aria-label="Enlarged wedding photograph"
             initial={{
               opacity: 0,
             }}
@@ -303,9 +528,16 @@ export default function GallerySection() {
               opacity: 0,
             }}
           >
-            {/* =================================================
-                CLOSE BUTTON
-            ================================================== */}
+            {/* Background */}
+
+            <button
+              type="button"
+              className="gallery-lightbox__backdrop"
+              onClick={closeImage}
+              aria-label="Close gallery"
+            />
+
+            {/* Close */}
 
             <button
               type="button"
@@ -313,12 +545,10 @@ export default function GallerySection() {
               onClick={closeImage}
               aria-label="Close image"
             >
-              <X size={28} strokeWidth={1.5} />
+              <X size={27} strokeWidth={1.4} />
             </button>
 
-            {/* =================================================
-                PREVIOUS
-            ================================================== */}
+            {/* Previous */}
 
             <button
               type="button"
@@ -326,41 +556,44 @@ export default function GallerySection() {
                 gallery-lightbox__navigation
                 gallery-lightbox__navigation--previous
               "
-              onClick={showPrevious}
+              onClick={showPreviousLightbox}
               aria-label="Previous image"
             >
-              <ChevronLeft size={36} strokeWidth={1.3} />
+              <ChevronLeft size={38} strokeWidth={1.2} />
             </button>
 
-            {/* =================================================
-                IMAGE
-            ================================================== */}
+            {/* Image */}
 
-            <motion.div
-              className="gallery-lightbox__image-wrapper"
-              key={selectedIndex}
-              initial={{
-                opacity: 0,
-                scale: 0.94,
-              }}
-              animate={{
-                opacity: 1,
-                scale: 1,
-              }}
-              transition={{
-                duration: 0.35,
-              }}
-            >
-              <img
-                src={galleryImages[selectedIndex].src}
-                alt={galleryImages[selectedIndex].alt}
-                className="gallery-lightbox__image"
-              />
-            </motion.div>
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={selectedIndex}
+                className="gallery-lightbox__image-wrapper"
+                initial={{
+                  opacity: 0,
+                  scale: 0.96,
+                }}
+                animate={{
+                  opacity: 1,
+                  scale: 1,
+                }}
+                exit={{
+                  opacity: 0,
+                  scale: 0.96,
+                }}
+                transition={{
+                  duration: 0.35,
+                  ease: "easeOut",
+                }}
+              >
+                <img
+                  src={galleryImages[selectedIndex].src}
+                  alt={galleryImages[selectedIndex].alt}
+                  className="gallery-lightbox__image"
+                />
+              </motion.div>
+            </AnimatePresence>
 
-            {/* =================================================
-                NEXT
-            ================================================== */}
+            {/* Next */}
 
             <button
               type="button"
@@ -368,19 +601,13 @@ export default function GallerySection() {
                 gallery-lightbox__navigation
                 gallery-lightbox__navigation--next
               "
-              onClick={showNext}
+              onClick={showNextLightbox}
               aria-label="Next image"
             >
-              <ChevronRight size={36} strokeWidth={1.3} />
+              <ChevronRight size={38} strokeWidth={1.2} />
             </button>
 
-            {/* =================================================
-                IMAGE COUNTER
-
-                Example:
-
-                    2 / 5
-            ================================================== */}
+            {/* Counter */}
 
             <div className="gallery-lightbox__counter">
               {selectedIndex + 1}

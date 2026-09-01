@@ -227,8 +227,8 @@ export default function WishesSection({
         onSubmit={handleSubmitWish}
         defaultName={defaultAuthorName}
         submitError={submitError}
-        cornerOrnament="/assets/ornaments/top_corner.png"
-        bottomOrnament="/assets/ornaments/smaller_separator.png"
+        cornerOrnament="/ornaments/top-decorator.png"
+        bottomOrnament="/ornaments/section-divider.png"
       />
     </>
   );

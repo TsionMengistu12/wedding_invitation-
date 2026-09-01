@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../lib/supabase";
 import { normalizeInvitationToken } from "../utils/invitationUrl";
+import type { AnnouncementType } from "../types/invitation";
 
 export interface Guest {
   name: string;
   guest_limit: number;
+  announcement_type: AnnouncementType;
 }
 
 export function useInvitationGuest(token?: string) {
@@ -25,7 +27,7 @@ export function useInvitationGuest(token?: string) {
       try {
         const { data, error: invitationError } =
           await supabase.rpc(
-            "get_invitation_by_token",
+            "get_guest_by_token",
             {
               token_value: normalizedToken,
             }

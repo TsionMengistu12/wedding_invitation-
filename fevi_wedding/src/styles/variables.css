@@ -1,20 +1,29 @@
 :root {
   /* Backgrounds */
-  --parchment: #f8eedc;
-  --ivory: #fff8ea;
-  --cream: #eee0c6;
+  --parchment: #e9d8bf;
+  --deep-parchment: #d8c09f;
+  --ivory: #f5ebdd;
+  --light-ivory: #fbf6ea;
+  --cream: #efe2cc;
+  --pearl: #f9f3e6;
+  --lace-shadow: #d2b88f;
 
   /* Gold */
-  --gold: #c19a65;
-  --ochre: #b78046;
+  --gold: #b8873e;
+  --champagne-gold: #d4ad6a;
+  --ochre: #8e642c;
+  --antique-gold: #b8873e;
 
   /* Browns */
-  --brown: #74513d;
-  --deep-brown: #3e2b23;
-  --espresso: #2d211c;
+  --brown: #704a2b;
+  --deep-brown: #422b1b;
+  --espresso: #422b1b;
+  --warm-brown: #704a2b;
 
   /* Accents */
-  --burgundy: #742c31;
+  --burgundy: #641010;
+  --wine: #7d2525;
+  --dusty-rose: #a65d5d;
   --sage: #6e6651;
 
   /* Typography */
@@ -23,14 +32,14 @@
 
   /* Shadows */
   --shadow-soft:
-    0 20px 60px rgba(74, 52, 40, 0.12);
+    0 20px 60px rgba(66, 43, 27, 0.16);
 
   --shadow-small:
-    0 8px 25px rgba(74, 52, 40, 0.10);
+    0 8px 25px rgba(66, 43, 27, 0.12);
 
   /* Borders */
   --border-gold:
-    1px solid rgba(168, 138, 85, 0.45);
+    1px solid rgba(184, 135, 62, 0.48);
 
   /* Radius */
   --radius-sm: 6px;

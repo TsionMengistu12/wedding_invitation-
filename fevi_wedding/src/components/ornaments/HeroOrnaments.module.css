@@ -1,0 +1,68 @@
+.container {
+  position: absolute;
+
+  left: 50%;
+  bottom: var(--hero-ornament-bottom);
+
+  transform: translateX(-50%);
+
+  width: var(--hero-ornament-width);
+  max-width: var(--hero-ornament-max-width);
+
+  z-index: 4;
+
+  pointer-events: none;
+
+  line-height: 0;
+}
+
+.image {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  user-select: none;
+}
+
+
+/* ============================================
+   TABLET
+   ============================================ */
+
+@media (max-width: 900px) {
+  .container {
+    width: calc(
+      var(--hero-ornament-width)
+      * var(--hero-ornament-mobile-scale)
+    );
+
+    max-width: 90vw;
+  }
+}
+
+
+/* ============================================
+   MOBILE
+   ============================================ */
+
+@media (max-width: 600px) {
+  .container {
+    width: 95vw;
+
+    max-width: none;
+
+    bottom: -3px;
+  }
+}
+
+
+/* ============================================
+   VERY SMALL PHONES
+   ============================================ */
+
+@media (max-width: 380px) {
+  .container {
+    width: 105vw;
+  }
+}

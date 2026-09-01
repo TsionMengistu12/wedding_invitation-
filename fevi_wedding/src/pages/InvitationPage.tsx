@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 
 import InvitationHero from "../components/invitation/InvitationHero";
 import AnnouncementSectionFevi from "../components/sections/AnnouncementSectionFevi";
+import AnnouncementSectionAbu from "../components/sections/AnnouncementSectionAbu";
 import LocationSection from "../components/sections/LocationSection";
 import GallarySection from "../components/sections/GallarySection";
 import WishesSection from "../components/sections/WishesSection";
@@ -42,7 +43,11 @@ export default function InvitationPage() {
       <InvitationHero guestName={guest.name} invitationUrl={invitationUrl} />
 
       <div className="invitation-sections">
-        <AnnouncementSectionFevi guestName={guest.name} />
+        {guest.announcement_type === "groom" ? (
+          <AnnouncementSectionAbu guestName={guest.name} />
+        ) : (
+          <AnnouncementSectionFevi guestName={guest.name} />
+        )}
         <LocationSection />
         <GallarySection />
         <WishesSection token={normalizedToken} defaultAuthorName={guest.name} />

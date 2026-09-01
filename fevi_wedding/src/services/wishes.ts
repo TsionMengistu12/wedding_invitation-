@@ -9,7 +9,21 @@ import type {
 export const WISH_REFRESH_INTERVAL_MS = 15_000;
 
 export function getErrorMessage(error: unknown, fallback: string) {
-  return error instanceof Error && error.message ? error.message : fallback;
+  if (error instanceof Error && error.message) {
+    return error.message;
+  }
+
+  if (
+    typeof error === "object" &&
+    error !== null &&
+    "message" in error &&
+    typeof error.message === "string" &&
+    error.message
+  ) {
+    return error.message;
+  }
+
+  return fallback;
 }
 
 export async function submitWish(
@@ -62,8 +76,9 @@ export async function fetchPendingWishes() {
 }
 
 export async function approveWish(wishId: string) {
-  const { data, error } = await supabase.rpc("approve_wish", {
+  const { data, error } = await supabase.rpc("review_wish", {
     wish_id: wishId,
+    next_status: "approved",
   });
 
   if (error) {
@@ -74,8 +89,9 @@ export async function approveWish(wishId: string) {
 }
 
 export async function rejectWish(wishId: string) {
-  const { data, error } = await supabase.rpc("reject_wish", {
+  const { data, error } = await supabase.rpc("review_wish", {
     wish_id: wishId,
+    next_status: "rejected",
   });
 
   if (error) {

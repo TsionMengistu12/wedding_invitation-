@@ -17,9 +17,9 @@ body {
     radial-gradient(
       ellipse at center top,
       var(--ivory) 0%,
-      #F3EDDA 42%,
-      #E7DCC3 72%,
-      #D8C7A5 100%
+      #FBF6EA 42%,
+      #E9D8BF 72%,
+      #D8C09F 100%
     );
 
   min-height: 100vh;

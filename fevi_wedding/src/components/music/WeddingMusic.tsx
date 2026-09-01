@@ -1,12 +1,12 @@
 "use client";
 
 import { useEffect } from "react";
-import { useWeddingMusic } from "@/hooks/useWeddingMusic.ts";
+import { useWeddingMusic } from "../../hooks/useWeddingMusic";
 import styles from "./WeddingMusic.module.css";
 
 export default function WeddingMusic() {
   const { isPlaying, isMuted, toggleMute, play } = useWeddingMusic({
-    src: "/music/wedding-song.mp3",
+    src: "/music/Yehen_Laderege.ogg",
     volume: 0.35,
   });
 
@@ -19,51 +19,42 @@ export default function WeddingMusic() {
    */
   useEffect(() => {
     let hasStarted = false;
+    let isStarting = false;
 
-    const startMusic = async () => {
-      if (hasStarted) {
+    const removeListeners = () => {
+      window.removeEventListener("scroll", startMusic);
+      window.removeEventListener("wheel", startMusic);
+      window.removeEventListener("touchstart", startMusic);
+      window.removeEventListener("pointerdown", startMusic);
+      window.removeEventListener("keydown", startMusic);
+    };
+
+    const startMusic = () => {
+      if (hasStarted || isStarting) {
         return;
       }
 
-      hasStarted = true;
+      isStarting = true;
 
-      await play();
-
-      /**
-       * Once the first interaction has happened,
-       * we no longer need these listeners.
-       */
-      window.removeEventListener("scroll", startMusic);
-      window.removeEventListener("wheel", startMusic);
-      window.removeEventListener("touchstart", startMusic);
-      window.removeEventListener("pointerdown", startMusic);
+      void play().then((didStart) => {
+        isStarting = false;
+        if (didStart) {
+          hasStarted = true;
+          removeListeners();
+        }
+      });
     };
 
-    window.addEventListener("scroll", startMusic, {
-      passive: true,
-      once: true,
-    });
-
-    window.addEventListener("wheel", startMusic, {
-      passive: true,
-      once: true,
-    });
-
-    window.addEventListener("touchstart", startMusic, {
-      passive: true,
-      once: true,
-    });
-
-    window.addEventListener("pointerdown", startMusic, {
-      passive: true,
-      once: true,
-    });
+    // wheel/touchstart happen before a corresponding scroll, so they retain
+    // the user gesture browsers require for audible playback.
+    window.addEventListener("scroll", startMusic, { passive: true });
+    window.addEventListener("wheel", startMusic, { passive: true });
+    window.addEventListener("touchstart", startMusic, { passive: true });
+    window.addEventListener("pointerdown", startMusic, { passive: true });
+    window.addEventListener("keydown", startMusic);
 
     return () => {
-      window.removeEventListener("scroll", startMusic);
-      window.removeEventListener("wheel", startMusic);
-      window.removeEventListener("touchstart", startMusic);
-      window.removeEventListener("pointerdown", startMusic);
+      removeListeners();
     };
   }, [play]);
 

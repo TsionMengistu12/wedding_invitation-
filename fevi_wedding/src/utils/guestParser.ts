@@ -1,4 +1,5 @@
 import type { GuestUploadRow } from "../types/guest";
+import type { AnnouncementType } from "../types/invitation";
 
 function parseCSVLine(line: string): string[] {
   const values: string[] = [];
@@ -27,7 +28,18 @@ function parseCSVLine(line: string): string[] {
   return values;
 }
 
-export function parseGuestCSV(csv: string): GuestUploadRow[] {
+export function parseGuestCSV(
+  csv: string,
+  announcementType: AnnouncementType,
+): GuestUploadRow[] {
+
+  if(
+    announcementType !== "bride" &&
+    announcementType !== "groom"
+  )throw new Error(
+    "Please Select either the bride's guests or the groom's guests. ",
+  );
+
   const lines = csv.replace(/^\uFEFF/, "").split(/\r?\n/).filter((line) => line.trim());
   if (lines.length < 2) throw new Error("The CSV must contain a header and at least one guest.");
 
@@ -45,13 +57,14 @@ export function parseGuestCSV(csv: string): GuestUploadRow[] {
     const name = values[0].trim();
     const guestLimit = Number(values[1].trim());
     if (!name) throw new Error(`Row ${rowNumber}: name is required.`);
+
     if (!Number.isInteger(guestLimit) || ![1, 2, 3].includes(guestLimit)) {
       throw new Error(`Row ${rowNumber}: guest_limit must be 1, 2, or 3.`);
     }
 
     const normalizedName = name.toLocaleLowerCase();
-    if (names.has(normalizedName)) throw new Error(`Row ${rowNumber}: duplicate guest name \"${name}\".`);
+    if (names.has(normalizedName)) throw new Error(`Row ${rowNumber}: duplicate guest name "${name}".`);
     names.add(normalizedName);
-    return { name, guest_limit: guestLimit };
+    return { name, guest_limit: guestLimit, announcement_type: announcementType };
   });
 }

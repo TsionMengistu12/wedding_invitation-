@@ -1,0 +1,41 @@
+.heroInvitation {
+  position: relative;
+  width: 100%;
+  min-height: min(720px, 92svh);
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(300px, .85fr);
+  align-items: center;
+  gap: clamp(24px, 5vw, 90px);
+  padding: clamp(32px, 4vw, 58px) clamp(24px, 5vw, 82px) clamp(150px, 15vw, 210px);
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(ellipse at 17% 17%, rgba(255, 251, 239, .48), transparent 32%),
+    linear-gradient(rgba(255, 250, 239, .12), rgba(235, 215, 181, .12)),
+    url("/ornaments/background.jpg") center / cover no-repeat;
+}
+.heroInvitation::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(90deg, rgba(104, 66, 31, .08), transparent 13%, transparent 87%, rgba(104, 66, 31, .08)), radial-gradient(ellipse at center, transparent 52%, rgba(95, 57, 28, .075)); mix-blend-mode: multiply; }
+.copy { position: relative; z-index: 2; text-align: center; color: #4a3428; }
+.opening { display: grid; justify-items: center; }
+.cross { display: block; width: clamp(42px, 5vw, 62px); height: clamp(56px, 6vw, 74px); object-fit: contain; object-position: center; margin: 0 auto 9px; filter: drop-shadow(0 0 13px rgba(214,168,99,.42)); }
+.scripture { margin: 0; font-family: Georgia, serif; font-size: clamp(13px, 1.25vw, 18px); line-height: 1.55; }.scripture span { display: block; margin-top: 5px; font-size: .88em; }
+.topOrnament { margin: 10px auto 8px; opacity: .85; }.greeting { margin: 0; color: #765435; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; }
+.copy h1 { margin: 12px 0 8px; font-family: "Cormorant Garamond", Georgia, serif; color: #603a19; font-size: clamp(43px, 5.1vw, 82px); font-weight: 500; line-height: .94; font-variant: small-caps; letter-spacing: .035em; }.copy h1 span { font-style: italic; font-weight: 400; }
+.divider { margin: 2px auto 10px; }.date { margin: 0; color: #70413e; font-family: Georgia, serif; font-size: clamp(12px, 1.25vw, 17px); letter-spacing: .38em; text-transform: uppercase; }.heart { margin: 9px 0 7px; color: #a8783c; font-size: 28px; line-height: 1; }
+.countdown { display: grid; grid-template-columns: repeat(4, 1fr); max-width: 485px; margin: 0 auto; }.countdown > div { border-left: 1px solid rgba(168,138,85,.58); }.countdown > div:first-child { border-left: 0; }.countdown strong { display: block; font-family: "Cormorant Garamond", Georgia, serif; font-size: clamp(28px, 3.5vw, 55px); font-weight: 500; line-height: 1; }.countdown span { display: block; margin-top: 5px; color: #765435; font-family: Georgia, serif; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; }.personalGreeting { margin: 14px 0 0; color: #765435; font-family: Georgia, serif; font-size: 13px; font-style: italic; }
+.arch { position: relative; z-index: 2; justify-self: center; filter: drop-shadow(0 22px 20px rgba(66,43,27,.2)); }
+@media (max-width: 760px) {
+  .heroInvitation { min-height: 0; grid-template-columns: 1fr; gap: 10px; padding: 22px 18px 168px; }
+  .copy { display: contents; }
+  .opening { grid-row: 1; }
+  .arch { grid-row: 2; width: min(62vw, 310px) !important; }
+  .details { grid-row: 3; position: relative; z-index: 2; text-align: center; color: #4a3428; }
+  .cross { width: 45px; height: 54px; margin-bottom: 4px; }
+  .scripture { font-size: 12px; }
+  .greeting, .personalGreeting { display: none; }
+  .copy h1 { font-size: clamp(42px, 12vw, 60px); }
+  .date { font-size: 10px; letter-spacing: .25em; }
+  .countdown { max-width: 330px; }
+  .countdown strong { font-size: 35px; }
+  .countdown span { font-size: 8px; letter-spacing: .12em; }
+}

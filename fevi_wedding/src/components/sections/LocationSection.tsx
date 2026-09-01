@@ -172,7 +172,7 @@ export default function LocationSection() {
         ================================================== */}
 
         <motion.a
-          href="https://www.google.com/maps"
+          href="https://www.google.com/maps/search/?api=1&query=Friendship+Park%2C+Addis+Ababa%2C+Ethiopia"
           target="_blank"
           rel="noopener noreferrer"
           className="location-section__button"

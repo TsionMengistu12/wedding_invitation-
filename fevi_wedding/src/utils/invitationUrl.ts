@@ -1,5 +1,11 @@
 export function normalizeInvitationToken(token: string): string {
-  return decodeURIComponent(token.trim());
+  const trimmed = token.trim();
+
+  try {
+    return decodeURIComponent(trimmed);
+  } catch {
+    return trimmed;
+  }
 }
 
 export function getInvitationUrl(token: string): string {

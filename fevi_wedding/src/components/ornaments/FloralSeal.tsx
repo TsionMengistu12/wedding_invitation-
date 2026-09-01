@@ -60,7 +60,7 @@ export default function FloralSeal({
       aria-hidden={label ? undefined : true}
     >
       <img
-        src="/images/ornaments/floral-seal.png"
+        src="/ornaments/floral-seal.png"
         alt=""
         className={styles.image}
       />

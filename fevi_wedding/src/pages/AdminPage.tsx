@@ -4,11 +4,13 @@ import { supabase } from "../lib/supabase";
 import GuestUpload from "../components/GuestUpload";
 import WishModeration from "../components/WishModeration";
 import "../styles/admin.css";
+import type { AnnouncementType } from "../types/invitation";
 
 export default function AdminPage() {
   const navigate = useNavigate();
 
   const [loading, setLoading] = useState(true);
+  const [announcementType, setAnnouncementType] = useState<AnnouncementType>("bride");
 
   useEffect(() => {
     async function checkAccess() {
@@ -47,13 +49,20 @@ export default function AdminPage() {
   return (
     <main className="admin-page">
       <header className="admin-header">
-        <h1 className="admin-brand">Fevi &amp; Dawit <span className="admin-label">INVITATION STUDIO</span></h1>
+        <h1 className="admin-brand">
+          Fevi &amp; Abenezer <span className="admin-label">INVITATION</span>
+        </h1>
 
-        <button className="admin-logout" onClick={handleLogout}>Logout</button>
+        <button className="admin-logout" onClick={handleLogout}>
+          Logout
+        </button>
       </header>
 
       <div className="admin-content admin-workspace">
-        <GuestUpload />
+        <GuestUpload
+          announcementType={announcementType}
+          onAnnouncementTypeChange={setAnnouncementType}
+        />
         <WishModeration />
       </div>
     </main>

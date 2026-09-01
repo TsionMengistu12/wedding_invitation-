@@ -29,7 +29,7 @@ export default function TopDecorator({
       style={{ "--ornament-max-width": maxWidth } as React.CSSProperties}
     >
       <img
-        src="/images/ornaments/top-decorator.png"
+        src="/ornaments/top-decorator.png"
         alt={alt}
         aria-hidden={alt ? undefined : true}
         className={styles.image}

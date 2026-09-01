@@ -1,0 +1,1 @@
+export type AnnouncementType = "bride" | "groom";

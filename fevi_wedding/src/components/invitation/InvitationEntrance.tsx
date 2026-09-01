@@ -38,10 +38,7 @@ export default function InvitationEntrance({
         />
 
         <div className="invitation-entrance__card-shell">
-          <InvitationCard
-            guestName={guestName}
-            invitationUrl={invitationUrl}
-          />
+          <InvitationCard guestName={guestName} invitationUrl={invitationUrl} />
         </div>
 
         <img

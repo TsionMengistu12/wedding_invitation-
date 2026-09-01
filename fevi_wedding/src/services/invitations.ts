@@ -1,22 +1,22 @@
 import { supabase } from "../lib/supabase";
+import type { GuestUploadRow } from "../types/guest";
 
-interface GuestUploadRow {
-  name: string;
-  guest_limit: number;
-}
-
-export async function createInvitations(
+export async function createGuests(
   guests: GuestUploadRow[]
 ) {
   const { data, error } = await supabase.rpc(
-    "create_invitations",
+    "create_guests",
     {
-      invitations: guests,
+      guest_rows: guests,
     }
   );
 
   if (error) {
-    throw error;
+    throw new Error(`Guest creation failed: ${error.message}`);
+  }
+
+  if (!Array.isArray(data)) {
+    throw new Error("Guest creation returned an invalid response.");
   }
 
   return data;

@@ -3,14 +3,14 @@
    ========================================================= */
 
 .wishes-section {
-  --ivory: #f0e0d0;
-  --cream: #f7ebdd;
-  --parchment: #e8d4bd;
-  --gold: #c99a5b;
-  --light-gold: #d8b27a;
+  --ivory: #f5ebdd;
+  --cream: #fbf6ea;
+  --parchment: #e9d8bf;
+  --gold: #b8873e;
+  --light-gold: #d4ad6a;
   --burgundy: #641010;
-  --burgundy-light: #7a2424;
-  --brown: #4a3529;
+  --burgundy-light: #7d2525;
+  --brown: #704a2b;
 
   position: relative;
   width: 100%;

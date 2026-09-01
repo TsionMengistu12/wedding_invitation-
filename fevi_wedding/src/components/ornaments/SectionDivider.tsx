@@ -43,7 +43,7 @@ export default function SectionDivider({
       aria-hidden={label ? undefined : true}
     >
       <img
-        src="/images/ornaments/section-divider.png"
+        src="/ornaments/section-divider.png"
         alt=""
         className={styles.image}
       />

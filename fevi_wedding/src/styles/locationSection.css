@@ -6,16 +6,16 @@
   /*
    * Your existing invitation palette
    */
-  --parchment: #f1ebd8;
-  --surface: #faf7ee;
-  --cream: #e8dfc9;
-  --gold: #a88a55;
-  --ochre: #c19a4b;
-  --brown: #765435;
-  --deep-brown: #4a3428;
-  --espresso: #302623;
-  --burgundy: #70413e;
-  --sage: #777762;
+  --parchment: #e9d8bf;
+  --surface: #fbf6ea;
+  --cream: #efe2cc;
+  --gold: #b8873e;
+  --ochre: #8e642c;
+  --brown: #704a2b;
+  --deep-brown: #422b1b;
+  --espresso: #422b1b;
+  --burgundy: #641010;
+  --sage: #8b7a5d;
 
   position: relative;
 

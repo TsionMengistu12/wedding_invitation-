@@ -1,0 +1,117 @@
+.container {
+  position: relative;
+
+  width: var(--arch-width);
+  max-width: var(--arch-max-width);
+
+  aspect-ratio: 408 / 612;
+
+  flex-shrink: 0;
+
+  line-height: 0;
+}
+
+
+/* ============================================
+   PHOTOGRAPH
+   ============================================ */
+
+.photoWrapper {
+  position: absolute;
+
+  /*
+   * The PNG has a small amount of transparent
+   * space around the actual gold frame.
+   */
+  top: var(--arch-image-inset);
+  left: var(--arch-image-inset);
+
+  right: var(--arch-image-inset);
+  bottom: var(--arch-image-inset);
+
+  overflow: hidden;
+
+  /*
+   * This creates the basic arch shape
+   * underneath your transparent frame.
+   */
+  /* The top curve is a true semicircle: its vertical radius is
+     half the image width (33.333% of this 2:3 inner rectangle). */
+  border-radius: 50% 50% 0 0 / 33.333% 33.333% 0 0;
+
+  z-index: 1;
+
+  /* Align the photograph close to the inside edge of the supplied arch. */
+  box-shadow: inset 0 0 0 1px rgba(184, 135, 62, 0.22);
+}
+
+
+.photo {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  object-position: center;
+
+  display: block;
+
+  user-select: none;
+}
+
+
+/* ============================================
+   ARCH FRAME
+   ============================================ */
+
+.frame {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  z-index: 2;
+
+  pointer-events: none;
+
+  user-select: none;
+}
+
+
+/* ============================================
+   TABLET
+   ============================================ */
+
+@media (max-width: 900px) {
+  .container {
+    width: min(42vw, 400px);
+  }
+}
+
+
+/* ============================================
+   MOBILE
+   ============================================ */
+
+@media (max-width: 600px) {
+  .container {
+    width: min(72vw, 340px);
+
+    max-width: none;
+  }
+}
+
+
+/* ============================================
+   SMALL PHONES
+   ============================================ */
+
+@media (max-width: 380px) {
+  .container {
+    width: 76vw;
+  }
+}
