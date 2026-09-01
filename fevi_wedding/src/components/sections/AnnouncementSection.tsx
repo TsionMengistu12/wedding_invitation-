@@ -16,8 +16,8 @@ const announcementContent = {
     father: "Mr Semaw Nigatu",
   },
   groom: {
-    mother: "Mrs ",
-    father: "Mr Alemayehu",
+    mother: "Mrs Almaz Hailu",
+    father: "Mr Alemayehu Ayele",
   },
 };
 
@@ -33,7 +33,7 @@ export default function AnnouncementSection({
         className="announcement-section__content"
         initial={{
           opacity: 0,
-          y: 40,
+          y: 28,
         }}
         whileInView={{
           opacity: 1,
@@ -44,13 +44,10 @@ export default function AnnouncementSection({
           amount: 0.2,
         }}
         transition={{
-          duration: 1,
-          ease: "easeOut",
+          duration: 0.9,
+          ease: [0.22, 1, 0.36, 1],
         }}
       >
-        {/* Cross
-        <div className="announcement-section__cross">✝</div> */}
-
         {/* Introduction */}
         <p className="announcement-section__intro">
           We joyfully announce

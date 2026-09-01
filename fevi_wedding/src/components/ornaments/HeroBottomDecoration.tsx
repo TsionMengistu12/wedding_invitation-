@@ -29,12 +29,12 @@ export default function HeroBottomDecoration({
         alt=""
         draggable={false}
       />
-      {/* <img
+      <img
         className={styles.seal}
-        src="/ornaments/floral-seal.png"
+        src="/ornaments/cross_seal.png"
         alt=""
         draggable={false}
-      /> */}
+      />
     </div>
   );
 }

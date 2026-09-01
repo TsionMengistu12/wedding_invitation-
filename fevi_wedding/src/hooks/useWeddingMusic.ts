@@ -113,7 +113,11 @@ export function useWeddingMusic({
       return;
     }
 
-    if (audio.muted) {
+    if (audio.paused) {
+      audio.muted = false;
+      setIsMuted(false);
+      await play();
+    } else if (audio.muted) {
       audio.muted = false;
       setIsMuted(false);
 

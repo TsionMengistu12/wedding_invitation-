@@ -2,30 +2,20 @@
 
 import { motion } from "framer-motion";
 import { Church, MapPin, Navigation } from "lucide-react";
+// import LocationFlower from "../ornaments/LocationFlower";
+import SectionDivider from "../ornaments/SectionDivider";
+
+import styles from "../invitation/InvitationEntrance.module.css";
 
 export default function LocationSection() {
   return (
     <section className="location-section">
       {/* =====================================================
-          DECORATIVE BOTANICAL BRANCHES
-
-          These can later be replaced with the ornament PNG/SVG
-          files you already prepared.
+          DECORATIVE FLORAL ORNAMENTS
       ====================================================== */}
 
-      <img
-        src="/images/ornaments/location-left-branch.svg"
-        alt=""
-        aria-hidden="true"
-        className="location-section__branch location-section__branch--left"
-      />
-
-      <img
-        src="/images/ornaments/location-right-branch.svg"
-        alt=""
-        aria-hidden="true"
-        className="location-section__branch location-section__branch--right"
-      />
+      {/* <LocationFlower side="left" />
+      <LocationFlower side="right" /> */}
 
       {/* =====================================================
           MAIN CONTENT
@@ -56,12 +46,13 @@ export default function LocationSection() {
 
         <div className="location-section__heading">
           <h2>The Day</h2>
+          <SectionDivider className={styles.divider} maxWidth="400px" />
 
-          <div className="location-section__heading-divider">
+          {/* <div className="location-section__heading-divider">
             <span />
             <span className="location-section__diamond">◆</span>
             <span />
-          </div>
+          </div> */}
         </div>
 
         {/* =================================================
@@ -107,7 +98,9 @@ export default function LocationSection() {
 
             <h3>Morning Church Ceremony</h3>
 
-            <p className="location-card__time">9:00 AM</p>
+            <p className="location-card__time">
+              4:00 AM <br /> morning 10:00 Local Time
+            </p>
 
             <p className="location-card__address">
               CMC Debre Mitmak Sealite Mihret Church
@@ -125,11 +118,20 @@ export default function LocationSection() {
             aria-hidden="true"
           >
             <span className="divider-line" />
+            <span className="divider-ornament">❦</span>
+            <span className="divider-line" />
+          </div>
+
+          {/* <div
+            className="location-section__vertical-divider"
+            aria-hidden="true"
+          >
+            <span className="divider-line" />
 
             <span className="divider-ornament">❦</span>
 
             <span className="divider-line" />
-          </div>
+          </div> */}
 
           {/* =================================================
               RECEPTION VENUE
@@ -159,7 +161,9 @@ export default function LocationSection() {
 
             <h3>Reception Venue</h3>
 
-            <p className="location-card__time">11:00 AM</p>
+            <p className="location-card__time">
+              5:00 PM <br /> After noon 11:00 Local Time
+            </p>
 
             <p className="location-card__venue">Friendship Park</p>
 

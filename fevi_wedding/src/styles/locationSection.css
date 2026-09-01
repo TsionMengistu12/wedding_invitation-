@@ -26,7 +26,7 @@
   /*
    * Keep the section compact like the reference.
    */
-  padding: 34px 80px 38px;
+  padding: 55px 25px 50px;
 
   display: flex;
 
@@ -45,12 +45,8 @@
    * replace this with your texture file.
    */
   background:
-    radial-gradient(
-      circle at center,
-      rgba(255, 255, 255, 0.3),
-      transparent 65%
-    ),
-    var(--parchment);
+    linear-gradient(rgba(233, 216, 191, 0.72), rgba(251, 246, 234, 0.72)),
+    url("/ornaments/background.jpg") center / cover no-repeat;
 }
 
 
@@ -58,21 +54,7 @@
    SUBTLE BORDER
    ============================================================ */
 
-.location-section::before {
-  content: "";
-
-  position: absolute;
-
-  inset: 5px 0;
-
-  border-top: 1px solid
-    rgba(168, 138, 85, 0.25);
-
-  border-bottom: 1px solid
-    rgba(168, 138, 85, 0.25);
-
-  pointer-events: none;
-}
+.location-section::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(circle at center, rgba(255,255,255,.28), transparent 65%); }
 
 
 /* ============================================================
@@ -148,22 +130,18 @@
 .location-section__heading h2 {
   margin: 0;
 
-  color: var(--deep-brown);
+  color: var(--burgundy);
 
-  font-family:
-    "Cormorant Garamond",
-    Georgia,
-    serif;
+  font-family: var(--font-display);
 
   font-size: 29px;
 
-  font-weight: 500;
+  font-weight: 700;
 
-  font-variant: small-caps;
-
-  letter-spacing: 0.09em;
+  letter-spacing: 0.08em;
 
   line-height: 1;
+  text-transform: uppercase;
 }
 
 
@@ -268,18 +246,14 @@
 
   color: var(--burgundy);
 
-  font-family:
-    "Cormorant Garamond",
-    Georgia,
-    serif;
+  font-family: var(--font-display);
 
   font-size: 17px;
 
-  font-weight: 500;
-
-  font-variant: small-caps;
+  font-weight: 600;
 
   letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
 
@@ -292,14 +266,12 @@
 
   color: var(--deep-brown);
 
-  font-family:
-    "Cormorant Garamond",
-    Georgia,
-    serif;
+  font-family: var(--font-body);
 
   font-size: 15px;
 
-  font-weight: 600;
+  font-weight: 500;
+  letter-spacing: 0.04em;
 }
 
 
@@ -312,14 +284,11 @@
 
   color: var(--deep-brown);
 
-  font-family:
-    "Cormorant Garamond",
-    Georgia,
-    serif;
+  font-family: var(--font-display);
 
   font-size: 15px;
 
-  font-weight: 500;
+  font-weight: 600;
 }
 
 
@@ -332,14 +301,12 @@
 
   color: var(--espresso);
 
-  font-family:
-    "Cormorant Garamond",
-    Georgia,
-    serif;
+  font-family: var(--font-body);
 
   font-size: 14px;
 
   line-height: 1.35;
+  letter-spacing: 0.02em;
 }
 
 
@@ -416,16 +383,14 @@
 
   text-decoration: none;
 
-  font-family:
-    "Cormorant Garamond",
-    Georgia,
-    serif;
+  font-family: var(--font-body);
 
-  font-size: 15px;
+  font-size: 13px;
 
-  font-variant: small-caps;
+  font-weight: 600;
 
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 
   transition:
     transform 200ms ease,
@@ -478,24 +443,10 @@
 
 @media (max-width: 700px) {
 
-  .location-section {
-    min-height: auto;
-
-    padding:
-      55px
-      25px
-      50px;
-  }
+  .location-section { min-height: auto; }
 
 
   /* Make the border slightly closer to the edge */
-
-  .location-section::before {
-    inset:
-      6px
-      10px;
-  }
-
 
   /* Smaller heading */
 
@@ -515,27 +466,22 @@
   }
 
 
-  /*
-   * Turn the desktop vertical divider
-   * into a horizontal divider.
-   */
-
   .location-section__vertical-divider {
-    width: 110px;
+    width: auto;
 
-    height: auto;
+    height: 88px;
 
-    flex-direction: row;
+    flex-direction: column;
 
-    gap: 8px;
+    gap: 7px;
   }
 
 
   .location-section__vertical-divider
   .divider-line {
-    width: auto;
+    width: 1px;
 
-    height: 1px;
+    height: auto;
 
     flex: 1;
   }
@@ -551,7 +497,6 @@
 
     line-height: 1.45;
   }
-
 
   /*
    * Don't let the botanical ornaments
@@ -586,4 +531,8 @@
 
     height: 42px;
   }
+}
+
+@media (min-width: 701px) {
+  .location-section { padding: 34px 80px 38px; }
 }

@@ -44,7 +44,7 @@
 
   align-items: center;
 
-  overflow: hidden;
+  overflow: clip;
 
   background:
     radial-gradient(
@@ -55,6 +55,9 @@
     );
 
   color: var(--primary-text);
+
+  touch-action: pan-y;
+  overscroll-behavior-y: auto;
 }
 
 
@@ -87,29 +90,7 @@
    TOP / BOTTOM FINE BORDERS
    ============================================================ */
 
-.gallery-section::before {
-  content: "";
-
-  position: absolute;
-
-  top: 7px;
-  bottom: 7px;
-
-  left: 0;
-  right: 0;
-
-  border-top:
-    1px solid
-    rgba(184, 135, 62, 0.3);
-
-  border-bottom:
-    1px solid
-    rgba(184, 135, 62, 0.3);
-
-  pointer-events: none;
-
-  z-index: 1;
-}
+.gallery-section::before { content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 1; background: linear-gradient(to bottom, rgba(233,216,191,.24), transparent 8%, transparent 92%, rgba(233,216,191,.24)); }
 
 
 /* ============================================================
@@ -397,18 +378,23 @@
 .gallery-main-photo {
   position: relative;
 
-  width: min(
-    920px,
-    88vw
-  );
+  width: min(920px, 88vw);
+
+  height: min(70vh, 760px);
+
+  min-height: 360px;
 
   margin: 0 auto;
 }
 
 .gallery-main-photo__button {
+  position: absolute;
+  inset: 0;
+
   display: block;
 
   width: 100%;
+  height: 100%;
 
   padding: 0;
 
@@ -417,6 +403,8 @@
   background: transparent;
 
   cursor: zoom-in;
+
+  overflow: hidden;
 }
 
 
@@ -426,19 +414,20 @@
 
 .gallery-main-photo__frame {
   position: relative;
-  display: block;
-  width: 100%;
-  min-height: 360px;
-  height: min(70vh, 760px);
 
-  /*
-   * IMPORTANT:
-   * No white frame around the photograph.
-   */
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
   padding: 0;
+
   background: transparent;
+
   border: none;
+
   box-shadow: none;
+
   overflow: hidden;
 }
 
@@ -454,10 +443,7 @@
   width: 100%;
   height: 100%;
 
-  /*
-   * Keep the full photograph visible and avoid center cropping.
-   */
-  object-fit: contain;
+  object-fit: cover;
 
   object-position: center;
 
@@ -466,7 +452,7 @@
     sepia(0.035);
 
   transition:
-    filter 400ms ease;
+    filter 500ms ease;
 }
 
 
@@ -1194,6 +1180,10 @@
       65px
       14px
       48px;
+
+    overflow: clip;
+    touch-action: pan-y;
+    overscroll-behavior-y: auto;
   }
 
 
@@ -1274,22 +1264,27 @@
      ---------------------------------------------- */
 
   .gallery-main-photo {
-    width: calc(
-      100vw - 42px
-    );
+     width: calc(100vw - 42px);
+
+  height: min(58vh, 470px);
+
+  min-height: 320px;
   }
 
 
   .gallery-main-photo__frame {
-    padding: 7px;
-    min-height: 320px;
-    height: min(58vh, 470px);
+    width: 100%;
+  height: 100%;
+
+  padding: 0;
   }
 
 
   .gallery-main-photo__image {
-    height: 100%;
-    min-height: 300px;
+    width: 100%;
+  height: 100%;
+
+  min-height: 0;
   }
 
 
@@ -1373,7 +1368,7 @@
 
 
   .gallery-thumbnail__frame {
-    padding: 4px;
+    padding: 0;
   }
 
 
@@ -1489,28 +1484,69 @@
 /* ============================================================
    VERY SMALL PHONES
    ============================================================ */
-
 @media (max-width: 380px) {
-
   .gallery-section {
-    padding-left: 10px;
-    padding-right: 10px;
+    overflow: clip;
+    touch-action: pan-y;
   }
-
 
   .gallery-main-photo {
-    width: calc(
-      100vw - 34px
-    );
-  }
+    width: calc(100vw - 34px);
 
-
-  .gallery-main-photo__image {
     height: 58vh;
 
     min-height: 290px;
   }
 
+  .gallery-main-photo__image {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  object-position: center;
+
+  filter:
+    saturate(0.94)
+    sepia(0.035);
+
+  transition:
+    filter 500ms ease,
+    transform 1.2s ease,
+    object-position 1.2s ease;
+
+  transform-origin: center bottom;
+}
+
+
+/* ============================================================
+   CENTER SLIDESHOW ZOOM
+   Zoom photographs toward the bottom-center
+   ============================================================ */
+
+.gallery-main-photo__image--bottom-center {
+  transform: scale(2);
+
+  object-position: center bottom;
+
+  transform-origin: center bottom;
+}
+
+
+/* ============================================================
+   IMAGE 2
+   Keep original framing
+   ============================================================ */
+
+.gallery-main-photo__image--normal {
+  transform: scale(1);
+
+  object-position: center center;
+
+  transform-origin: center center;
+}
 
   .gallery-thumbnail {
     flex-basis: 78px;
@@ -1518,10 +1554,8 @@
     max-width: 78px;
   }
 
-
   .gallery-main-photo__arrow {
     width: 38px;
-
     height: 38px;
   }
 }

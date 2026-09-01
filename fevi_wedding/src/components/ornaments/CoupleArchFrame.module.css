@@ -19,30 +19,19 @@
 .photoWrapper {
   position: absolute;
 
-  /*
-   * The PNG has a small amount of transparent
-   * space around the actual gold frame.
-   */
-  top: var(--arch-image-inset);
-  left: var(--arch-image-inset);
-
-  right: var(--arch-image-inset);
-  bottom: var(--arch-image-inset);
+  /* Match the frame's inner opening so the portrait reaches each inner edge. */
+  top: 12.2%;
+  left: 5.15%;
+  right: 5.15%;
+  bottom: 3.35%;
 
   overflow: hidden;
 
-  /*
-   * This creates the basic arch shape
-   * underneath your transparent frame.
-   */
-  /* The top curve is a true semicircle: its vertical radius is
-     half the image width (33.333% of this 2:3 inner rectangle). */
   border-radius: 50% 50% 0 0 / 33.333% 33.333% 0 0;
 
   z-index: 1;
 
-  /* Align the photograph close to the inside edge of the supplied arch. */
-  box-shadow: inset 0 0 0 1px rgba(184, 135, 62, 0.22);
+  box-shadow: none;
 }
 
 

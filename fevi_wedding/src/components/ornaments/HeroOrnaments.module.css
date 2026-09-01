@@ -1,68 +1,53 @@
-.container {
+.decoration {
   position: absolute;
-
-  left: 50%;
-  bottom: var(--hero-ornament-bottom);
-
-  transform: translateX(-50%);
-
-  width: var(--hero-ornament-width);
-  max-width: var(--hero-ornament-max-width);
-
-  z-index: 4;
-
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: clamp(250px, 28vw, 390px);
   pointer-events: none;
-
-  line-height: 0;
+  z-index: 4;
 }
 
-.image {
-  display: block;
-
+.band {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
   width: 100%;
   height: auto;
-
-  user-select: none;
+  /* The supplied artwork has transparent padding above and below the
+     band; preserve that proportion instead of stretching the texture. */
+  bottom: -15.1vw;
+  object-fit: contain;
+  object-position: center;
 }
 
+.seal {
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  width: var(--hero-seal-width);
+  max-width: 350px;
+  height: auto;
+  transform: translateX(-50%);
+  filter: drop-shadow(0 8px 8px rgba(74, 52, 40, 0.16));
+}
 
-/* ============================================
-   TABLET
-   ============================================ */
-
-@media (max-width: 900px) {
-  .container {
-    width: calc(
-      var(--hero-ornament-width)
-      * var(--hero-ornament-mobile-scale)
-    );
-
-    max-width: 90vw;
+@media (max-width: 760px) {
+  .decoration {
+    height: 230px;
   }
-}
 
-
-/* ============================================
-   MOBILE
-   ============================================ */
-
-@media (max-width: 600px) {
-  .container {
-    width: 95vw;
-
-    max-width: none;
-
+  .band {
     bottom: -3px;
+    left: 50%;
+    width: 165%;
+    min-width: 620px;
+    transform: translateX(-50%);
   }
-}
 
-
-/* ============================================
-   VERY SMALL PHONES
-   ============================================ */
-
-@media (max-width: 380px) {
-  .container {
-    width: 105vw;
+  .seal {
+    bottom: -6px;
+    width: min(52vw, 230px);
   }
 }

@@ -1,75 +1,44 @@
 "use client";
-
 import { useEffect } from "react";
+import { Play, Volume2, VolumeX } from "lucide-react";
 import { useWeddingMusic } from "../../hooks/useWeddingMusic";
 import styles from "./WeddingMusic.module.css";
-
 export default function WeddingMusic() {
   const { isPlaying, isMuted, toggleMute, play } = useWeddingMusic({
-    src: "/music/Yehen_Laderege.ogg",
+    src: "https://ovkrkjdlqqxaqyjcsjtz.supabase.co/storage/v1/object/sign/fevi_wedding_media/music/Yhen_Laderege.mp3?token=eyJraWQiOiI4ZTg0OTI1MC03MzAyLTQ4OTYtYjgwNS1iZWU3ZTdlNTJkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmZXZpX3dlZGRpbmdfbWVkaWEvbXVzaWMvWWhlbl9MYWRlcmVnZS5tcDMiLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzg4MjU0MDg5LCJleHAiOjE4MDM4MDYwODl9.otZzHeAuNkI0WYCNWlDeakkSpLRrcTRmjhrXR2xmDSU",
     volume: 0.35,
   });
-
-  /**
-   * Start the music when the guest begins interacting
-   * with the invitation.
-   *
-   * We listen to several interaction types because
-   * desktop and mobile browsers behave differently.
-   */
   useEffect(() => {
-    let hasStarted = false;
-    let isStarting = false;
-
-    const removeListeners = () => {
-      window.removeEventListener("scroll", startMusic);
-      window.removeEventListener("wheel", startMusic);
-      window.removeEventListener("touchstart", startMusic);
-      window.removeEventListener("pointerdown", startMusic);
-      window.removeEventListener("keydown", startMusic);
+    let started = false;
+    const start = () => {
+      if (!started)
+        void play().then((ok) => {
+          started = ok;
+        });
     };
-
-    const startMusic = () => {
-      if (hasStarted || isStarting) {
-        return;
-      }
-
-      isStarting = true;
-
-      void play().then((didStart) => {
-        isStarting = false;
-        if (didStart) {
-          hasStarted = true;
-          removeListeners();
-        }
-      });
-    };
-
-    // wheel/touchstart happen before a corresponding scroll, so they retain
-    // the user gesture browsers require for audible playback.
-    window.addEventListener("scroll", startMusic, { passive: true });
-    window.addEventListener("wheel", startMusic, { passive: true });
-    window.addEventListener("touchstart", startMusic, { passive: true });
-    window.addEventListener("pointerdown", startMusic, { passive: true });
-    window.addEventListener("keydown", startMusic);
-
+    window.addEventListener("pointerdown", start, { passive: true });
+    window.addEventListener("touchstart", start, { passive: true });
+    window.addEventListener("wheel", start, { passive: true });
     return () => {
-      removeListeners();
+      window.removeEventListener("pointerdown", start);
+      window.removeEventListener("touchstart", start);
+      window.removeEventListener("wheel", start);
     };
   }, [play]);
-
+  const label = isMuted
+    ? "Turn music on"
+    : isPlaying
+      ? "Mute music"
+      : "Play music";
   return (
     <button
       type="button"
       className={styles.musicButton}
       onClick={toggleMute}
-      aria-label={isMuted ? "Turn wedding music on" : "Mute wedding music"}
+      aria-label={label}
+      title={label}
     >
-      <span className={styles.icon}>{isMuted ? "🔇" : "♪"}</span>
-
-      <span className={styles.text}>
-        {isPlaying ? (isMuted ? "Music Off" : "Playing") : "Play Music"}
-      </span>
+      {isMuted ? <VolumeX /> : isPlaying ? <Volume2 /> : <Play />}
     </button>
   );
 }

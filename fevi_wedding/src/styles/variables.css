@@ -27,8 +27,9 @@
   --sage: #6e6651;
 
   /* Typography */
-  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-display: "Playfair Display", Georgia, serif;
   --font-body: "Montserrat", Arial, sans-serif;
+  --font-script: "Dancing Script", "Segoe Script", cursive;
 
   /* Shadows */
   --shadow-soft:

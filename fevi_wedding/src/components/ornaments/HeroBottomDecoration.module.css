@@ -35,8 +35,10 @@
 
 @media (max-width: 760px) {
   .decoration {
-    height: 230px;
+    height: 142px;
   }
+
+  .band { bottom: -6vw; min-width: 620px; left: 50%; width: 165%; transform: translateX(-50%); }
 
   .seal {
     bottom: -6px;

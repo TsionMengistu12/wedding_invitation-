@@ -1,0 +1,40 @@
+.flower {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+  user-select: none;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 18px rgba(66, 43, 27, 0.08));
+}
+
+.left {
+  left: -18px;
+  top: -18px;
+  width: clamp(180px, 18vw, 260px);
+  transform: rotate(-2deg);
+}
+
+.right {
+  right: -16px;
+  top: -18px;
+  width: clamp(180px, 18vw, 260px);
+  transform: scaleX(-1) rotate(-2deg);
+}
+
+@media (max-width: 700px) {
+  .flower {
+    opacity: 0.8;
+    width: clamp(120px, 30vw, 170px);
+  }
+
+  .left {
+    left: -24px;
+    top: 4px;
+  }
+
+  .right {
+    right: -24px;
+    top: 4px;
+  }
+}

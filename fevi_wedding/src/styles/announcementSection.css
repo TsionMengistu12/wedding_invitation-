@@ -7,7 +7,7 @@
 
   background:
     linear-gradient(rgba(250, 247, 238, 0.32), rgba(250, 247, 238, 0.32)),
-    url("/ornaments/announcement_background.png") center / cover no-repeat;
+    url("https://ovkrkjdlqqxaqyjcsjtz.supabase.co/storage/v1/object/sign/fevi_wedding_media/ornament/announcement_background.png?token=eyJraWQiOiI4ZTg0OTI1MC03MzAyLTQ4OTYtYjgwNS1iZWU3ZTdlNTJkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmZXZpX3dlZGRpbmdfbWVkaWEvb3JuYW1lbnQvYW5ub3VuY2VtZW50X2JhY2tncm91bmQucG5nIiwic2NvcGUiOiJkb3dubG9hZCIsImlhdCI6MTc4ODMwMTEyOSwiZXhwIjoxODAzODUzMTI5fQ.nof343e41VQFRZ8mSaLwy9q__39vXuguyN6gVXU9EgU") center / cover no-repeat;
 
   color: var(--espresso);
 
@@ -22,6 +22,10 @@
    * the screen edges.
    */
   overflow: hidden;
+
+  /* A shared gold edge makes the handoff from the hero feel continuous. */
+  border-top: 1px solid rgba(184, 135, 62, 0.22);
+  scroll-margin-top: 24px;
 }
 
 
@@ -52,10 +56,8 @@
 /* Introduction */
 
 .announcement-section__intro {
-  font-family:
-    "Cormorant Garamond",
-    Georgia,
-    serif;
+  font-family: var(--font-display);
+  font-weight: 400;
 
   font-size: clamp(
     19px,
@@ -79,10 +81,7 @@
 
   color: var(--burgundy);
 
-  font-family:
-    "Cormorant Garamond",
-    Georgia,
-    serif;
+  font-family: var(--font-script);
 
   font-size: clamp(
     36px,
@@ -90,7 +89,7 @@
     58px
   );
 
-  font-weight: 400;
+  font-weight: 600;
 
   line-height: 1;
 }
@@ -101,12 +100,11 @@
 
   color: var(--ochre);
 
-  font-family:
-    "Cormorant Garamond",
-    Georgia,
-    serif;
+  font-family: var(--font-script);
 
   font-size: 32px;
+
+  font-weight: 500;
 
   font-style: italic;
 }
@@ -119,10 +117,9 @@
 
   max-width: 700px;
 
-  font-family:
-    "Cormorant Garamond",
-    Georgia,
-    serif;
+  font-family: var(--font-display);
+
+  font-weight: 400;
 
   font-size: clamp(
     16px,
@@ -146,10 +143,9 @@
 .announcement-section__gratitude {
   margin-top: 22px;
 
-  font-family:
-    "Cormorant Garamond",
-    Georgia,
-    serif;
+  font-family: var(--font-display);
+
+  font-weight: 400;
 
   font-size: 22px;
 
@@ -162,12 +158,11 @@
 
   color: var(--burgundy);
 
-  font-family:
-    "Cormorant Garamond",
-    Georgia,
-    serif;
+  font-family: var(--font-display);
 
   font-size: 26px;
+
+  font-weight: 500;
 }
 
 

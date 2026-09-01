@@ -46,27 +46,27 @@ interface GalleryImage {
 const galleryImages: GalleryImage[] = [
   {
     id: 1,
-    src: "/couple/center.JPG",
+    src: "https://ovkrkjdlqqxaqyjcsjtz.supabase.co/storage/v1/object/sign/fevi_wedding_media/couple/center.JPG?token=eyJraWQiOiI4ZTg0OTI1MC03MzAyLTQ4OTYtYjgwNS1iZWU3ZTdlNTJkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmZXZpX3dlZGRpbmdfbWVkaWEvY291cGxlL2NlbnRlci5KUEciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzg4MjUxMTEyLCJleHAiOjE4MDM4MDMxMTJ9.Y41WW2nzuRWAJaQxRaMvuWMrFm7KI8bTXhvy58TFCic",
     alt: "Feven and Abenezer",
   },
   {
     id: 2,
-    src: "/couple/one.JPG",
+    src: "https://ovkrkjdlqqxaqyjcsjtz.supabase.co/storage/v1/object/sign/fevi_wedding_media/couple/one.JPG?token=eyJraWQiOiI4ZTg0OTI1MC03MzAyLTQ4OTYtYjgwNS1iZWU3ZTdlNTJkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmZXZpX3dlZGRpbmdfbWVkaWEvY291cGxlL29uZS5KUEciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzg4MjUxNDM4LCJleHAiOjE4MDM4MDM0Mzh9.g3siWkEuG5Xc0FhS2IfClA0-mOwg50AemL4bHE23ssw",
     alt: "Feven and Abenezer",
   },
   {
     id: 3,
-    src: "/couple/two.JPG",
+    src: "https://ovkrkjdlqqxaqyjcsjtz.supabase.co/storage/v1/object/sign/fevi_wedding_media/couple/three.JPG?token=eyJraWQiOiI4ZTg0OTI1MC03MzAyLTQ4OTYtYjgwNS1iZWU3ZTdlNTJkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmZXZpX3dlZGRpbmdfbWVkaWEvY291cGxlL3RocmVlLkpQRyIsInNjb3BlIjoiZG93bmxvYWQiLCJpYXQiOjE3ODgyNTE0NjksImV4cCI6MTgwMzgwMzQ2OX0.Ugp8fyLE21McW3WYmA0cjbS0wQ9ImYYKbx86MRfNYsg",
     alt: "Feven and Abenezer",
   },
   {
     id: 4,
-    src: "/couple/three.JPG",
+    src: "https://ovkrkjdlqqxaqyjcsjtz.supabase.co/storage/v1/object/sign/fevi_wedding_media/couple/two.JPG?token=eyJraWQiOiI4ZTg0OTI1MC03MzAyLTQ4OTYtYjgwNS1iZWU3ZTdlNTJkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmZXZpX3dlZGRpbmdfbWVkaWEvY291cGxlL3R3by5KUEciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzg4MjUxNTA0LCJleHAiOjE4MDM4MDM1MDR9.30oKs4rOwu-YXjMv-7PuUkglGAD2SGuxcvujLGclyBI",
     alt: "Feven and Abenezer",
   },
   {
     id: 5,
-    src: "/couple/four.JPG",
+    src: "https://ovkrkjdlqqxaqyjcsjtz.supabase.co/storage/v1/object/sign/fevi_wedding_media/couple/four.JPG?token=eyJraWQiOiI4ZTg0OTI1MC03MzAyLTQ4OTYtYjgwNS1iZWU3ZTdlNTJkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmZXZpX3dlZGRpbmdfbWVkaWEvY291cGxlL2ZvdXIuSlBHIiwic2NvcGUiOiJkb3dubG9hZCIsImlhdCI6MTc4ODI1MTUzMiwiZXhwIjoxODAzODAzNTMyfQ.QjvOHczRz7n1WX-gVKga_JRGOuO7KrZiYh1z4wAKmBw",
     alt: "Feven and Abenezer",
   },
 ];
@@ -81,6 +81,7 @@ export default function GallerySection() {
   // ----------------------------------------------------------
 
   const [activeIndex, setActiveIndex] = useState(0);
+  const [slideDirection, setSlideDirection] = useState<1 | -1>(1);
 
   // ----------------------------------------------------------
   // LIGHTBOX
@@ -98,27 +99,6 @@ export default function GallerySection() {
   const thumbnailsRef = useRef<HTMLDivElement | null>(null);
 
   // ==========================================================
-  // AUTOMATIC SLIDESHOW
-  // ==========================================================
-
-  useEffect(() => {
-    // Pause the automatic slideshow while the lightbox is open.
-    if (selectedIndex !== null) {
-      return;
-    }
-
-    const interval = window.setInterval(() => {
-      setActiveIndex((current) => {
-        return (current + 1) % galleryImages.length;
-      });
-    }, 5000);
-
-    return () => {
-      window.clearInterval(interval);
-    };
-  }, [selectedIndex]);
-
-  // ==========================================================
   // KEEP ACTIVE THUMBNAIL VISIBLE
   // ==========================================================
 
@@ -133,6 +113,22 @@ export default function GallerySection() {
       inline: "center",
     });
   }, [activeIndex]);
+
+  // Keep the gallery feeling alive without requiring guests to interact.
+  // The active thumbnail and progress line both derive from activeIndex, so
+  // they always move in lockstep with the centre photograph.
+  useEffect(() => {
+    if (selectedIndex !== null) {
+      return;
+    }
+
+    const timer = window.setInterval(() => {
+      setSlideDirection(1);
+      setActiveIndex((current) => (current + 1) % galleryImages.length);
+    }, 6000);
+
+    return () => window.clearInterval(timer);
+  }, [selectedIndex]);
 
   // ==========================================================
   // OPEN LIGHTBOX
@@ -159,6 +155,7 @@ export default function GallerySection() {
   // ==========================================================
 
   const showNext = () => {
+    setSlideDirection(1);
     setActiveIndex((current) => {
       return (current + 1) % galleryImages.length;
     });
@@ -169,6 +166,7 @@ export default function GallerySection() {
   // ==========================================================
 
   const showPrevious = () => {
+    setSlideDirection(-1);
     setActiveIndex((current) => {
       return current === 0 ? galleryImages.length - 1 : current - 1;
     });
@@ -207,6 +205,7 @@ export default function GallerySection() {
   // ==========================================================
 
   const selectPhoto = (index: number) => {
+    setSlideDirection(index >= activeIndex ? 1 : -1);
     setActiveIndex(index);
   };
 
@@ -287,7 +286,7 @@ export default function GallerySection() {
             CORNER DECORATIONS
         ----------------------------------------------------- */}
 
-        <div
+        {/* <div
           className="
             gallery-section__corner
             gallery-section__corner--left
@@ -301,7 +300,7 @@ export default function GallerySection() {
             gallery-section__corner--right
           "
           aria-hidden="true"
-        />
+        /> */}
 
         {/* ----------------------------------------------------
             MAIN CONTENT
@@ -368,7 +367,6 @@ export default function GallerySection() {
 
             <div className="gallery-main-photo">
               {/* Previous */}
-
               <button
                 type="button"
                 className="
@@ -380,10 +378,47 @@ export default function GallerySection() {
               >
                 <ChevronLeft size={27} strokeWidth={1.4} />
               </button>
-
               {/* Main image */}
+              {/* <AnimatePresence mode="wait">
+                <motion.button
+                  key={galleryImages[activeIndex].id}
+                  type="button"
+                  className="gallery-main-photo__button"
+                  onClick={() => openImage(activeIndex)}
+                  initial={{
+                    opacity: 0,
+                    x: `${slideDirection * 7}%`,
+                  }}
+                  animate={{
+                    opacity: 1,
+                    x: 0,
+                  }}
+                  exit={{
+                    opacity: 0,
+                    x: `${slideDirection * -7}%`,
+                  }}
+                  transition={{
+                    duration: 0.65,
+                    ease: "easeInOut",
+                  }}
+                  aria-label={`Open ${galleryImages[activeIndex].alt}`}
+                >
+                  <span className="gallery-main-photo__frame">
+                    <img
+                      src={galleryImages[activeIndex].src}
+                      alt={galleryImages[activeIndex].alt}
+                      className="gallery-main-photo__image"
+                    />
 
-              <AnimatePresence mode="wait">
+                    {/* Zoom indicator */}
+              {/* <span className="gallery-main-photo__zoom">
+                      <span>↗</span>
+                    </span>
+                  </span>
+                </motion.button>
+              </AnimatePresence> */}{" "}
+              */
+              <AnimatePresence initial={false}>
                 <motion.button
                   key={galleryImages[activeIndex].id}
                   type="button"
@@ -399,8 +434,10 @@ export default function GallerySection() {
                     opacity: 0,
                   }}
                   transition={{
-                    duration: 0.55,
-                    ease: "easeInOut",
+                    opacity: {
+                      duration: 1.1,
+                      ease: "easeInOut",
+                    },
                   }}
                   aria-label={`Open ${galleryImages[activeIndex].alt}`}
                 >
@@ -408,10 +445,12 @@ export default function GallerySection() {
                     <img
                       src={galleryImages[activeIndex].src}
                       alt={galleryImages[activeIndex].alt}
-                      className="gallery-main-photo__image"
+                      className={
+                        activeIndex === 1
+                          ? "gallery-main-photo__image gallery-main-photo__image--normal"
+                          : "gallery-main-photo__image gallery-main-photo__image--bottom-center"
+                      }
                     />
-
-                    {/* Zoom indicator */}
 
                     <span className="gallery-main-photo__zoom">
                       <span>↗</span>
@@ -419,9 +458,7 @@ export default function GallerySection() {
                   </span>
                 </motion.button>
               </AnimatePresence>
-
               {/* Next */}
-
               <button
                 type="button"
                 className="
@@ -498,11 +535,11 @@ export default function GallerySection() {
                 BOTTOM ORNAMENT
             ================================================== */}
 
-            <div className="gallery-bottom-ornament" aria-hidden="true">
+            {/* <div className="gallery-bottom-ornament" aria-hidden="true">
               <span />
               <b>✦</b>
               <span />
-            </div>
+            </div> */}
           </div>
         </motion.div>
       </section>

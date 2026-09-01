@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import type { FormEvent } from "react";
 import { Heart, PenLine, Send, X } from "lucide-react";
+import SectionDivider from "../ornaments/SectionDivider";
+
+import styles from "../invitation/InvitationEntrance.module.css";
 
 interface LeaveWishModalProps {
   isOpen: boolean;
@@ -18,7 +21,7 @@ export default function LeaveWishModal({
   onSubmit,
   defaultName = "",
   submitError = "",
-  cornerOrnament,
+  cornerOrnament = "/ornaments/wish_popup_corner.png",
   bottomOrnament,
 }: LeaveWishModalProps) {
   const [name, setName] = useState(defaultName);
@@ -117,62 +120,36 @@ export default function LeaveWishModal({
           <X size={18} strokeWidth={1.4} />
         </button>
 
-        <div className="wish-modal-texture" />
+        <div className="wish-modal-background" aria-hidden="true" />
 
         {cornerOrnament && (
-          <>
-            <img
-              src={cornerOrnament}
-              className="wish-corner wish-corner-top-left"
-              alt=""
-              aria-hidden="true"
-            />
-
-            <img
-              src={cornerOrnament}
-              className="wish-corner wish-corner-top-right"
-              alt=""
-              aria-hidden="true"
-            />
-
-            <img
-              src={cornerOrnament}
-              className="wish-corner wish-corner-bottom-left"
-              alt=""
-              aria-hidden="true"
-            />
-
-            <img
-              src={cornerOrnament}
-              className="wish-corner wish-corner-bottom-right"
-              alt=""
-              aria-hidden="true"
-            />
-          </>
+          <img
+            src={cornerOrnament}
+            className="wish-modal-border-ornament"
+            alt=""
+            aria-hidden="true"
+          />
         )}
 
-        <div className="wish-modal-content">
-          <header className="wish-modal-header">
-            <div className="wish-modal-title-icon">
-              <PenLine size={16} strokeWidth={1.35} />
-            </div>
+        <div className="wish-modal-scroll">
+          <div className="wish-modal-content">
+            <header className="wish-modal-header">
+              <div className="wish-modal-title-icon">
+                <PenLine size={16} strokeWidth={1.35} />
+              </div>
 
             <h2 id="leave-wish-title">Leave Your Wish</h2>
 
-            <div className="wish-modal-divider">
-              <span />
-              <Heart size={13} fill="currentColor" strokeWidth={1.2} />
-              <span />
-            </div>
+            <SectionDivider className={styles.divider} maxWidth="400px" />
 
             <p>
               Share your love and blessings
               <br />
               with the happy couple.
             </p>
-          </header>
+            </header>
 
-          <form className="wish-form" onSubmit={handleSubmit}>
+            <form className="wish-form" onSubmit={handleSubmit}>
             <div className="wish-field">
               <label htmlFor="wish-name">Your Name</label>
 
@@ -196,11 +173,11 @@ export default function LeaveWishModal({
                 value={message}
                 onChange={(event) => setMessage(event.target.value)}
                 placeholder="Write your wishes for the couple..."
-                maxLength={500}
+                maxLength={700}
                 required
               />
 
-              <span className="wish-character-count">{message.length}/500</span>
+              <span className="wish-character-count">{message.length}/700</span>
             </div>
 
             {submitError && (
@@ -224,13 +201,14 @@ export default function LeaveWishModal({
                 strokeWidth={1.3}
               />
             </button>
-          </form>
+            </form>
 
-          {bottomOrnament && (
-            <div className="wish-bottom-ornament">
-              <img src={bottomOrnament} alt="" aria-hidden="true" />
-            </div>
-          )}
+            {bottomOrnament && (
+              <div className="wish-bottom-ornament">
+                <img src={bottomOrnament} alt="" aria-hidden="true" />
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>

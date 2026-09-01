@@ -126,7 +126,13 @@ body {
    * Pull sections up so they begin appearing
    * while the cover fades out on scroll.
    */
-  margin-top: -35vh;
+  margin-top: 0;
+}
+
+/* Sections meet on the same pixel and use their texture/ornaments as the
+   transition, avoiding the pale hairlines caused by fractional rendering. */
+.invitation-sections > section {
+  margin-top: -1px;
 }
 
 
@@ -137,15 +143,20 @@ body {
 .invitation-hero {
   position: relative;
 
-  height: 165vh;
+  /*
+   * Mobile-first:
+   *
+   * Give the cover a little extra scroll distance.
+   * This gives Framer Motion enough room to move
+   * the invitation upward before AnnouncementSection
+   * takes over.
+   */
+  min-height: 118svh;
 
-  background:
-    url("/assets/ornaments/background1.jpg")
-    center / cover;
+  background: var(--parchment);
 
-  background-color: var(--parchment);
+  overflow: clip;
 }
-
 
 .invitation-hero__sticky {
   position: sticky;
@@ -154,7 +165,7 @@ body {
 
   width: 100%;
 
-  height: 100vh;
+  height: 100svh;
 
   display: flex;
 
@@ -162,13 +173,19 @@ body {
 
   justify-content: center;
 
-  padding: 24px;
-
   overflow: hidden;
 
-  transform-origin: center center;
+  transform-origin: center top;
 
-  will-change: transform, opacity;
+  will-change:
+    transform,
+    opacity;
+
+  /*
+   * Allow vertical touch scrolling to drive
+   * the invitation-opening motion.
+   */
+  touch-action: pan-y;
 }
 
 
@@ -835,13 +852,6 @@ body {
    TABLET
 ============================================================ */
 
-@media (max-width: 768px) {
-
-  .invitation-hero {
-    height: 155vh;
-  }
-
-
   .invitation-hero__sticky {
     padding: 16px;
   }
@@ -925,19 +935,20 @@ body {
   .scroll-indicator__line {
     height: 32px;
   }
-}
 
+@media (min-width: 900px) {
+  .invitation-hero {
+    min-height: 112vh;
+  }
+
+  .invitation-hero__sticky {
+    height: 100vh;
+  }
+}
 
 /* ============================================================
    SMALL PHONES
 ============================================================ */
-
-@media (max-width: 480px) {
-
-  .invitation-hero {
-    height: 150vh;
-  }
-
 
   .invitation-hero__sticky {
     padding: 10px;
