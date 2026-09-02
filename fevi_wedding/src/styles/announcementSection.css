@@ -80,6 +80,55 @@
   }
 }*/
 
+/* =========================================================
+   DARK MODE
+   ========================================================= */
+
+@media (prefers-color-scheme: dark) {
+  .announcement-section {
+    /*
+     * EXACTLY THE SAME BACKGROUND AS LIGHT MODE.
+     * No dark overlay.
+     * No color filter.
+     * No replacement image.
+     */
+    background:
+      linear-gradient(
+        to bottom,
+        rgba(241, 235, 216, 0.82) 0%,
+        rgba(250, 247, 238, 0.12) 20%,
+        rgba(250, 247, 238, 0.16) 100%
+      ),
+      url("https://ovkrkjdlqqxaqyjcsjtz.supabase.co/storage/v1/object/sign/fevi_wedding_media/ornament/announcement_background.png?token=eyJraWQiOiI4ZTg0OTI1MC03MzAyLTQ4OTYtYjgwNS1iZWU3ZTdlNTJkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmZXZpX3dlZGRpbmdfbWVkaWEvb3JuYW1lbnQvYW5ub3VuY2VtZW50X2JhY2tncm91bmQucG5nIiwic2NvcGUiOiJkb3dubG9hZCIsImlhdCI6MTc4ODM0NzIwNiwiZXhwIjoxNzkwOTM5MjA2fQ.-qIAVGHJloJBQws8d-QJ0xjUD5Zug3hUvhoI_ZHCWGw")
+      center / cover no-repeat;
+
+    background-position: center, center top;
+    background-size: 100% 100%, contain;
+    background-repeat: no-repeat, no-repeat;
+
+    background-color: #f1ebd8;
+
+    /*
+     * Keep dark-mode text colors.
+     */
+    color: #f0e0d0;
+  }
+
+  .announcement-section__intro,
+  .announcement-section__body,
+  .announcement-section__gratitude {
+    color: #e8d4bd;
+  }
+
+  .announcement-section__bride,
+  .announcement-section__groom,
+  .announcement-section__parent {
+    color: #d8b27a;
+  }
+}
+
+
+
 
 /* =========================================================
    CONTENT CONTAINER
