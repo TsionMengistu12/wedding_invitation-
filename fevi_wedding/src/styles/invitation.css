@@ -126,7 +126,9 @@ body {
    * Pull sections up so they begin appearing
    * while the cover fades out on scroll.
    */
-  margin-top: 0;
+  /* Overlap by one pixel to remove fractional-rendering seams between the
+     hero's gold separator and the announcement artwork. */
+  margin-top: -1px;
 }
 
 /* Sections meet on the same pixel and use their texture/ornaments as the
@@ -159,6 +161,25 @@ body {
     transform: none;
     transition: none;
   }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --parchment: #2c201a;
+    --ivory: #3a2921;
+    --cream: #2c201a;
+    --antique-gold: #d8b27a;
+    --ochre: #c99a5b;
+    --warm-brown: #bfa995;
+    --deep-brown: #f0e0d0;
+    --espresso: #f0e0d0;
+    --burgundy: #8a2929;
+  }
+
+  .invitation-page,
+  .invitation-hero { background: #211713; }
+
+  .invitation-loading { color: #f0e0d0; }
 }
 
 

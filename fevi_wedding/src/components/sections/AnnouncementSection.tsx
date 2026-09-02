@@ -67,7 +67,7 @@ export default function AnnouncementSection({
         {/* Wedding information */}
         <p className="announcement-section__body">
           who will be united in Holy Matrimony on{" "}
-          <strong>September 13, 2026 G.C.</strong>
+          <strong> September 13, 2026 G.C.</strong>
           at <strong>CMC Debre Mitmak Sealite Mihret Church.</strong>
         </p>
 
@@ -75,9 +75,8 @@ export default function AnnouncementSection({
         <p className="announcement-section__body">
           As they begin this beautiful journey together, we invite you{" "}
           <strong>{guestName} </strong>
-          to join us for a<strong>dinner celebration</strong> at{" "}
-          <strong>Friendship Park</strong> at <strong>11:00 Local Time,</strong>
-          following the Holy Matrimony.
+          to join us for a<strong> dinner celebration</strong> at{" "}
+          <strong>Friendship Park</strong> at <strong>11:00 Local Time.</strong>
         </p>
 
         <p className="announcement-section__body">
@@ -94,7 +93,7 @@ export default function AnnouncementSection({
         </p>
 
         <p className="announcement-section__parent">{parents.mother}</p>
-        <p className="announcement-section__and">And</p>
+        <p className="announcement-section__and">and</p>
         <p className="announcement-section__parent">{parents.father}</p>
       </motion.div>
     </section>

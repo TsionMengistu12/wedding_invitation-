@@ -46,27 +46,22 @@ interface GalleryImage {
 const galleryImages: GalleryImage[] = [
   {
     id: 1,
-    src: "https://ovkrkjdlqqxaqyjcsjtz.supabase.co/storage/v1/object/sign/fevi_wedding_media/couple/center.JPG?token=eyJraWQiOiI4ZTg0OTI1MC03MzAyLTQ4OTYtYjgwNS1iZWU3ZTdlNTJkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmZXZpX3dlZGRpbmdfbWVkaWEvY291cGxlL2NlbnRlci5KUEciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzg4MjUxMTEyLCJleHAiOjE4MDM4MDMxMTJ9.Y41WW2nzuRWAJaQxRaMvuWMrFm7KI8bTXhvy58TFCic",
+    src: "https://ovkrkjdlqqxaqyjcsjtz.supabase.co/storage/v1/object/sign/fevi_wedding_media/couple/one.JPG?token=eyJraWQiOiI4ZTg0OTI1MC03MzAyLTQ4OTYtYjgwNS1iZWU3ZTdlNTJkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmZXZpX3dlZGRpbmdfbWVkaWEvY291cGxlL29uZS5KUEciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzg4MzQ3MTAyLCJleHAiOjE3OTA5MzkxMDJ9.m4rTYVMu2uGeRK2_IJpBISh9xQS5HD6VqD8qFPTHyNA",
     alt: "Feven and Abenezer",
   },
   {
     id: 2,
-    src: "https://ovkrkjdlqqxaqyjcsjtz.supabase.co/storage/v1/object/sign/fevi_wedding_media/couple/one.JPG?token=eyJraWQiOiI4ZTg0OTI1MC03MzAyLTQ4OTYtYjgwNS1iZWU3ZTdlNTJkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmZXZpX3dlZGRpbmdfbWVkaWEvY291cGxlL29uZS5KUEciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzg4MjUxNDM4LCJleHAiOjE4MDM4MDM0Mzh9.g3siWkEuG5Xc0FhS2IfClA0-mOwg50AemL4bHE23ssw",
+    src: "https://ovkrkjdlqqxaqyjcsjtz.supabase.co/storage/v1/object/sign/fevi_wedding_media/couple/two.JPG?token=eyJraWQiOiI4ZTg0OTI1MC03MzAyLTQ4OTYtYjgwNS1iZWU3ZTdlNTJkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmZXZpX3dlZGRpbmdfbWVkaWEvY291cGxlL3R3by5KUEciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzg4MzQ3MTM1LCJleHAiOjE3OTA5MzkxMzV9.l3M6M8ssS1nLx5DDnn4wXQZoXtD0HcjlQOd15SH--VY",
     alt: "Feven and Abenezer",
   },
   {
     id: 3,
-    src: "https://ovkrkjdlqqxaqyjcsjtz.supabase.co/storage/v1/object/sign/fevi_wedding_media/couple/three.JPG?token=eyJraWQiOiI4ZTg0OTI1MC03MzAyLTQ4OTYtYjgwNS1iZWU3ZTdlNTJkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmZXZpX3dlZGRpbmdfbWVkaWEvY291cGxlL3RocmVlLkpQRyIsInNjb3BlIjoiZG93bmxvYWQiLCJpYXQiOjE3ODgyNTE0NjksImV4cCI6MTgwMzgwMzQ2OX0.Ugp8fyLE21McW3WYmA0cjbS0wQ9ImYYKbx86MRfNYsg",
+    src: "https://ovkrkjdlqqxaqyjcsjtz.supabase.co/storage/v1/object/sign/fevi_wedding_media/couple/three.JPG?token=eyJraWQiOiI4ZTg0OTI1MC03MzAyLTQ4OTYtYjgwNS1iZWU3ZTdlNTJkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmZXZpX3dlZGRpbmdfbWVkaWEvY291cGxlL3RocmVlLkpQRyIsInNjb3BlIjoiZG93bmxvYWQiLCJpYXQiOjE3ODgzNDcxNTMsImV4cCI6MTc5MDkzOTE1M30.qzrMbmkw3YvxKO2zdKzvqA4TAPo9tBiv6b837zHKljE",
     alt: "Feven and Abenezer",
   },
   {
     id: 4,
-    src: "https://ovkrkjdlqqxaqyjcsjtz.supabase.co/storage/v1/object/sign/fevi_wedding_media/couple/two.JPG?token=eyJraWQiOiI4ZTg0OTI1MC03MzAyLTQ4OTYtYjgwNS1iZWU3ZTdlNTJkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmZXZpX3dlZGRpbmdfbWVkaWEvY291cGxlL3R3by5KUEciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzg4MjUxNTA0LCJleHAiOjE4MDM4MDM1MDR9.30oKs4rOwu-YXjMv-7PuUkglGAD2SGuxcvujLGclyBI",
-    alt: "Feven and Abenezer",
-  },
-  {
-    id: 5,
-    src: "https://ovkrkjdlqqxaqyjcsjtz.supabase.co/storage/v1/object/sign/fevi_wedding_media/couple/four.JPG?token=eyJraWQiOiI4ZTg0OTI1MC03MzAyLTQ4OTYtYjgwNS1iZWU3ZTdlNTJkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmZXZpX3dlZGRpbmdfbWVkaWEvY291cGxlL2ZvdXIuSlBHIiwic2NvcGUiOiJkb3dubG9hZCIsImlhdCI6MTc4ODI1MTUzMiwiZXhwIjoxODAzODAzNTMyfQ.QjvOHczRz7n1WX-gVKga_JRGOuO7KrZiYh1z4wAKmBw",
+    src: "https://ovkrkjdlqqxaqyjcsjtz.supabase.co/storage/v1/object/sign/fevi_wedding_media/couple/four.JPG?token=eyJraWQiOiI4ZTg0OTI1MC03MzAyLTQ4OTYtYjgwNS1iZWU3ZTdlNTJkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmZXZpX3dlZGRpbmdfbWVkaWEvY291cGxlL2ZvdXIuSlBHIiwic2NvcGUiOiJkb3dubG9hZCIsImlhdCI6MTc4ODM0NzE2NSwiZXhwIjoxNzkwOTM5MTY1fQ.dbHi2a9eGftQFuLQ7gtD1B6oBcMXkYwQP7bW1IQ2R4s",
     alt: "Feven and Abenezer",
   },
 ];
@@ -103,7 +98,7 @@ export default function GallerySection() {
 
   useEffect(() => {
     const thumbnailStrip = thumbnailsRef.current;
-    const thumbnail = thumbnailStrip?.children[activeIndex] as
+    const thumbnail = thumbnailsRef.current?.children[activeIndex] as
       | HTMLElement
       | undefined;
 
@@ -111,12 +106,10 @@ export default function GallerySection() {
       return;
     }
 
-    // Only move the gallery's horizontal thumbnail strip. Using
-    // element.scrollIntoView() here can also scroll the document vertically,
-    // pulling a guest from the invitation down to this section when the
-    // slideshow advances automatically.
     const targetLeft =
-      thumbnail.offsetLeft + thumbnail.offsetWidth / 2 - thumbnailStrip.clientWidth / 2;
+      thumbnail.offsetLeft +
+      thumbnail.offsetWidth / 2 -
+      thumbnailStrip.clientWidth / 2;
 
     thumbnailStrip.scrollTo({
       left: Math.max(0, targetLeft),
@@ -124,9 +117,6 @@ export default function GallerySection() {
     });
   }, [activeIndex]);
 
-  // Keep the gallery feeling alive without requiring guests to interact.
-  // The active thumbnail and progress line both derive from activeIndex, so
-  // they always move in lockstep with the centre photograph.
   useEffect(() => {
     if (selectedIndex !== null) {
       return;

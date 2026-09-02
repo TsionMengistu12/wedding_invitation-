@@ -1573,3 +1573,25 @@
     transition: none;
   }
 }
+
+@media (prefers-color-scheme: dark) {
+  .gallery-section {
+    --primary-ivory: #3a2921;
+    --light-ivory: #2c201a;
+    --parchment: #2c201a;
+    --deep-parchment: #211713;
+    --champagne-gold: #d8b27a;
+    --antique-gold: #d8b27a;
+    --deep-gold: #c99a5b;
+    --primary-text: #f0e0d0;
+    --secondary-text: #e8d4bd;
+    --burgundy: #641010;
+    --wine: #8a2929;
+    --pearl: #3a2921;
+    --lace: #2c201a;
+    --lace-shadow: #654a38;
+    background: radial-gradient(ellipse at center, #3a2921, #211713 88%);
+  }
+
+  .gallery-section::before { background: linear-gradient(to bottom, rgba(216, 178, 122, 0.16), transparent 8%, transparent 92%, rgba(216, 178, 122, 0.12)); }
+}

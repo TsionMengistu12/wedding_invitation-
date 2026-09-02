@@ -6,6 +6,7 @@
 
 html {
   scroll-behavior: smooth;
+  color-scheme: light;
   /* scroll-padding-top: 16px; */
 }
 
@@ -50,4 +51,46 @@ a {
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
+
+/* An authored palette prevents browser colour adjustment from washing out the
+   invitation when a guest uses a dark system theme. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --parchment: #2c201a;
+    --deep-parchment: #211713;
+    --ivory: #3a2921;
+    --light-ivory: #3a2921;
+    --cream: #2c201a;
+    --pearl: #3a2921;
+    --lace-shadow: #654a38;
+    --gold: #d8b27a;
+    --champagne-gold: #d8b27a;
+    --ochre: #c99a5b;
+    --antique-gold: #d8b27a;
+    --brown: #e8d4bd;
+    --warm-brown: #bfa995;
+    --deep-brown: #f0e0d0;
+    --espresso: #f0e0d0;
+    --burgundy: #641010;
+    --wine: #8a2929;
+    --dusty-rose: #b56b67;
+    --border-gold: 1px solid rgba(216, 178, 122, 0.52);
+    --shadow-soft: 0 20px 60px rgba(0, 0, 0, 0.32);
+    --shadow-small: 0 8px 25px rgba(0, 0, 0, 0.25);
+  }
+
+  body {
+    background: radial-gradient(ellipse at center top, #2c201a 0%, #211713 100%);
+    color: #f0e0d0;
+  }
+
+  input,
+  textarea,
+  select {
+    background-color: #3a2921;
+    color: #f0e0d0;
+    border-color: rgba(216, 178, 122, 0.52);
+  }
 }
