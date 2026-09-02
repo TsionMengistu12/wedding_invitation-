@@ -163,7 +163,7 @@ body {
   }
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --parchment: #2c201a;
     --ivory: #3a2921;
@@ -180,7 +180,7 @@ body {
   .invitation-hero { background: #211713; }
 
   .invitation-loading { color: #f0e0d0; }
-}
+} */
 
 
 /* ============================================================

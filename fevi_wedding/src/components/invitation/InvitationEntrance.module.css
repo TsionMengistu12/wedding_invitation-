@@ -57,6 +57,8 @@
 /* ============================================================
    HERO
    MOBILE FIRST
+/* ============================================================
+  SOFT EDGE VIGNETTE
 ============================================================ */
 
 .heroInvitation {
@@ -109,54 +111,7 @@
 
 
 /* ============================================================
-   SOFT EDGE VIGNETTE
-============================================================ */
-
-.heroInvitation::before {
-  content: "";
-
-  position: absolute;
-
-  inset: 0;
-
-  pointer-events: none;
-
-  background:
-    linear-gradient(
-      90deg,
-      rgba(104, 66, 31, 0.08),
-      transparent 13%,
-      transparent 87%,
-      rgba(104, 66, 31, 0.08)
-    ),
-    radial-gradient(
-      ellipse at center,
-      transparent 52%,
-      rgba(95, 57, 28, 0.075)
-    );
-
-  mix-blend-mode: multiply;
-
-  z-index: -1;
-}
-
-/* The fade belongs to the invitation layer, so the copy, portrait, and
-   mobile countdown retain their full contrast above it. */
-.heroInvitation::after {
-  content: "";
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 0;
-  height: clamp(42px, 8vw, 108px);
-  pointer-events: none;
-  background: linear-gradient(to bottom, transparent, rgba(241, 235, 216, 0.72));
-}
-
-
-/* ============================================================
-   COPY
+  SOFT EDGE VIGNETTE
 ============================================================ */
 
 .copy {
@@ -998,20 +953,52 @@
   }
 }
 
+/* ============================================================
+   DARK MODE
+   ============================================================ */
+
 @media (prefers-color-scheme: dark) {
   .heroInvitation {
+    /*
+     * Keep the EXACT SAME background as light mode.
+     *
+     * No dark overlay.
+     * No dark gradient.
+     * Same image.
+     * Same positioning.
+     * Same sizing.
+     */
     background:
-      linear-gradient(rgba(33, 23, 19, 0.74), rgba(44, 32, 26, 0.88)),
-      url("/ornaments/background.jpg") center / cover no-repeat;
+      radial-gradient(
+        ellipse at 17% 17%,
+        rgba(255, 251, 239, 0.48),
+        transparent 32%
+      ),
+      linear-gradient(
+        rgba(255, 250, 239, 0.12),
+        rgba(235, 215, 181, 0.12)
+      ),
+      url("https://ovkrkjdlqqxaqyjcsjtz.supabase.co/storage/v1/object/sign/fevi_wedding_media/ornament/background.jpg?token=eyJraWQiOiI4ZTg0OTI1MC03MzAyLTQ4OTYtYjgwNS1iZWU3ZTdlNTJkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmZXZpX3dlZGRpbmdfbWVkaWEvb3JuYW1lbnQvYmFja2dyb3VuZC5qcGciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzg4Mjk5NTk3LCJleHAiOjE4MDM4NTE1OTd9.c_moB7KonQQG0Col2--WFd1KF1JQYJsh5yD3gBDq0UM")
+      center / cover no-repeat;
   }
 
-  .scripture,
+  /*
+   * Keep the existing dark-mode text colors.
+   * Nothing else is changed.
+   */
+  /* .scripture,
   .date,
-  .countdown strong { color: #f0e0d0; }
+  .countdown strong {
+    color: #f0e0d0;
+  }
 
   .scripture span,
   .countdown span,
-  .greeting { color: #bfa995; }
+  .greeting {
+    color: #bfa995;
+  }
 
-  .copy h1 { color: #d8b27a; }
+  .copy h1 {
+    color: #d8b27a;
+  } */
 }
