@@ -4,6 +4,7 @@
   position: relative;
   isolation: isolate;
   overflow: hidden;
+  margin-top: 24px;
   padding: 58px 18px 70px;
   background:
     linear-gradient(rgba(33, 23, 19, 0.84), rgba(44, 32, 26, 0.9)),
