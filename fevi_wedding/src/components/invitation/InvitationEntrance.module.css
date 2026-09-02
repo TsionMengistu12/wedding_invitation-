@@ -986,7 +986,7 @@
    * Keep the existing dark-mode text colors.
    * Nothing else is changed.
    */
-  .scripture,
+  /* .scripture,
   .date,
   .countdown strong {
     color: #f0e0d0;
@@ -1000,5 +1000,5 @@
 
   .copy h1 {
     color: #d8b27a;
-  }
+  } */
 }
