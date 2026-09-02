@@ -52,7 +52,7 @@
    DARK MODE
    ========================================================= */
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   .announcement-section {
     background-color: #2c201a;
 
@@ -71,14 +71,14 @@
   .announcement-section__body,
   .announcement-section__gratitude {
     color: #e8d4bd;
-  }
+  } 
 
   .announcement-section__bride,
   .announcement-section__groom,
   .announcement-section__parent {
     color: #d8b27a;
   }
-}
+}*/
 
 
 /* =========================================================
