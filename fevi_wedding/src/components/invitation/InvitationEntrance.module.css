@@ -568,7 +568,7 @@
 /* Phone proportions follow the invitation's editorial, single-column
    composition: every element remains visible without the portrait taking
    over the opening screen. */
-@media (max-width: 599px) {
+/* @media (max-width: 599px) {
   .heroInvitation {
     align-content: start;
     gap: 5px;
@@ -586,9 +586,9 @@
 
   .arch {
     /* Slightly wider on mobile while keeping the same arch proportions. */
-    width: min(72vw, 250px) !important;
-    max-width: 250px;
-  }
+    /* width: min(72vw, 250px) !important;
+    max-width: 250px; */
+  /* }
 
   .portrait {
     margin-top: -2px;
@@ -613,6 +613,107 @@
   .heroInvitation {
     gap: 4px;
     padding-inline: 14px;
+  }
+
+  .cross {
+    width: 36px;
+    height: 46px;
+  }
+
+  .arch {
+    width: min(70vw, 235px) !important;
+    max-width: 235px;
+  }
+
+  .copy h1 {
+    font-size: 46px;
+  }
+} */ 
+
+/* Phone proportions follow the invitation's editorial, single-column 
+   composition: every element remains visible without the portrait taking 
+   over the opening screen. */
+@media (max-width: 599px) {
+  .heroInvitation {
+    align-content: start;
+    gap: 3px;
+
+    padding:
+      max(24px, env(safe-area-inset-top))
+      18px
+      max(18px, env(safe-area-inset-bottom));
+  }
+
+  /* Keep the cross completely visible and above the other hero elements. */
+  .opening {
+    position: relative;
+    z-index: 5;
+    min-height: 82px;
+    overflow: visible;
+  }
+
+  .cross {
+    position: relative;
+    z-index: 6;
+
+    display: block;
+
+    width: 38px;
+    height: 48px;
+
+    object-fit: contain;
+    object-position: center;
+
+    margin:
+      0 auto
+      2px;
+
+    opacity: 1;
+    visibility: visible;
+
+    filter:
+      drop-shadow(
+        0 0 13px
+        rgba(212, 173, 106, 0.42)
+      );
+  }
+
+  .arch {
+    /*
+     * Wider horizontally on mobile so the photograph
+     * fills more of the available side space.
+     */
+    width: min(72vw, 250px) !important;
+    max-width: 250px;
+  }
+
+  .portrait {
+    margin-top: -3px;
+  }
+
+  .mobileHeart {
+    margin-top: 2px;
+    font-size: 22px;
+  }
+
+  .mobileCountdown strong {
+    font-size: clamp(29px, 7.8vw, 35px);
+  }
+
+  .mobileCountdown span {
+    font-size: 7px;
+    letter-spacing: 0.1em;
+  }
+}
+
+@media (max-width: 380px) {
+  .heroInvitation {
+    gap: 2px;
+    padding-inline: 14px;
+  }
+
+  .opening {
+    min-height: 78px;
   }
 
   .cross {
