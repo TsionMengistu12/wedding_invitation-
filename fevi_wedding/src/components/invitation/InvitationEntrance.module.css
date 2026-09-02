@@ -636,7 +636,7 @@
 @media (max-width: 599px) {
   .heroInvitation {
     align-content: start;
-    gap: 3px;
+    gap: 0;
 
     padding:
       max(24px, env(safe-area-inset-top))
@@ -688,7 +688,7 @@
   }
 
   .portrait {
-    margin-top: -3px;
+    margin-top: -12px;
   }
 
   .mobileHeart {
