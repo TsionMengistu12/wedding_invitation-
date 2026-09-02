@@ -423,7 +423,7 @@
   width: min(calc(100% + 36px), 520px);
   height: 18px;
   margin-top: 2px;
-  background: url("/ornaments/gold_band.png") center / cover no-repeat;
+  background: url("https://ovkrkjdlqqxaqyjcsjtz.supabase.co/storage/v1/object/sign/fevi_wedding_media/ornament/gold_band.png?token=eyJraWQiOiI4ZTg0OTI1MC03MzAyLTQ4OTYtYjgwNS1iZWU3ZTdlNTJkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmZXZpX3dlZGRpbmdfbWVkaWEvb3JuYW1lbnQvZ29sZF9iYW5kLnBuZyIsInNjb3BlIjoiZG93bmxvYWQiLCJpYXQiOjE3ODgzNDYxODgsImV4cCI6MTgwMzg5ODE4OH0.sVH9uq5szsxh2KSQEDLAumS1wTQUBiTnfw3genFPbRg") center / cover no-repeat;
   filter: drop-shadow(0 -1px 2px rgba(74, 52, 40, 0.13));
 }
 
@@ -571,16 +571,27 @@
 @media (max-width: 599px) {
   .heroInvitation {
     align-content: start;
-    gap: 8px;
+    gap: 5px;
     padding:
       max(24px, env(safe-area-inset-top))
       18px
       max(18px, env(safe-area-inset-bottom));
   }
 
+  .cross {
+    width: 38px;
+    height: 48px;
+    margin: 0 auto 2px;
+  }
+
   .arch {
-    /* 218 × 327px outer arch; its inner picture opening is about 196 × 276px. */
-    width: min(62vw, 218px) !important;
+    /* Slightly wider on mobile while keeping the same arch proportions. */
+    width: min(72vw, 250px) !important;
+    max-width: 250px;
+  }
+
+  .portrait {
+    margin-top: -2px;
   }
 
   .mobileHeart {
@@ -600,12 +611,18 @@
 
 @media (max-width: 380px) {
   .heroInvitation {
-    gap: 6px;
+    gap: 4px;
     padding-inline: 14px;
   }
 
+  .cross {
+    width: 36px;
+    height: 46px;
+  }
+
   .arch {
-    width: min(60vw, 208px) !important;
+    width: min(70vw, 235px) !important;
+    max-width: 235px;
   }
 
   .copy h1 {

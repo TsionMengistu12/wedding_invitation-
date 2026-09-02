@@ -46,22 +46,22 @@ interface GalleryImage {
 const galleryImages: GalleryImage[] = [
   {
     id: 1,
-    src: "couple/one.JPG",
+    src: "https://ovkrkjdlqqxaqyjcsjtz.supabase.co/storage/v1/object/sign/fevi_wedding_media/couple/one.JPG?token=eyJraWQiOiI4ZTg0OTI1MC03MzAyLTQ4OTYtYjgwNS1iZWU3ZTdlNTJkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmZXZpX3dlZGRpbmdfbWVkaWEvY291cGxlL29uZS5KUEciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzg4MzQ3MTAyLCJleHAiOjE3OTA5MzkxMDJ9.m4rTYVMu2uGeRK2_IJpBISh9xQS5HD6VqD8qFPTHyNA",
     alt: "Feven and Abenezer",
   },
   {
     id: 2,
-    src: "couple/two.JPG",
+    src: "https://ovkrkjdlqqxaqyjcsjtz.supabase.co/storage/v1/object/sign/fevi_wedding_media/couple/two.JPG?token=eyJraWQiOiI4ZTg0OTI1MC03MzAyLTQ4OTYtYjgwNS1iZWU3ZTdlNTJkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmZXZpX3dlZGRpbmdfbWVkaWEvY291cGxlL3R3by5KUEciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzg4MzQ3MTM1LCJleHAiOjE3OTA5MzkxMzV9.l3M6M8ssS1nLx5DDnn4wXQZoXtD0HcjlQOd15SH--VY",
     alt: "Feven and Abenezer",
   },
   {
     id: 3,
-    src: "couple/three.JPG",
+    src: "https://ovkrkjdlqqxaqyjcsjtz.supabase.co/storage/v1/object/sign/fevi_wedding_media/couple/three.JPG?token=eyJraWQiOiI4ZTg0OTI1MC03MzAyLTQ4OTYtYjgwNS1iZWU3ZTdlNTJkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmZXZpX3dlZGRpbmdfbWVkaWEvY291cGxlL3RocmVlLkpQRyIsInNjb3BlIjoiZG93bmxvYWQiLCJpYXQiOjE3ODgzNDcxNTMsImV4cCI6MTc5MDkzOTE1M30.qzrMbmkw3YvxKO2zdKzvqA4TAPo9tBiv6b837zHKljE",
     alt: "Feven and Abenezer",
   },
   {
     id: 4,
-    src: "couple/four.JPG",
+    src: "https://ovkrkjdlqqxaqyjcsjtz.supabase.co/storage/v1/object/sign/fevi_wedding_media/couple/four.JPG?token=eyJraWQiOiI4ZTg0OTI1MC03MzAyLTQ4OTYtYjgwNS1iZWU3ZTdlNTJkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmZXZpX3dlZGRpbmdfbWVkaWEvY291cGxlL2ZvdXIuSlBHIiwic2NvcGUiOiJkb3dubG9hZCIsImlhdCI6MTc4ODM0NzE2NSwiZXhwIjoxNzkwOTM5MTY1fQ.dbHi2a9eGftQFuLQ7gtD1B6oBcMXkYwQP7bW1IQ2R4s",
     alt: "Feven and Abenezer",
   },
 ];
