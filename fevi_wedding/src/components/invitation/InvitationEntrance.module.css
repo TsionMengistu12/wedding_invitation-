@@ -73,7 +73,10 @@
   grid-template-areas:
     "opening"
     "details"
-    "portrait";
+    "portrait"
+    "heart"
+    "countdown"
+    "separator";
 
   align-content: center;
 
@@ -135,6 +138,20 @@
   mix-blend-mode: multiply;
 
   z-index: -1;
+}
+
+/* The fade belongs to the invitation layer, so the copy, portrait, and
+   mobile countdown retain their full contrast above it. */
+.heroInvitation::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
+  height: clamp(42px, 8vw, 108px);
+  pointer-events: none;
+  background: linear-gradient(to bottom, transparent, rgba(241, 235, 216, 0.72));
 }
 
 
@@ -343,6 +360,73 @@
     0;
 }
 
+.mobileCountdown {
+  grid-area: countdown;
+  position: relative;
+  z-index: 3;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  width: min(100%, 330px);
+  min-height: 0;
+  margin-top: 2px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.mobileCountdown strong {
+  color: #542e25;
+  font-size: clamp(30px, 8vw, 38px);
+}
+
+.mobileCountdown span {
+  margin-top: 5px;
+  color: #70413e;
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+}
+
+.mobileCountdown > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 7px;
+  border-left: 0;
+}
+
+.mobileCountdown > div:not(:first-child) {
+  border-left: 1px solid rgba(168, 138, 85, 0.58);
+}
+
+.details > .countdown {
+  display: none;
+}
+
+.mobileHeart {
+  grid-area: heart;
+  position: relative;
+  z-index: 3;
+  display: block;
+  margin: -4px 0 0;
+  color: #9b6d2e;
+  font-size: 24px;
+  line-height: 1;
+  text-shadow: 0 2px 5px rgba(74, 52, 40, 0.16);
+}
+
+.mobileGoldBand {
+  grid-area: separator;
+  position: relative;
+  z-index: 3;
+  width: min(calc(100% + 36px), 520px);
+  height: 20px;
+  margin-top: 2px;
+  background: url("/ornaments/gold_band.png") center / cover no-repeat;
+  filter: drop-shadow(0 -1px 2px rgba(74, 52, 40, 0.13));
+}
+
 
 .countdown > div {
   border-left:
@@ -433,17 +517,52 @@
 
 .arch {
   width: min(
-    58vw,
-    270px
+    78vw,
+    280px
   ) !important;
 
-  max-height: 38svh;
+  max-height: none;
 
   filter:
     drop-shadow(
       0 18px 18px
       rgba(66, 43, 27, 0.2)
     );
+}
+
+@media (max-width: 899px) {
+  .heroInvitation {
+    gap: 12px;
+    padding-top: max(24px, env(safe-area-inset-top));
+    padding-bottom: max(24px, env(safe-area-inset-bottom));
+  }
+
+  .cross {
+    width: 34px;
+    height: 42px;
+    margin-bottom: 3px;
+  }
+
+  .scripture {
+    max-width: 300px;
+    font-size: 13px;
+    line-height: 1.45;
+  }
+
+  .greeting,
+  .details > .heart {
+    display: none;
+  }
+
+  .copy h1 {
+    margin: 3px 0 6px;
+    font-size: clamp(48px, 13vw, 58px);
+  }
+
+  .date {
+    min-height: 25px;
+    font-size: 10px;
+  }
 }
 
 
@@ -623,6 +742,19 @@
     margin:
       2px auto
       0;
+  }
+
+  .mobileCountdown {
+    display: none;
+  }
+
+  .mobileHeart,
+  .mobileGoldBand {
+    display: none;
+  }
+
+  .details > .countdown {
+    display: grid;
   }
 
 

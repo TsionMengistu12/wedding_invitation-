@@ -25,7 +25,7 @@ export default function HeroBottomDecoration({
     >
       <img
         className={styles.band}
-        src="/ornaments/gold_band.png"
+        src="https://ovkrkjdlqqxaqyjcsjtz.supabase.co/storage/v1/object/sign/fevi_wedding_media/ornament/gold_band.png?token=eyJraWQiOiI4ZTg0OTI1MC03MzAyLTQ4OTYtYjgwNS1iZWU3ZTdlNTJkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmZXZpX3dlZGRpbmdfbWVkaWEvb3JuYW1lbnQvZ29sZF9iYW5kLnBuZyIsInNjb3BlIjoiZG93bmxvYWQiLCJpYXQiOjE3ODgzMjQwOTYsImV4cCI6MTgwMzg3NjA5Nn0.9VK8T90gQU2ZtbuU4oe0BCXVqoQk9bfbTrMEDFMgUIc"
         alt=""
         draggable={false}
       />

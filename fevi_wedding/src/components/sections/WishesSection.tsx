@@ -1,12 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import {
-  ChevronLeft,
-  ChevronRight,
-  Heart,
-  MessageCircleHeart,
-  PenLine,
-  Quote,
-} from "lucide-react";
+import { ChevronLeft, ChevronRight, Heart, PenLine, Quote } from "lucide-react";
 
 import LeaveWishModal from "./LeaveWishModal";
 import {
@@ -108,14 +101,14 @@ export default function WishesSection({
 
         <div className="wishes-container">
           <div className="wishes-heading">
-            <span className="wishes-heading-line" />
+            {/* <span className="wishes-heading-line" /> */}
 
             <div className="wishes-heading-content">
-              <MessageCircleHeart
+              {/* <MessageCircleHeart
                 className="wishes-heading-icon"
                 size={18}
                 strokeWidth={1.4}
-              />
+              /> */}
 
               <h2>Wishes for the Happy Couple</h2>
 
@@ -212,9 +205,9 @@ export default function WishesSection({
             </button>
           </div>
 
-          <p className="wishes-bottom-text">
+          {/* <p className="wishes-bottom-text">
             Wishes are reviewed before appearing here.
-          </p>
+          </p> */}
         </div>
       </section>
 

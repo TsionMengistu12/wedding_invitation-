@@ -131,8 +131,34 @@ body {
 
 /* Sections meet on the same pixel and use their texture/ornaments as the
    transition, avoiding the pale hairlines caused by fractional rendering. */
-.invitation-sections > section {
+.invitation-sections > section,
+.invitation-sections > .scroll-reveal > section {
   margin-top: -1px;
+}
+
+/* A soft, once-only entrance keeps the journey feeling alive without
+   interrupting normal vertical scrolling. */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 700ms ease-out,
+    transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.scroll-reveal--visible {
+  opacity: 1;
+  /* Remove the transform once revealed so fixed-position lightboxes and
+     dialogs inside a section continue to use the viewport. */
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
 
@@ -144,14 +170,10 @@ body {
   position: relative;
 
   /*
-   * Mobile-first:
-   *
-   * Give the cover a little extra scroll distance.
-   * This gives Framer Motion enough room to move
-   * the invitation upward before AnnouncementSection
-   * takes over.
+   * Keep the opening card as a coherent first screen, then let the
+   * announcement section emerge gently below it on scroll.
    */
-  min-height: 118svh;
+  min-height: 100svh;
 
   background: var(--parchment);
 
@@ -852,32 +874,28 @@ body {
    TABLET
 ============================================================ */
 
+@media (max-width: 900px) {
   .invitation-hero__sticky {
     padding: 16px;
   }
-
 
   .invitation-entrance {
     width: min(520px, 94vw);
   }
 
-
   .invitation-entrance__frame {
     padding: 28px 18px 50px;
   }
 
-
   .invitation-entrance__card-shell {
     max-height: min(62vh, 520px);
   }
-
 
   .invitation-card__circle {
     width: 68%;
 
     top: 45%;
   }
-
 
   .invitation-card__names {
     font-size: clamp(
@@ -889,18 +907,15 @@ body {
     margin: 13px 0;
   }
 
-
   .invitation-card__subtitle {
     font-size: 13px;
   }
-
 
   .invitation-card__greeting {
     font-size: 10px;
 
     letter-spacing: 1.5px;
   }
-
 
   .invitation-card__qr {
     width: clamp(
@@ -912,13 +927,11 @@ body {
     padding: 5px;
   }
 
-
   .circle-decoration--top {
     font-size: 36px;
 
     top: -10px;
   }
-
 
   .circle-decoration--bottom {
     font-size: 34px;
@@ -926,15 +939,14 @@ body {
     bottom: -18px;
   }
 
-
   .scroll-indicator {
     bottom: 17px;
   }
 
-
   .scroll-indicator__line {
     height: 32px;
   }
+}
 
 @media (min-width: 900px) {
   .invitation-hero {
@@ -950,20 +962,18 @@ body {
    SMALL PHONES
 ============================================================ */
 
+@media (max-width: 600px) {
   .invitation-hero__sticky {
     padding: 10px;
   }
-
 
   .invitation-entrance__frame {
     padding: 22px 14px 44px;
   }
 
-
   .invitation-entrance__corner {
     width: 34px;
   }
-
 
   .invitation-card__circle {
     width: 72%;
@@ -971,16 +981,13 @@ body {
     top: 44%;
   }
 
-
   .invitation-card__circle::before {
     inset: 5px;
   }
 
-
   .invitation-card__content {
     width: 86%;
   }
-
 
   .invitation-card__greeting {
     font-size: 8px;
@@ -990,11 +997,9 @@ body {
     margin-bottom: 7px;
   }
 
-
   .invitation-card__subtitle {
     font-size: 10px;
   }
-
 
   .invitation-card__names {
     font-size: clamp(
@@ -1008,7 +1013,6 @@ body {
     margin: 10px 0;
   }
 
-
   .invitation-card__qr {
     width: 62px;
 
@@ -1017,13 +1021,11 @@ body {
     border-width: 1px;
   }
 
-
   .circle-decoration--top {
     font-size: 27px;
 
     top: -8px;
   }
-
 
   .circle-decoration--bottom {
     font-size: 27px;
@@ -1031,18 +1033,15 @@ body {
     bottom: -15px;
   }
 
-
   .scroll-indicator {
     bottom: 12px;
   }
-
 
   .scroll-indicator__text {
     font-size: 8px;
 
     letter-spacing: 3px;
   }
-
 
   .scroll-indicator__line {
     height: 27px;

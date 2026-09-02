@@ -31,40 +31,28 @@ export default function InvitationHero({
   /*
    * Mobile-first movement.
    *
-   * The invitation slowly travels upward as the guest scrolls.
-   * This gives the feeling that the cover is being pushed upward
-   * and the announcement section is being revealed underneath it.
+   * The invitation drifts upward only gently while the guest scrolls,
+   * then the announcement section emerges beneath it without a harsh
+   * shrink-away effect.
    */
   const rawY = useTransform(
     scrollYProgress,
-    [0, 0.85, 1],
-    ["0vh", "-8vh", "-22vh"],
+    [0, 0.2, 0.7, 1],
+    ["0vh", "-2vh", "-9vh", "-12vh"],
   );
 
-  /*
-   * Slightly smooth the scroll movement so the invitation
-   * doesn't feel mechanically attached to the finger/wheel.
-   */
   const y = useSpring(rawY, {
-    stiffness: 90,
-    damping: 24,
-    mass: 0.8,
+    stiffness: 80,
+    damping: 28,
+    mass: 0.9,
   });
 
-  /*
-   * Very subtle scale-down while leaving the hero.
-   * This is intentionally restrained so the invitation
-   * still feels like a printed wedding card.
-   */
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.97]);
-
-  /*
-   * Fade only slightly.
-   * We do NOT want the hero disappearing completely.
-   * The announcement should feel like it is taking over
-   * from underneath.
-   */
-  const opacity = useTransform(scrollYProgress, [0, 0.75, 1], [1, 1, 0.94]);
+  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.995, 0.988]);
+  const opacity = useTransform(
+    scrollYProgress,
+    [0, 0.15, 0.8, 1],
+    [1, 1, 0.99, 0.97],
+  );
 
   return (
     <section

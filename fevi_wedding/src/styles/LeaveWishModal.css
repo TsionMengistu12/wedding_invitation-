@@ -41,7 +41,7 @@
   padding: 10px;
 
   background:
-    rgba(48, 34, 25, 0.55);
+    rgba(29, 20, 14, 0.46);
 
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
@@ -64,30 +64,27 @@
   width: 100%;
   max-width: 520px;
 
-  /*
-   * Important for mobile:
-   * the modal cannot become taller than the screen.
-   */
   max-height: calc(100dvh - 20px);
 
   overflow: hidden;
 
   border: 1px solid
-    rgba(184, 135, 62, 0.45);
+    rgba(184, 135, 62, 0.42);
 
-  border-radius: 14px;
+  border-radius: 18px;
 
-  background: var(--primary-ivory);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(251, 246, 234, 0.92),
+      rgba(245, 235, 221, 0.96)
+    );
 
   box-shadow:
-    0 25px 70px
-      rgba(48, 27, 18, 0.30),
-
-    0 5px 20px
-      rgba(74, 53, 41, 0.16),
-
-    inset 0 0 35px
-      rgba(184, 135, 62, 0.10);
+    0 25px 70px rgba(35, 22, 14, 0.24),
+    0 10px 22px rgba(28, 18, 14, 0.12),
+    inset 0 0 0 1px rgba(184, 135, 62, 0.18),
+    inset 0 8px 28px rgba(255, 255, 255, 0.18);
 
   animation:
     wishModalIn
@@ -193,21 +190,18 @@
 .wish-modal-border-ornament {
   position: absolute;
 
-  /*
-   * Small inset so the border doesn't touch
-   * the physical edge of the paper.
-   */
-  inset: 7px;
+  inset: 8px;
 
-  width: calc(100% - 14px);
-  height: calc(100% - 14px);
+  width: calc(100% - 16px);
+  height: calc(100% - 16px);
 
   object-fit: fill;
 
   pointer-events: none;
 
-  opacity: 0.92;
+  opacity: 0.86;
 
+  filter: saturate(0.85) drop-shadow(0 0 0 rgba(0, 0, 0, 0));
   z-index: 4;
 }
 

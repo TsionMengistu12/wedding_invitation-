@@ -43,7 +43,7 @@ export default function SectionDivider({
       aria-hidden={label ? undefined : true}
     >
       <img
-        src="/ornaments/section-divider.png"
+        src="https://ovkrkjdlqqxaqyjcsjtz.supabase.co/storage/v1/object/sign/fevi_wedding_media/ornament/section-divider.png?token=eyJraWQiOiI4ZTg0OTI1MC03MzAyLTQ4OTYtYjgwNS1iZWU3ZTdlNTJkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmZXZpX3dlZGRpbmdfbWVkaWEvb3JuYW1lbnQvc2VjdGlvbi1kaXZpZGVyLnBuZyIsInNjb3BlIjoiZG93bmxvYWQiLCJpYXQiOjE3ODgzMjQxNjIsImV4cCI6MTgwMzg3NjE2Mn0.ljWLVPegaHEtw8lAfXzZwz3TR_JoSnv8RmDplMmgbPM"
         alt=""
         className={styles.image}
       />

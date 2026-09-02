@@ -10,19 +10,25 @@ export default function WeddingMusic() {
   });
   useEffect(() => {
     let started = false;
+
     const start = () => {
-      if (!started)
-        void play().then((ok) => {
-          started = ok;
-        });
+      if (started) {
+        return;
+      }
+
+      void play().then((didStart) => {
+        started = didStart;
+      });
     };
-    window.addEventListener("pointerdown", start, { passive: true });
-    window.addEventListener("touchstart", start, { passive: true });
+
+    // Do not start on a tap or page load. The first deliberate scroll gesture
+    // is both respectful to the guest and accepted by mobile audio policies.
     window.addEventListener("wheel", start, { passive: true });
+    window.addEventListener("touchmove", start, { passive: true });
+
     return () => {
-      window.removeEventListener("pointerdown", start);
-      window.removeEventListener("touchstart", start);
       window.removeEventListener("wheel", start);
+      window.removeEventListener("touchmove", start);
     };
   }, [play]);
   const label = isMuted

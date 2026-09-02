@@ -74,7 +74,7 @@ export default function AnnouncementSection({
         {/* Invitation */}
         <p className="announcement-section__body">
           As they begin this beautiful journey together, we invite you{" "}
-          <strong>{guestName}</strong>
+          <strong>{guestName} </strong>
           to join us for a<strong>dinner celebration</strong> at{" "}
           <strong>Friendship Park</strong> at <strong>11:00 Local Time,</strong>
           following the Holy Matrimony.

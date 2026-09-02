@@ -43,7 +43,7 @@ interface CoupleArchFrameProps {
 
 export default function CoupleArchFrame({
   imageSrc,
-  frameSrc = "/ornaments/arch_frame.png",
+  // frameSrc = "https://ovkrkjdlqqxaqyjcsjtz.supabase.co/storage/v1/object/sign/fevi_wedding_media/ornament/arch_frame.png?token=eyJraWQiOiI4ZTg0OTI1MC03MzAyLTQ4OTYtYjgwNS1iZWU3ZTdlNTJkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmZXZpX3dlZGRpbmdfbWVkaWEvb3JuYW1lbnQvYXJjaF9mcmFtZS5wbmciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzg4MzI0MDU4LCJleHAiOjE4MDM4NzYwNTh9.ytpx5btX-v9xfoXwBr2Hn760DiL6uj1wb69e9rHJbYA",
 
   width = "min(34vw, 480px)",
   maxWidth = "480px",
@@ -82,13 +82,13 @@ export default function CoupleArchFrame({
           photograph underneath to show through.
           ============================================ */}
 
-      <img
+      {/* <img
         src={frameSrc}
         alt=""
         className={styles.frame}
         draggable={false}
         aria-hidden="true"
-      />
+      /> */}
     </div>
   );
 }

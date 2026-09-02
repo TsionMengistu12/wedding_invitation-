@@ -81,7 +81,6 @@ export default function GallerySection() {
   // ----------------------------------------------------------
 
   const [activeIndex, setActiveIndex] = useState(0);
-  const [slideDirection, setSlideDirection] = useState<1 | -1>(1);
 
   // ----------------------------------------------------------
   // LIGHTBOX
@@ -103,14 +102,25 @@ export default function GallerySection() {
   // ==========================================================
 
   useEffect(() => {
-    const thumbnail = thumbnailsRef.current?.children[activeIndex] as
+    const thumbnailStrip = thumbnailsRef.current;
+    const thumbnail = thumbnailStrip?.children[activeIndex] as
       | HTMLElement
       | undefined;
 
-    thumbnail?.scrollIntoView({
+    if (!thumbnailStrip || !thumbnail) {
+      return;
+    }
+
+    // Only move the gallery's horizontal thumbnail strip. Using
+    // element.scrollIntoView() here can also scroll the document vertically,
+    // pulling a guest from the invitation down to this section when the
+    // slideshow advances automatically.
+    const targetLeft =
+      thumbnail.offsetLeft + thumbnail.offsetWidth / 2 - thumbnailStrip.clientWidth / 2;
+
+    thumbnailStrip.scrollTo({
+      left: Math.max(0, targetLeft),
       behavior: "smooth",
-      block: "nearest",
-      inline: "center",
     });
   }, [activeIndex]);
 
@@ -123,7 +133,6 @@ export default function GallerySection() {
     }
 
     const timer = window.setInterval(() => {
-      setSlideDirection(1);
       setActiveIndex((current) => (current + 1) % galleryImages.length);
     }, 6000);
 
@@ -155,7 +164,6 @@ export default function GallerySection() {
   // ==========================================================
 
   const showNext = () => {
-    setSlideDirection(1);
     setActiveIndex((current) => {
       return (current + 1) % galleryImages.length;
     });
@@ -166,7 +174,6 @@ export default function GallerySection() {
   // ==========================================================
 
   const showPrevious = () => {
-    setSlideDirection(-1);
     setActiveIndex((current) => {
       return current === 0 ? galleryImages.length - 1 : current - 1;
     });
@@ -205,7 +212,6 @@ export default function GallerySection() {
   // ==========================================================
 
   const selectPhoto = (index: number) => {
-    setSlideDirection(index >= activeIndex ? 1 : -1);
     setActiveIndex(index);
   };
 

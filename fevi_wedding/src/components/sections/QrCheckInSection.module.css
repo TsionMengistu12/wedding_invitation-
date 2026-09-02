@@ -4,8 +4,8 @@
   overflow: hidden;
   padding: 58px 18px 70px;
   background:
-    linear-gradient(rgba(250, 247, 238, 0.7), rgba(238, 225, 204, 0.78)),
-    url("/ornaments/background.jpg") center / cover;
+    url("https://ovkrkjdlqqxaqyjcsjtz.supabase.co/storage/v1/object/sign/fevi_wedding_media/ornament/background.jpg?token=eyJraWQiOiI4ZTg0OTI1MC03MzAyLTQ4OTYtYjgwNS1iZWU3ZTdlNTJkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmZXZpX3dlZGRpbmdfbWVkaWEvb3JuYW1lbnQvYmFja2dyb3VuZC5qcGciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzg4Mjk5NTk3LCJleHAiOjE4MDM4NTE1OTd9.c_moB7KonQQG0Col2--WFd1KF1JQYJsh5yD3gBDq0UM")
+      center / cover no-repeat;
 }
 
 .frame {
@@ -22,7 +22,7 @@
 }
 
 .qr { padding: 9px; line-height: 0; background: #faf7ee; border: 2px solid #a88a55; box-shadow: 0 6px 20px rgba(74, 52, 40, 0.15); }
-.qr canvas { width: min(164px, 52vw) !important; height: min(164px, 52vw) !important; }
+/* .qr canvas { width: min(164px, 52vw) !important; height: min(164px, 52vw) !important; } */
 .copy { text-align: center; color: #4a3428; }
 .copy h2 { margin: 0; font-family: "Cormorant Garamond", Georgia, serif; font-size: clamp(26px, 8vw, 39px); font-weight: 500; font-variant: small-caps; letter-spacing: .04em; }
 .divider { margin: 10px auto 16px; }
@@ -31,6 +31,6 @@
 
 @media (min-width: 601px) {
   .section { padding: clamp(54px, 9vw, 105px) 24px; }
-  .frame { grid-template-columns: auto 1fr; align-items: center; justify-items: stretch; gap: clamp(28px, 7vw, 70px); padding: clamp(24px, 4vw, 46px); }
+  /* .frame { grid-template-columns: auto 1fr; align-items: center; justify-items: stretch; gap: clamp(28px, 7vw, 70px); padding: clamp(24px, 4vw, 46px); } */
   .qr canvas { width: min(164px, 38vw) !important; height: min(164px, 38vw) !important; }
 }

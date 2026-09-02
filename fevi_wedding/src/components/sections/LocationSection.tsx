@@ -117,21 +117,10 @@ export default function LocationSection() {
             className="location-section__vertical-divider"
             aria-hidden="true"
           >
-            <span className="divider-line" />
+            {/* <span className="divider-line" />
             <span className="divider-ornament">❦</span>
-            <span className="divider-line" />
+           <span className="divider-line" /> */}
           </div>
-
-          {/* <div
-            className="location-section__vertical-divider"
-            aria-hidden="true"
-          >
-            <span className="divider-line" />
-
-            <span className="divider-ornament">❦</span>
-
-            <span className="divider-line" />
-          </div> */}
 
           {/* =================================================
               RECEPTION VENUE

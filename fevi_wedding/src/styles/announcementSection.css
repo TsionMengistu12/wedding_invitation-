@@ -6,10 +6,15 @@
   padding: clamp(64px, 8vw, 105px) 30px;
 
   background:
-    linear-gradient(rgba(250, 247, 238, 0.32), rgba(250, 247, 238, 0.32)),
+    linear-gradient(
+      to bottom,
+      rgba(241, 235, 216, 0.82) 0%,
+      rgba(250, 247, 238, 0.12) 20%,
+      rgba(250, 247, 238, 0.16) 100%
+    ),
     url("https://ovkrkjdlqqxaqyjcsjtz.supabase.co/storage/v1/object/sign/fevi_wedding_media/ornament/announcement_background.png?token=eyJraWQiOiI4ZTg0OTI1MC03MzAyLTQ4OTYtYjgwNS1iZWU3ZTdlNTJkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmZXZpX3dlZGRpbmdfbWVkaWEvb3JuYW1lbnQvYW5ub3VuY2VtZW50X2JhY2tncm91bmQucG5nIiwic2NvcGUiOiJkb3dubG9hZCIsImlhdCI6MTc4ODMwMTEyOSwiZXhwIjoxODAzODUzMTI5fQ.nof343e41VQFRZ8mSaLwy9q__39vXuguyN6gVXU9EgU") center / cover no-repeat;
 
-  color: var(--espresso);
+  color: #3a251d;
 
   display: flex;
 
@@ -24,7 +29,8 @@
   overflow: hidden;
 
   /* A shared gold edge makes the handoff from the hero feel continuous. */
-  border-top: 1px solid rgba(184, 135, 62, 0.22);
+  border-top: 1px solid rgba(184, 135, 62, 0.12);
+  box-shadow: 0 -18px 28px rgba(241, 235, 216, 0.35);
   scroll-margin-top: 24px;
 }
 
@@ -65,6 +71,8 @@
     27px
   );
 
+  color: #4a3025;
+
   font-style: italic;
 
   line-height: 1.45;
@@ -79,7 +87,7 @@
 .announcement-section__groom {
   margin: 13px 0;
 
-  color: var(--burgundy);
+  color: #681d2d;
 
   font-family: var(--font-script);
 
@@ -128,6 +136,8 @@
   );
 
   line-height: 1.48;
+
+  color: #40291f;
 }
 
 
@@ -150,13 +160,15 @@
   font-size: 22px;
 
   font-style: italic;
+
+  color: #4a3025;
 }
 
 
 .announcement-section__parent {
   margin: 8px 0;
 
-  color: var(--burgundy);
+  color: #681d2d;
 
   font-family: var(--font-display);
 

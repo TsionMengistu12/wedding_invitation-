@@ -85,27 +85,15 @@ export function useWeddingMusic({
       await audio.play();
       return true;
     } catch (error) {
-      /**
-       * The browser blocked playback.
-       *
-       * We intentionally don't throw the error because this
-       * shouldn't break the wedding invitation.
-       */
       console.log("Browser blocked automatic music playback.", error);
       return false;
     }
   }, []);
 
-  /**
-   * Pause the music.
-   */
   const pause = useCallback(() => {
     audioRef.current?.pause();
   }, []);
 
-  /**
-   * Toggle mute without stopping the song.
-   */
   const toggleMute = useCallback(async () => {
     const audio = audioRef.current;
 
@@ -113,23 +101,21 @@ export function useWeddingMusic({
       return;
     }
 
+    // Before the first scroll, the bottom control acts as an explicit play
+    // button. Once playback has started it becomes the expected mute control.
     if (audio.paused) {
       audio.muted = false;
       setIsMuted(false);
       await play();
-    } else if (audio.muted) {
-      audio.muted = false;
-      setIsMuted(false);
+      return;
+    }
 
-      /*
-       * If the song wasn't playing, try to start it.
-       */
-      if (audio.paused) {
-        await play();
-      }
-    } else {
-      audio.muted = true;
-      setIsMuted(true);
+    const nextMuted = !audio.muted;
+    audio.muted = nextMuted;
+    setIsMuted(nextMuted);
+
+    if (!nextMuted && audio.paused) {
+      await play();
     }
   }, [play]);
 

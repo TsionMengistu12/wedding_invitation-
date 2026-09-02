@@ -5,7 +5,8 @@
   left: 0;
   height: clamp(250px, 28vw, 390px);
   pointer-events: none;
-  z-index: 4;
+  /* The band remains visible, while copy and portrait stack above it. */
+  z-index: 1;
 }
 
 .band {
@@ -17,7 +18,7 @@
   height: auto;
   /* The supplied artwork has transparent padding above and below the
      band; preserve that proportion instead of stretching the texture. */
-  bottom: -15.1vw;
+  bottom: -18vw;
   object-fit: contain;
   object-position: center;
 }
@@ -33,12 +34,18 @@
   filter: drop-shadow(0 8px 8px rgba(74, 52, 40, 0.16));
 }
 
-@media (max-width: 760px) {
+@media (max-width: 899px) {
   .decoration {
-    height: 142px;
+    display: none;
   }
 
-  .band { bottom: -6vw; min-width: 620px; left: 50%; width: 165%; transform: translateX(-50%); }
+  .band {
+    bottom: -8vw;
+    min-width: 620px;
+    left: 50%;
+    width: 165%;
+    transform: translateX(-50%);
+  }
 
   .seal {
     bottom: -6px;

@@ -1,7 +1,7 @@
 import { QRCodeCanvas } from "qrcode.react";
 import SectionDivider from "../ornaments/SectionDivider";
 import styles from "./QrCheckInSection.module.css";
-import HeroBottomDecoration from "../ornaments/HeroBottomDecoration";
+// import HeroBottomDecoration from "../ornaments/HeroBottomDecoration";
 
 interface QrCheckInSectionProps {
   invitationUrl: string;
@@ -33,7 +33,7 @@ export default function QrCheckInSection({
           </p>
           <p className={styles.thanks}>Thank you!</p>
         </div>
-        <HeroBottomDecoration />
+        {/* <HeroBottomDecoration /> */}
       </div>
     </section>
   );

@@ -10,7 +10,7 @@
   --light-gold: #d4ad6a;
   --burgundy: #641010;
   --burgundy-light: #7d2525;
-  --brown: #704a2b;
+  --brown: #442309;
 
   position: relative;
   width: 100%;
@@ -27,11 +27,8 @@
       rgba(201, 154, 91, 0.08),
       transparent 30%
     ),
-    var(--ivory);
-
-  color: var(--brown);
-
-  padding: 72px 24px 64px;
+    url("https://ovkrkjdlqqxaqyjcsjtz.supabase.co/storage/v1/object/sign/fevi_wedding_media/ornament/background.jpg?token=eyJraWQiOiI4ZTg0OTI1MC03MzAyLTQ4OTYtYjgwNS1iZWU3ZTdlNTJkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmZXZpX3dlZGRpbmdfbWVkaWEvb3JuYW1lbnQvYmFja2dyb3VuZC5qcGciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzg4Mjk5NTk3LCJleHAiOjE4MDM4NTE1OTd9.c_moB7KonQQG0Col2--WFd1KF1JQYJsh5yD3gBDq0UM")
+      center / cover no-repeat;
 }
 
 
@@ -123,9 +120,13 @@
 
   color: var(--burgundy);
 
-  font-family: Georgia, "Times New Roman", serif;
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    "Times New Roman",
+    serif;
   font-size: clamp(1.35rem, 2.3vw, 2rem);
-  font-weight: 500;
+  font-weight: 800;
   letter-spacing: 0.09em;
   text-transform: uppercase;
 
@@ -220,21 +221,23 @@
   padding: 29px 20px 18px;
 
   background:
+    radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.46), transparent 52%),
     linear-gradient(
       145deg,
-      rgba(247, 235, 221, 0.94),
-      rgba(240, 224, 208, 0.88)
+      rgba(255, 250, 241, 0.97),
+      rgba(239, 220, 194, 0.93)
     );
 
-  border: 1px solid rgba(201, 154, 91, 0.34);
+  border: 1px solid rgba(184, 135, 62, 0.52);
 
   border-radius: 7px;
 
   scroll-snap-align: start;
 
   box-shadow:
-    0 3px 12px rgba(74, 53, 41, 0.055),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.28);
+    0 8px 20px rgba(74, 53, 41, 0.1),
+    inset 0 0 0 3px rgba(255, 255, 255, 0.32),
+    inset 0 0 0 4px rgba(184, 135, 62, 0.12);
 
   transition:
     transform 220ms ease,
@@ -278,13 +281,14 @@
 }
 
 .wish-card:hover {
-  transform: translateY(-3px);
+  transform: translateY(-5px);
 
-  border-color: rgba(201, 154, 91, 0.58);
+  border-color: rgba(143, 91, 35, 0.72);
 
   box-shadow:
-    0 7px 20px rgba(74, 53, 41, 0.09),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.32);
+    0 14px 27px rgba(74, 53, 41, 0.16),
+    inset 0 0 0 3px rgba(255, 255, 255, 0.38),
+    inset 0 0 0 4px rgba(184, 135, 62, 0.18);
 }
 
 
@@ -297,7 +301,7 @@
   align-items: center;
   justify-content: center;
 
-  color: var(--gold);
+  color: var(--burgundy);
 
   height: 21px;
 }
@@ -316,9 +320,9 @@
 
   max-width: 235px;
 
-  color: var(--brown);
+  color: #4a2d1d;
 
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-display);
   font-size: 0.78rem;
   line-height: 1.65;
 
@@ -341,7 +345,7 @@
 }
 
 .wish-author {
-  color: var(--burgundy-light);
+  color: #6b2030;
 
   font-family: Georgia, "Times New Roman", serif;
   font-size: 0.72rem;

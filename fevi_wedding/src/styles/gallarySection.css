@@ -112,6 +112,9 @@
       rgba(216, 192, 159, 0.35),
       transparent 28%
     ),
+    url("https://ovkrkjdlqqxaqyjcsjtz.supabase.co/storage/v1/object/sign/fevi_wedding_media/ornament/background.jpg?token=eyJraWQiOiI4ZTg0OTI1MC03MzAyLTQ4OTYtYjgwNS1iZWU3ZTdlNTJkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmZXZpX3dlZGRpbmdfbWVkaWEvb3JuYW1lbnQvYmFja2dyb3VuZC5qcGciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzg4Mjk5NTk3LCJleHAiOjE4MDM4NTE1OTd9.c_moB7KonQQG0Col2--WFd1KF1JQYJsh5yD3gBDq0UM")
+      center / cover no-repeat,
+
     radial-gradient(
       circle at 80% 65%,
       rgba(216, 192, 159, 0.28),
@@ -276,17 +279,12 @@
     "Times New Roman",
     serif;
 
-  font-size: clamp(
-    64px,
-    8vw,
-    108px
-  );
-
-  line-height: 0.95;
-
+  font-size: clamp(1.35rem, 2.3vw, 2rem);
   font-weight: 500;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
 
-  letter-spacing: -0.025em;
+  text-align: center;
 }
 
 
@@ -1298,7 +1296,7 @@
     height: 42px;
 
     background:
-      rgba(251, 246, 234, 0.95);
+      rgba(252, 237, 200, 0.95);
   }
 
 
@@ -1527,9 +1525,9 @@
    ============================================================ */
 
 .gallery-main-photo__image--bottom-center {
-  transform: scale(2);
+  transform: scale(1.75);
 
-  object-position: center bottom;
+  object-position: center 68%;
 
   transform-origin: center bottom;
 }
