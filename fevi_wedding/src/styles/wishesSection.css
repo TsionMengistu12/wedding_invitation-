@@ -126,7 +126,7 @@
     "Times New Roman",
     serif;
   font-size: clamp(1.35rem, 2.3vw, 2rem);
-  font-weight: 800;
+  font-weight: 500;
   letter-spacing: 0.09em;
   text-transform: uppercase;
 
@@ -365,7 +365,7 @@
    ARROWS
    ========================================================= */
 
-.wishes-arrow {
+/* .wishes-arrow {
   position: absolute;
   z-index: 3;
 
@@ -405,8 +405,65 @@
 
 .wishes-arrow-right {
   right: -17px;
+} */
+
+/* =========================================================
+   CAROUSEL ARROWS
+   ========================================================= */
+
+.wishes-arrow {
+  position: absolute;
+  z-index: 5;
+
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(184, 135, 62, 0.6);
+  border-radius: 50%;
+
+  background: rgba(250, 247, 238, 0.95);
+  color: var(--burgundy);
+
+  cursor: pointer;
+
+  box-shadow:
+    0 3px 10px rgba(74, 53, 41, 0.14),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.45);
+
+  transition:
+    background 180ms ease,
+    color 180ms ease,
+    transform 180ms ease,
+    opacity 180ms ease;
 }
 
+.wishes-arrow:hover:not(:disabled) {
+  background: var(--burgundy);
+  color: var(--cream);
+  transform: scale(1.06);
+}
+
+.wishes-arrow:active:not(:disabled) {
+  transform: scale(0.96);
+}
+
+.wishes-arrow:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+/* Desktop positioning */
+.wishes-arrow-left {
+  left: -17px;
+}
+
+.wishes-arrow-right {
+  right: -17px;
+}
 
 /* =========================================================
    LEAVE YOUR WISH BUTTON
@@ -571,7 +628,7 @@
    MOBILE / TABLET
    ========================================================= */
 
-@media (max-width: 700px) {
+/* @media (max-width: 700px) {
   .wishes-section {
     padding: 55px 17px 48px;
   }
@@ -609,22 +666,133 @@
     line-height: 1.6;
   }
 
-  .wishes-arrow {
+  /* .wishes-arrow {
     display: none;
-  }
+  } 
 
   .wishes-carousel {
     padding-left: 1px;
     padding-right: 1px;
+  } 
+}*/
+
+/* =========================================================
+   MOBILE / TABLET
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  .wishes-section {
+    padding: 55px 12px 48px;
+  }
+
+  .wishes-container {
+    width: 100%;
+  }
+
+  .wishes-heading {
+    gap: 10px;
+    margin-bottom: 25px;
+  }
+
+  .wishes-heading-line {
+    width: 32px;
+  }
+
+  .wishes-heading h2 {
+    font-size: 1.15rem;
+    letter-spacing: 0.065em;
+  }
+
+  .wishes-heading p {
+    font-size: 0.7rem;
+    line-height: 1.5;
+  }
+
+  /* -----------------------------
+     MOBILE CAROUSEL
+     ----------------------------- */
+
+  .wishes-carousel-wrapper {
+    width: 100%;
+  }
+
+  .wishes-carousel {
+    --gap: 12px;
+
+    width: 100%;
+
+    gap: var(--gap);
+
+    padding: 10px 38px 18px;
+
+    overflow-x: auto;
+    overflow-y: visible;
+
+    scroll-snap-type: x mandatory;
+
+    scrollbar-width: thin;
+  }
+
+  /* -----------------------------
+     MOBILE CARDS
+     ----------------------------- */
+
+  .wish-card {
+    flex: 0 0 calc(100% - 30px);
+
+    min-height: 190px;
+
+    padding: 28px 17px 17px;
+  }
+
+  .wish-message {
+    font-size: 0.76rem;
+    line-height: 1.6;
+  }
+
+  /* -----------------------------
+     MOBILE ARROWS
+     ----------------------------- */
+
+  .wishes-arrow {
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .wishes-arrow:hover:not(:disabled) {
+    transform: translateY(-50%) scale(1.05);
+  }
+
+  .wishes-arrow:active:not(:disabled) {
+    transform: translateY(-50%) scale(0.96);
+  }
+
+  .wishes-arrow-left {
+    left: 2px;
+  }
+
+  .wishes-arrow-right {
+    right: 2px;
+  }
+
+  .leave-wish-wrapper {
+    margin-top: 27px;
   }
 }
+
 
 
 /* =========================================================
    SMALL PHONE
    ========================================================= */
 
-@media (max-width: 470px) {
+/* @media (max-width: 470px) {
   .wishes-section {
     padding-left: 13px;
     padding-right: 13px;
@@ -650,6 +818,72 @@
 
   .wish-message {
     max-width: 250px;
+  }
+
+  .leave-wish-button {
+    min-width: 195px;
+    font-size: 0.77rem;
+  }
+} */
+
+/* =========================================================
+   SMALL PHONE
+   ========================================================= */
+
+@media (max-width: 470px) {
+
+  .wishes-section {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .wishes-heading {
+    gap: 8px;
+  }
+
+  .wishes-heading-line {
+    display: none;
+  }
+
+  .wishes-heading h2 {
+    font-size: 1.08rem;
+  }
+
+  .wishes-heading p {
+    max-width: 280px;
+    text-align: center;
+  }
+
+  .wishes-carousel {
+    --gap: 10px;
+
+    padding-left: 34px;
+    padding-right: 34px;
+  }
+
+  .wish-card {
+    flex: 0 0 100%;
+
+    min-height: 185px;
+
+    padding: 27px 17px 17px;
+  }
+
+  .wish-message {
+    max-width: 250px;
+  }
+
+  .wishes-arrow {
+    width: 32px;
+    height: 32px;
+  }
+
+  .wishes-arrow-left {
+    left: 1px;
+  }
+
+  .wishes-arrow-right {
+    right: 1px;
   }
 
   .leave-wish-button {

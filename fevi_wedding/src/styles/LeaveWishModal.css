@@ -107,7 +107,8 @@
   position: absolute;
   inset: 0;
 
-  background-image: url("/ornaments/background.jpg");
+  background-image: url("https://ovkrkjdlqqxaqyjcsjtz.supabase.co/storage/v1/object/sign/fevi_wedding_media/ornament/background.jpg?token=eyJraWQiOiI4ZTg0OTI1MC03MzAyLTQ4OTYtYjgwNS1iZWU3ZTdlNTJkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmZXZpX3dlZGRpbmdfbWVkaWEvb3JuYW1lbnQvYmFja2dyb3VuZC5qcGciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzg4Mjk5NTk3LCJleHAiOjE4MDM4NTE1OTd9.c_moB7KonQQG0Col2--WFd1KF1JQYJsh5yD3gBDq0UM")
+      center / cover no-repeat;
 
   background-size: cover;
   background-position: center;
@@ -1098,4 +1099,32 @@
   .wish-modal-scroll {
     scroll-behavior: auto;
   }
+}
+
+@media (prefers-color-scheme: dark) {
+  .wish-modal-overlay {
+    --primary-ivory: #3a2921;
+    --light-ivory: #3a2921;
+    --parchment: #2c201a;
+    --deep-parchment: #211713;
+    --champagne-gold: #d8b27a;
+    --antique-gold: #d8b27a;
+    --deep-gold: #c99a5b;
+    --primary-text: #f0e0d0;
+    --secondary-text: #e8d4bd;
+    --burgundy: #641010;
+    --wine: #8a2929;
+    --pearl: #3a2921;
+    --lace: #2c201a;
+    --lace-shadow: #654a38;
+    background: rgba(0, 0, 0, 0.68);
+  }
+
+  .wish-modal {
+    background: linear-gradient(180deg, rgba(58, 41, 33, 0.98), rgba(44, 32, 26, 0.99));
+    border-color: rgba(216, 178, 122, 0.52);
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.45), inset 0 0 0 1px rgba(216, 178, 122, 0.15);
+  }
+
+  .wish-modal-background::after { background: rgba(33, 23, 19, 0.6); }
 }

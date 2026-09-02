@@ -537,3 +537,21 @@
 @media (min-width: 701px) {
   .location-section { padding: 34px 80px 38px; }
 }
+
+@media (prefers-color-scheme: dark) {
+  .location-section {
+    --surface: #3a2921;
+    --cream: #2c201a;
+    --gold: #d8b27a;
+    --ochre: #c99a5b;
+    --brown: #bfa995;
+    --deep-brown: #f0e0d0;
+    --espresso: #f0e0d0;
+    --burgundy: #d8b27a;
+    background:
+      linear-gradient(rgba(33, 23, 19, 0.82), rgba(44, 32, 26, 0.88)),
+      url("/ornaments/background.jpg") center / cover no-repeat;
+  }
+
+  .location-section::before { background: radial-gradient(circle at center, rgba(216, 178, 122, 0.1), transparent 65%); }
+}

@@ -13,3 +13,17 @@
   .gate-count-options { flex-wrap: wrap; }
   .gate-primary { min-height: 48px; }
 }
+
+@media (prefers-color-scheme: dark) {
+  .gate-page { background: radial-gradient(circle at 12% 0%, #3a2921, #211713 72%); color: #f0e0d0; }
+  .gate-header { background: #211713; }
+  .gate-progress { background: #3a2921; border-color: rgba(216, 178, 122, 0.45); }
+  .gate-progress span { color: #bfa995; border-color: rgba(216, 178, 122, 0.25); }
+  .gate-progress .is-active { background: #641010; color: #f0e0d0; }
+  .gate-card, .gate-alert { background: #3a2921; border-color: rgba(216, 178, 122, 0.52); box-shadow: 0 16px 38px rgba(0, 0, 0, 0.28); }
+  .gate-card-heading h2, .gate-result h2, .gate-result-name { color: #f0e0d0 !important; }
+  .gate-intro, .gate-result > p:not(.gate-eyebrow), .gate-exhausted p { color: #e8d4bd; }
+  .gate-stats > div, .gate-result-summary span { background: #2c201a; }
+  .gate-stats strong, .gate-result-summary strong { color: #f0e0d0; }
+  .gate-manual-form input { background: #2c201a; color: #f0e0d0; border-color: rgba(216, 178, 122, 0.52); }
+}

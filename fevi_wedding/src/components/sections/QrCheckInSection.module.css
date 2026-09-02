@@ -34,3 +34,21 @@
   /* .frame { grid-template-columns: auto 1fr; align-items: center; justify-items: stretch; gap: clamp(28px, 7vw, 70px); padding: clamp(24px, 4vw, 46px); } */
   .qr canvas { width: min(164px, 38vw) !important; height: min(164px, 38vw) !important; }
 }
+
+@media (prefers-color-scheme: dark) {
+  .section {
+    background:
+      linear-gradient(rgba(33, 23, 19, 0.84), rgba(44, 32, 26, 0.9)),
+      url("/ornaments/background.jpg") center / cover;
+  }
+
+  .frame {
+    background: rgba(58, 41, 33, 0.84);
+    border-color: rgba(216, 178, 122, 0.52);
+    box-shadow: inset 0 0 0 3px rgba(216, 178, 122, 0.1), 0 12px 32px rgba(0, 0, 0, 0.26);
+  }
+
+  .qr { background: #f0e0d0; border-color: #d8b27a; }
+  .copy { color: #f0e0d0; }
+  .copy p { color: #e8d4bd; }
+}
