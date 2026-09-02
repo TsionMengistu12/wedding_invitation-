@@ -46,22 +46,22 @@ interface GalleryImage {
 const galleryImages: GalleryImage[] = [
   {
     id: 1,
-    src: "https://ovkrkjdlqqxaqyjcsjtz.supabase.co/storage/v1/object/sign/fevi_wedding_media/couple/one.JPG?token=eyJraWQiOiI4ZTg0OTI1MC03MzAyLTQ4OTYtYjgwNS1iZWU3ZTdlNTJkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmZXZpX3dlZGRpbmdfbWVkaWEvY291cGxlL29uZS5KUEciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzg4MjUxNDM4LCJleHAiOjE4MDM4MDM0Mzh9.g3siWkEuG5Xc0FhS2IfClA0-mOwg50AemL4bHE23ssw",
+    src: "couple/one.JPG",
     alt: "Feven and Abenezer",
   },
   {
     id: 2,
-    src: "https://ovkrkjdlqqxaqyjcsjtz.supabase.co/storage/v1/object/sign/fevi_wedding_media/couple/three.JPG?token=eyJraWQiOiI4ZTg0OTI1MC03MzAyLTQ4OTYtYjgwNS1iZWU3ZTdlNTJkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmZXZpX3dlZGRpbmdfbWVkaWEvY291cGxlL3RocmVlLkpQRyIsInNjb3BlIjoiZG93bmxvYWQiLCJpYXQiOjE3ODgyNTE0NjksImV4cCI6MTgwMzgwMzQ2OX0.Ugp8fyLE21McW3WYmA0cjbS0wQ9ImYYKbx86MRfNYsg",
+    src: "couple/two.JPG",
     alt: "Feven and Abenezer",
   },
   {
     id: 3,
-    src: "https://ovkrkjdlqqxaqyjcsjtz.supabase.co/storage/v1/object/sign/fevi_wedding_media/couple/two.JPG?token=eyJraWQiOiI4ZTg0OTI1MC03MzAyLTQ4OTYtYjgwNS1iZWU3ZTdlNTJkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmZXZpX3dlZGRpbmdfbWVkaWEvY291cGxlL3R3by5KUEciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzg4MjUxNTA0LCJleHAiOjE4MDM4MDM1MDR9.30oKs4rOwu-YXjMv-7PuUkglGAD2SGuxcvujLGclyBI",
+    src: "couple/three.JPG",
     alt: "Feven and Abenezer",
   },
   {
     id: 4,
-    src: "https://ovkrkjdlqqxaqyjcsjtz.supabase.co/storage/v1/object/sign/fevi_wedding_media/couple/four.JPG?token=eyJraWQiOiI4ZTg0OTI1MC03MzAyLTQ4OTYtYjgwNS1iZWU3ZTdlNTJkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmZXZpX3dlZGRpbmdfbWVkaWEvY291cGxlL2ZvdXIuSlBHIiwic2NvcGUiOiJkb3dubG9hZCIsImlhdCI6MTc4ODI1MTUzMiwiZXhwIjoxODAzODAzNTMyfQ.QjvOHczRz7n1WX-gVKga_JRGOuO7KrZiYh1z4wAKmBw",
+    src: "couple/four.JPG",
     alt: "Feven and Abenezer",
   },
 ];
@@ -97,20 +97,26 @@ export default function GallerySection() {
   // ==========================================================
 
   useEffect(() => {
+    const thumbnailStrip = thumbnailsRef.current;
     const thumbnail = thumbnailsRef.current?.children[activeIndex] as
       | HTMLElement
       | undefined;
 
-    thumbnail?.scrollIntoView({
+    if (!thumbnailStrip || !thumbnail) {
+      return;
+    }
+
+    const targetLeft =
+      thumbnail.offsetLeft +
+      thumbnail.offsetWidth / 2 -
+      thumbnailStrip.clientWidth / 2;
+
+    thumbnailStrip.scrollTo({
+      left: Math.max(0, targetLeft),
       behavior: "smooth",
-      block: "nearest",
-      inline: "center",
     });
   }, [activeIndex]);
 
-  // Keep the gallery feeling alive without requiring guests to interact.
-  // The active thumbnail and progress line both derive from activeIndex, so
-  // they always move in lockstep with the centre photograph.
   useEffect(() => {
     if (selectedIndex !== null) {
       return;
