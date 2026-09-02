@@ -7,22 +7,15 @@
    * Your existing invitation palette
    */
   --parchment: #e9d8bf;
-  --surface: #fbf6ea;
-  --cream: #efe2cc;
-  --gold: #b8873e;
-  --ochre: #8e642c;
-  --brown: #704a2b;
-  --deep-brown: #422b1b;
-  --espresso: #422b1b;
-  --burgundy: #641010;
+  --surface: #3a2921;
+  --cream: #2c201a;
+  --gold: #d8b27a;
+  --ochre: #c99a5b;
+  --brown: #bfa995;
+  --deep-brown: #f0e0d0;
+  --espresso: #f0e0d0;
+  --burgundy: #d8b27a;
   --sage: #8b7a5d;
-
-  position: relative;
-
-  width: 100%;
-
-  min-height: 360px;
-
   /*
    * Keep the section compact like the reference.
    */
@@ -45,18 +38,17 @@
    * replace this with your texture file.
    */
   background:
-    linear-gradient(rgba(233, 216, 191, 0.72), rgba(251, 246, 234, 0.72)),
+    linear-gradient(rgba(33, 23, 19, 0.82), rgba(44, 32, 26, 0.88)),
     url("https://ovkrkjdlqqxaqyjcsjtz.supabase.co/storage/v1/object/sign/fevi_wedding_media/ornament/background.jpg?token=eyJraWQiOiI4ZTg0OTI1MC03MzAyLTQ4OTYtYjgwNS1iZWU3ZTdlNTJkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmZXZpX3dlZGRpbmdfbWVkaWEvb3JuYW1lbnQvYmFja2dyb3VuZC5qcGciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzg4Mjk5NTk3LCJleHAiOjE4MDM4NTE1OTd9.c_moB7KonQQG0Col2--WFd1KF1JQYJsh5yD3gBDq0UM")
       center / cover no-repeat;
 }
 
 
 /* ============================================================
-   SUBTLE BORDER
-   ============================================================ */
+  SUBTLE BORDER
+  ============================================================ */
 
-.location-section::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(circle at center, rgba(255,255,255,.28), transparent 65%); }
-
+.location-section::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(circle at center, rgba(216, 178, 122, 0.1), transparent 65%); }
 
 /* ============================================================
    CONTENT
@@ -553,5 +545,6 @@
       url("/ornaments/background.jpg") center / cover no-repeat;
   }
 
-  .location-section::before { background: radial-gradient(circle at center, rgba(216, 178, 122, 0.1), transparent 65%); }
+    .location-section::before { background: radial-gradient(circle at center, rgba(216, 178, 122, 0.1), transparent 65%); }
+    .location-section::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(circle at center, rgba(216, 178, 122, 0.1), transparent 65%); }
 }
