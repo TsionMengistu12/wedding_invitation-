@@ -51,7 +51,7 @@ export default function InvitationEntrance({
         <div className={styles.opening}>
           <img
             className={styles.cross}
-            src="https://ovkrkjdlqqxaqyjcsjtz.supabase.co/storage/v1/object/sign/fevi_wedding_media/ornament/cross1.jpg?token=eyJraWQiOiI4ZTg0OTI1MC03MzAyLTQ4OTYtYjgwNS1iZWU3ZTdlNTJkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmZXZpX3dlZGRpbmdfbWVkaWEvb3JuYW1lbnQvY3Jvc3MxLmpwZyIsInNjb3BlIjoiZG93bmxvYWQiLCJpYXQiOjE3ODg0MjYzMTQsImV4cCI6MTc5MTAxODMxNH0.HH5gLWxigFnOdudyPAe5CV3ojbdG_U94iwwL5mz2VSk"
+            src="https://ovkrkjdlqqxaqyjcsjtz.supabase.co/storage/v1/object/sign/fevi_wedding_media/ornament/cross2.png?token=eyJraWQiOiI4ZTg0OTI1MC03MzAyLTQ4OTYtYjgwNS1iZWU3ZTdlNTJkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmZXZpX3dlZGRpbmdfbWVkaWEvb3JuYW1lbnQvY3Jvc3MyLnBuZyIsInNjb3BlIjoiZG93bmxvYWQiLCJpYXQiOjE3ODg0MjY3ODMsImV4cCI6MTc5MTAxODc4M30._4nGjrRJtpo9EaLqZ37WXsjeoAziOpcA51um9XLHBCM"
             alt=""
             aria-hidden="true"
           />
