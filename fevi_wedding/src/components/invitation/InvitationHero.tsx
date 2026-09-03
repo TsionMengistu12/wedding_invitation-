@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { motion, useScroll, useSpring, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 import InvitationEntrance from "./InvitationEntrance";
 
@@ -41,12 +41,6 @@ export default function InvitationHero({
     ["0vh", "-2vh", "-9vh", "-12vh"],
   );
 
-  const y = useSpring(rawY, {
-    stiffness: 80,
-    damping: 28,
-    mass: 0.9,
-  });
-
   const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.995, 0.988]);
   const opacity = useTransform(
     scrollYProgress,
@@ -63,7 +57,7 @@ export default function InvitationHero({
       <motion.div
         className="invitation-hero__sticky"
         style={{
-          y,
+          y: rawY,
           scale,
           opacity,
         }}

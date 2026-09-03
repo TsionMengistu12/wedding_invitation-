@@ -566,7 +566,7 @@
 
   .date {
     font-size: clamp(9px, 2.6vw, 11px);
-    letter-spacing: clamp(0.18em, 0.8vw, 0.25em);
+    letter-spacing: clamp(0.18em, 0.8vw, 0.25em);5
     white-space: nowrap;
   }
 
