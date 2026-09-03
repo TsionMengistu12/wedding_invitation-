@@ -647,9 +647,15 @@
 ============================================================ */
 
 @media (max-width: 599px) {
-  /* Give the whole mobile composition a little more breathing room. */
+  /* Keep the mobile composition compact so the cross and gold band remain visible. */
   .heroInvitation {
-    gap: clamp(4px, 0.9svh, 7px);
+    align-content: start;
+    gap: 0;
+    padding-top: max(10px, env(safe-area-inset-top));
+  }
+
+  .mobileGoldBand {
+    margin-top: 0;
   }
 
   /* Keep the couple's names together on one line and make them smaller. */
@@ -688,6 +694,10 @@
 }
 
 @media (max-width: 380px) {
+  .mobileGoldBand {
+    margin-top: 0;
+  }
+
   .copy h1 {
     font-size: clamp(32px, 9.2vw, 40px);
   }
