@@ -12,7 +12,7 @@ export default function InvitationCard({
   return (
     <article className="invitation-card">
       <img
-        src="https://ovkrkjdlqqxaqyjcsjtz.supabase.co/storage/v1/object/sign/fevi_wedding_media/couple/front.JPG?token=eyJraWQiOiI4ZTg0OTI1MC03MzAyLTQ4OTYtYjgwNS1iZWU3ZTdlNTJkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmZXZpX3dlZGRpbmdfbWVkaWEvY291cGxlL2Zyb250LkpQRyIsInNjb3BlIjoiZG93bmxvYWQiLCJpYXQiOjE3ODgyNTEzMDYsImV4cCI6MTgwMzgwMzMwNn0.nL6PCYpM7gNB7fHABQNgAuKSp0WjCOKCqhPnqE-7pyY"
+        src="https://ovkrkjdlqqxaqyjcsjtz.supabase.co/storage/v1/object/sign/fevi_wedding_media/couple/front1.jpg?token=eyJraWQiOiI4ZTg0OTI1MC03MzAyLTQ4OTYtYjgwNS1iZWU3ZTdlNTJkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmZXZpX3dlZGRpbmdfbWVkaWEvY291cGxlL2Zyb250MS5qcGciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzg4NDE4NzM3LCJleHAiOjE3OTEwMTA3Mzd9.01aAQr6A5ohf9bPnCRJusYOuao6Uu_8hoJXdJaU8vUg"
         alt={`Feven and Abenezer's invitation for ${guestName}`}
         className="invitation-card__photo"
       />

@@ -838,11 +838,11 @@ body {
 ============================================================ */
 
 .scroll-indicator {
-  position: fixed;
+  position: absolute;
 
   left: 50%;
 
-  bottom: 25px;
+  bottom: 24px;
 
   transform:
     translateX(-50%);
@@ -857,7 +857,7 @@ body {
 
   gap: 6px;
 
-  color: var(--antique-gold);
+  color: var(--brown);
 
   pointer-events: none;
 }
@@ -886,7 +886,7 @@ body {
 
   height: 42px;
 
-  background: var(--antique-gold);
+  background: var(--brown);
 
   transform-origin: top;
 }
@@ -961,7 +961,7 @@ body {
   }
 
   .scroll-indicator {
-    bottom: 17px;
+    bottom: 62px;
   }
 
   .scroll-indicator__line {
@@ -1055,7 +1055,7 @@ body {
   }
 
   .scroll-indicator {
-    bottom: 12px;
+    bottom: 62px;
   }
 
   .scroll-indicator__text {

@@ -1,3 +1,4 @@
+
 /* .heroInvitation {
   position: relative;
   width: 100%;
@@ -525,150 +526,91 @@
    over the opening screen. */
 /* @media (max-width: 599px) {
   .heroInvitation {
+    min-height: 100svh;
     align-content: start;
-    gap: 5px;
+    gap: clamp(6px, 1.25svh, 11px);
     padding:
-      max(24px, env(safe-area-inset-top))
-      18px
+      clamp(20px, 4.5svh, 38px)
+      clamp(14px, 4.5vw, 18px)
       max(18px, env(safe-area-inset-bottom));
   }
 
-  .cross {
-    width: 38px;
-    height: 48px;
-    margin: 0 auto 2px;
-  }
-
-  .arch {
-    /* Slightly wider on mobile while keeping the same arch proportions. */
-    /* width: min(72vw, 250px) !important;
-    max-width: 250px; */
-  /* }
-
-  .portrait {
-    margin-top: -2px;
-  }
-
-  .mobileHeart {
-    margin-top: 2px;
-    font-size: 22px;
-  }
-
-  .mobileCountdown strong {
-    font-size: clamp(29px, 7.8vw, 35px);
-  }
-
-  .mobileCountdown span {
-    font-size: 7px;
-    letter-spacing: 0.1em;
-  }
-}
-
-@media (max-width: 380px) {
-  .heroInvitation {
-    gap: 4px;
-    padding-inline: 14px;
+  .opening {
+    min-height: auto;
   }
 
   .cross {
-    width: 36px;
-    height: 46px;
+    width: clamp(36px, 10vw, 42px);
+    height: clamp(44px, 12vw, 52px);
+    margin: 0 auto clamp(2px, 0.5svh, 5px);
   }
 
-  .arch {
-    width: min(70vw, 235px) !important;
-    max-width: 235px;
+  .scripture {
+    max-width: min(86vw, 310px);
+    font-size: clamp(12px, 3.25vw, 14px);
+    line-height: 1.48;
+  }
+
+  .details {
+    width: 100%;
   }
 
   .copy h1 {
-    font-size: 46px;
-  }
-} */ 
-
-/* Phone proportions follow the invitation's editorial, single-column 
-   composition: every element remains visible without the portrait taking 
-   over the opening screen. */
-@media (max-width: 599px) {
-  .heroInvitation {
-    align-content: start;
-    gap: 0;
-
-    padding:
-      max(24px, env(safe-area-inset-top))
-      18px
-      max(18px, env(safe-area-inset-bottom));
+    margin: clamp(5px, 1svh, 8px) 0 clamp(5px, 1svh, 8px);
+    font-size: clamp(42px, 12vw, 56px);
+    line-height: 0.94;
   }
 
-  /* Keep the cross completely visible and above the other hero elements. */
-  .opening {
-    position: relative;
-    z-index: 5;
-    min-height: 82px;
-    overflow: visible;
+  .divider {
+    margin: 2px auto clamp(7px, 1.2svh, 10px);
   }
 
-  .cross {
-    position: relative;
-    z-index: 6;
+  .date {
+    font-size: clamp(9px, 2.6vw, 11px);
+    letter-spacing: clamp(0.18em, 0.8vw, 0.25em);
+    white-space: nowrap;
+  }
 
-    display: block;
-
-    width: 38px;
-    height: 48px;
-
-    object-fit: contain;
-    object-position: center;
-
-    margin:
-      0 auto
-      2px;
-
-    opacity: 1;
-    visibility: visible;
-
-    filter:
-      drop-shadow(
-        0 0 13px
-        rgba(212, 173, 106, 0.42)
-      );
+  .portrait {
+    margin-top: clamp(1px, 0.5svh, 4px);
   }
 
   .arch {
-    /*
-     * Wider horizontally on mobile so the photograph
-     * fills more of the available side space.
-     */
-    width: min(72vw, 250px) !important;
+    width: min(70vw, 250px) !important;
     max-width: 250px;
   }
 
-  .portrait {
-    margin-top: -12px;
+  .mobileHeart {
+    margin-top: clamp(1px, 0.5svh, 4px);
+    font-size: clamp(21px, 6vw, 24px);
   }
 
-  .mobileHeart {
-    margin-top: 2px;
-    font-size: 22px;
+  .mobileCountdown {
+    width: min(100%, 330px);
+    min-height: clamp(66px, 10svh, 78px);
+    margin-top: clamp(1px, 0.5svh, 4px);
   }
 
   .mobileCountdown strong {
-    font-size: clamp(29px, 7.8vw, 35px);
+    font-size: clamp(29px, 8vw, 36px);
   }
 
   .mobileCountdown span {
-    font-size: 7px;
+    margin-top: 4px;
+    font-size: clamp(7px, 1.9vw, 8px);
     letter-spacing: 0.1em;
+  }
+
+  .mobileCountdown > div {
+    padding: 0 clamp(4px, 2vw, 7px);
   }
 }
 
 @media (max-width: 380px) {
   .heroInvitation {
-    gap: 2px;
+    gap: 5px;
     padding-inline: 14px;
-  }
-
-  .opening {
-    min-height: 78px;
+    padding-top: clamp(18px, 4svh, 30px);
   }
 
   .cross {
@@ -676,20 +618,28 @@
     height: 46px;
   }
 
-  .arch {
-    width: min(70vw, 235px) !important;
-    max-width: 235px;
+  .scripture {
+    max-width: 290px;
+    font-size: 12px;
   }
 
   .copy h1 {
-    font-size: 46px;
+    font-size: clamp(40px, 12vw, 48px);
+  }
+
+  .arch {
+    width: min(68vw, 235px) !important;
+    max-width: 235px;
+  }
+
+  .mobileCountdown {
+    width: min(100%, 310px);
+  }
+
+  .mobileCountdown strong {
+    font-size: clamp(28px, 8vw, 33px);
   }
 }
-
-
-/* ============================================================
-   TABLETS / SMALL LAPTOPS
-============================================================ */
 
 @media (min-width: 600px) {
   .heroInvitation {
@@ -1002,3 +952,4 @@
     color: #d8b27a;
   } */
 }
+
