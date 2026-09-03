@@ -16,7 +16,7 @@ export default function ScrollIndicator({ opacity }: ScrollIndicatorProps) {
     >
       <motion.div
         className="scroll-indicator__arrow"
-        animate={{ y: [0, 7, 0] }}
+        animate={{ y: [0, 3, 0] }}
         transition={{
           duration: 1.4,
           repeat: Infinity,

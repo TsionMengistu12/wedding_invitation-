@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import CoupleArchFrame from "../ornaments/CoupleArchFrame";
 import HeroOrnaments from "../ornaments/HeroOrnaments";
 import SectionDivider from "../ornaments/SectionDivider";
+import ScrollIndicator from "./ScrollIndicator";
 
 import styles from "./InvitationEntrance.module.css";
 
@@ -50,7 +51,7 @@ export default function InvitationEntrance({
         <div className={styles.opening}>
           <img
             className={styles.cross}
-            src="/ornaments/cross.svg"
+            src="https://ovkrkjdlqqxaqyjcsjtz.supabase.co/storage/v1/object/sign/fevi_wedding_media/ornament/cross2.png?token=eyJraWQiOiI4ZTg0OTI1MC03MzAyLTQ4OTYtYjgwNS1iZWU3ZTdlNTJkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmZXZpX3dlZGRpbmdfbWVkaWEvb3JuYW1lbnQvY3Jvc3MyLnBuZyIsInNjb3BlIjoiZG93bmxvYWQiLCJpYXQiOjE3ODg0MjY3ODMsImV4cCI6MTc5MTAxODc4M30._4nGjrRJtpo9EaLqZ37WXsjeoAziOpcA51um9XLHBCM"
             alt=""
             aria-hidden="true"
           />
@@ -105,12 +106,14 @@ export default function InvitationEntrance({
       <div className={styles.portrait}>
         <CoupleArchFrame
           className={styles.arch}
-          imageSrc="https://ovkrkjdlqqxaqyjcsjtz.supabase.co/storage/v1/object/sign/fevi_wedding_media/couple/front.JPG?token=eyJraWQiOiI4ZTg0OTI1MC03MzAyLTQ4OTYtYjgwNS1iZWU3ZTdlNTJkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmZXZpX3dlZGRpbmdfbWVkaWEvY291cGxlL2Zyb250LkpQRyIsInNjb3BlIjoiZG93bmxvYWQiLCJpYXQiOjE3ODgyNTQ0NDgsImV4cCI6MTgwMzgwNjQ0OH0.FpORZuKgHkqI9OHh8gUa9bgWuJ8bJ8UtzVWBKDx7xEo"
+          imageSrc="https://ovkrkjdlqqxaqyjcsjtz.supabase.co/storage/v1/object/sign/fevi_wedding_media/couple/front1.jpg?token=eyJraWQiOiI4ZTg0OTI1MC03MzAyLTQ4OTYtYjgwNS1iZWU3ZTdlNTJkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmZXZpX3dlZGRpbmdfbWVkaWEvY291cGxlL2Zyb250MS5qcGciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzg4NDE5NDIzLCJleHAiOjE3OTEwMTE0MjN9.F7WmjAXpU7w8DTL3SyPWZ69lhx70jOIic7ZZ4w7t484"
           alt="Feven and Abenezer"
         />
       </div>
 
-      <p className={styles.mobileHeart} aria-hidden="true">&hearts;</p>
+      <p className={styles.mobileHeart} aria-hidden="true">
+        &hearts;
+      </p>
 
       {/* The mobile layout places the countdown after the portrait so it
           remains readable above the bottom ornament. */}
@@ -127,6 +130,8 @@ export default function InvitationEntrance({
       </div>
 
       <div className={styles.mobileGoldBand} aria-hidden="true" />
+
+      <ScrollIndicator />
 
       <HeroOrnaments />
     </div>

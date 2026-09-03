@@ -27,6 +27,8 @@ export default function WishesSection({
   const [loadError, setLoadError] = useState("");
   const [modalOpen, setModalOpen] = useState(false);
   const [submitError, setSubmitError] = useState("");
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(false);
 
   const loadWishes = useCallback(async (showLoading = true) => {
     if (showLoading) {
@@ -61,6 +63,33 @@ export default function WishesSection({
       window.clearInterval(refreshTimer);
     };
   }, [loadWishes]);
+
+  useEffect(() => {
+    const carousel = scrollRef.current;
+    if (!carousel) {
+      return;
+    }
+
+    const updateScrollIndicators = () => {
+      const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
+
+      setCanScrollLeft(carousel.scrollLeft > 1);
+      setCanScrollRight(carousel.scrollLeft < maxScrollLeft - 1);
+    };
+
+    updateScrollIndicators();
+    carousel.addEventListener("scroll", updateScrollIndicators, {
+      passive: true,
+    });
+
+    const resizeObserver = new ResizeObserver(updateScrollIndicators);
+    resizeObserver.observe(carousel);
+
+    return () => {
+      carousel.removeEventListener("scroll", updateScrollIndicators);
+      resizeObserver.disconnect();
+    };
+  }, [wishes, loading, loadError]);
 
   const scrollCards = (direction: "left" | "right") => {
     if (!scrollRef.current) {
@@ -119,15 +148,16 @@ export default function WishesSection({
           </div>
 
           <div className="wishes-carousel-wrapper">
-            <button
-              type="button"
-              className="wishes-arrow wishes-arrow-left"
-              onClick={() => scrollCards("left")}
-              aria-label="Previous wishes"
-              disabled={wishes.length === 0}
-            >
-              <ChevronLeft size={19} strokeWidth={1.5} />
-            </button>
+            {canScrollLeft && (
+              <button
+                type="button"
+                className="wishes-arrow wishes-arrow-left"
+                onClick={() => scrollCards("left")}
+                aria-label="Previous wishes"
+              >
+                <ChevronLeft size={19} strokeWidth={1.5} />
+              </button>
+            )}
 
             <div
               className="wishes-carousel"
@@ -175,15 +205,16 @@ export default function WishesSection({
                 ))}
             </div>
 
-            <button
-              type="button"
-              className="wishes-arrow wishes-arrow-right"
-              onClick={() => scrollCards("right")}
-              aria-label="Next wishes"
-              disabled={wishes.length === 0}
-            >
-              <ChevronRight size={19} strokeWidth={1.5} />
-            </button>
+            {canScrollRight && (
+              <button
+                type="button"
+                className="wishes-arrow wishes-arrow-right"
+                onClick={() => scrollCards("right")}
+                aria-label="Next wishes"
+              >
+                <ChevronRight size={19} strokeWidth={1.5} />
+              </button>
+            )}
           </div>
 
           <div className="leave-wish-wrapper">
