@@ -340,18 +340,30 @@
    BACKGROUND IS NOT TOUCHED.
    ========================================================= */
 
-@media (max-width: 600px) {
+/* @media (max-width: 600px) {
 
   /*
    * The background remains exactly as defined above.
    * These changes only compress the content.
    */
-
+/* 
   .announcement-section {
     min-height: auto;
 
     padding: 48px 20px;
+  } */ 
+
+  @media (max-width: 600px) {
+  .announcement-section {
+    min-height: auto;
+    padding: 48px 20px;
+
+    /* Mobile: make the decorative background fill the section */
+    background-size: 100% 100%, 100% 100%;
+    background-position: center, center top;
+    background-repeat: no-repeat, no-repeat;
   }
+
 
 
   /* -------------------------------------------------------

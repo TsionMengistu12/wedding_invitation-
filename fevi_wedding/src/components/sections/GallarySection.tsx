@@ -414,7 +414,7 @@ export default function GallerySection() {
                 </motion.button>
               </AnimatePresence> */}{" "}
               */
-              <AnimatePresence initial={false}>
+              <AnimatePresence initial={false} mode="sync">
                 <motion.button
                   key={galleryImages[activeIndex].id}
                   type="button"
@@ -431,7 +431,7 @@ export default function GallerySection() {
                   }}
                   transition={{
                     opacity: {
-                      duration: 1.35,
+                      duration: 1.5,
                       ease: [0.42, 0, 0.58, 1],
                     },
                   }}
