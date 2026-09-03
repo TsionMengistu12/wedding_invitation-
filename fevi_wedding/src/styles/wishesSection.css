@@ -2,7 +2,7 @@
    WEDDING WISHES
    ========================================================= */
 
-.wishes-section {
+/* .wishes-section {
   --ivory: #f5ebdd;
   --cream: #fbf6ea;
   --parchment: #e9d8bf;
@@ -29,14 +29,28 @@
     ),
     url("https://ovkrkjdlqqxaqyjcsjtz.supabase.co/storage/v1/object/sign/fevi_wedding_media/ornament/background%20(1).jpg?token=eyJraWQiOiI4ZTg0OTI1MC03MzAyLTQ4OTYtYjgwNS1iZWU3ZTdlNTJkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmZXZpX3dlZGRpbmdfbWVkaWEvb3JuYW1lbnQvYmFja2dyb3VuZCAoMSkuanBnIiwic2NvcGUiOiJkb3dubG9hZCIsImlhdCI6MTc4ODQyNDExMywiZXhwIjoxNzkxMDE2MTEzfQ.thyW9GOGNzXOCxn3jiSOptFbp352SRKNHWRKLP3i2H0")
       center / cover no-repeat;
+} */
+
+.wishes-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  background: #f5f0df;
 }
+
+.wishes-section > *:not(.wishes-texture) {
+  position: relative;
+  z-index: 1;
+}
+
 
 
 /* =========================================================
    SUBTLE PAPER TEXTURE
    ========================================================= */
 
-.wishes-texture {
+/* .wishes-texture {
   position: absolute;
   inset: 0;
   pointer-events: none;
@@ -56,6 +70,84 @@
   background-position: 0 0, 8px 11px;
 
   mix-blend-mode: multiply;
+} */
+.wishes-texture {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  /*
+   * Warm handmade parchment / ivory paper texture
+   */
+  opacity: 0.72;
+
+  background:
+    /* Very fine paper grain */
+    repeating-radial-gradient(
+      circle at 0 0,
+      rgba(125, 98, 61, 0.035) 0,
+      rgba(125, 98, 61, 0.035) 0.7px,
+      transparent 0.8px,
+      transparent 2.2px
+    ),
+
+    /* Subtle horizontal paper fibers */
+    repeating-linear-gradient(
+      0deg,
+      rgba(120, 94, 60, 0.018) 0,
+      rgba(120, 94, 60, 0.018) 1px,
+      transparent 1px,
+      transparent 4px
+    ),
+
+    /* Subtle vertical fibers */
+    repeating-linear-gradient(
+      90deg,
+      rgba(155, 130, 92, 0.014) 0,
+      rgba(155, 130, 92, 0.014) 1px,
+      transparent 1px,
+      transparent 5px
+    ),
+
+    /* Large soft paper variations */
+    radial-gradient(
+      ellipse at 15% 18%,
+      rgba(214, 195, 164, 0.20),
+      transparent 38%
+    ),
+
+    radial-gradient(
+      ellipse at 82% 28%,
+      rgba(226, 211, 181, 0.18),
+      transparent 40%
+    ),
+
+    radial-gradient(
+      ellipse at 30% 78%,
+      rgba(207, 185, 149, 0.16),
+      transparent 42%
+    ),
+
+    radial-gradient(
+      ellipse at 88% 88%,
+      rgba(214, 194, 160, 0.16),
+      transparent 38%
+    ),
+
+    /* Base parchment tone */
+    #f5f0df;
+
+  background-blend-mode:
+    multiply,
+    multiply,
+    multiply,
+    normal,
+    normal,
+    normal,
+    normal,
+    normal;
+
+  z-index: 0;
 }
 
 
