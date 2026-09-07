@@ -43,25 +43,48 @@ interface GalleryImage {
 // WEDDING PHOTOS
 // ============================================================
 
+// const galleryImages: GalleryImage[] = [
+//   {
+//     id: 1,
+//     src: "https://ovkrkjdlqqxaqyjcsjtz.supabase.co/storage/v1/object/sign/fevi_wedding_media/couple/one1.jpg?token=eyJraWQiOiI4ZTg0OTI1MC03MzAyLTQ4OTYtYjgwNS1iZWU3ZTdlNTJkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmZXZpX3dlZGRpbmdfbWVkaWEvY291cGxlL29uZTEuanBnIiwic2NvcGUiOiJkb3dubG9hZCIsImlhdCI6MTc4ODQxNzg4OCwiZXhwIjoxNzkxMDA5ODg4fQ.ZaQN61twWFSZ2AkN3MONiD-uioRRUNBWAOhYOdfgAco",
+//     alt: "Feven and Abenezer",
+//   },
+//   {
+//     id: 2,
+//     src: "https://ovkrkjdlqqxaqyjcsjtz.supabase.co/storage/v1/object/sign/fevi_wedding_media/couple/two2.jpg?token=eyJraWQiOiI4ZTg0OTI1MC03MzAyLTQ4OTYtYjgwNS1iZWU3ZTdlNTJkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmZXZpX3dlZGRpbmdfbWVkaWEvY291cGxlL3R3bzIuanBnIiwic2NvcGUiOiJkb3dubG9hZCIsImlhdCI6MTc4ODQxODU2MiwiZXhwIjoxNzkxMDEwNTYyfQ.HELGTS2Lad9GRAYqYGs5E39Lt1wx0WYYcIJAgbKIYzU",
+//     alt: "Feven and Abenezer",
+//   },
+//   {
+//     id: 3,
+//     src: "https://ovkrkjdlqqxaqyjcsjtz.supabase.co/storage/v1/object/sign/fevi_wedding_media/couple/three3.jpg?token=eyJraWQiOiI4ZTg0OTI1MC03MzAyLTQ4OTYtYjgwNS1iZWU3ZTdlNTJkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmZXZpX3dlZGRpbmdfbWVkaWEvY291cGxlL3RocmVlMy5qcGciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzg4NDE4NjQ1LCJleHAiOjE3OTEwMTA2NDV9.S3xqwtNCnOZp_fOj2yHP7xWzKAoPufrlSgqqM1mjfkw",
+//     alt: "Feven and Abenezer",
+//   },
+//   {
+//     id: 4,
+//     src: "https://ovkrkjdlqqxaqyjcsjtz.supabase.co/storage/v1/object/sign/fevi_wedding_media/couple/four4.jpg?token=eyJraWQiOiI4ZTg0OTI1MC03MzAyLTQ4OTYtYjgwNS1iZWU3ZTdlNTJkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmZXZpX3dlZGRpbmdfbWVkaWEvY291cGxlL2ZvdXI0LmpwZyIsInNjb3BlIjoiZG93bmxvYWQiLCJpYXQiOjE3ODg0MTg2NjksImV4cCI6MTc5MTAxMDY2OX0.lmNF3DUPCk97JhGSIPm2qn8jVnTJzDf2TtqyvvMoOlE",
+//     alt: "Feven and Abenezer",
+//   },
+// ];
+
 const galleryImages: GalleryImage[] = [
   {
     id: 1,
-    src: "https://ovkrkjdlqqxaqyjcsjtz.supabase.co/storage/v1/object/sign/fevi_wedding_media/couple/one1.jpg?token=eyJraWQiOiI4ZTg0OTI1MC03MzAyLTQ4OTYtYjgwNS1iZWU3ZTdlNTJkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmZXZpX3dlZGRpbmdfbWVkaWEvY291cGxlL29uZTEuanBnIiwic2NvcGUiOiJkb3dubG9hZCIsImlhdCI6MTc4ODQxNzg4OCwiZXhwIjoxNzkxMDA5ODg4fQ.ZaQN61twWFSZ2AkN3MONiD-uioRRUNBWAOhYOdfgAco",
+    src: "/couple/one1.jpg",
     alt: "Feven and Abenezer",
   },
   {
     id: 2,
-    src: "https://ovkrkjdlqqxaqyjcsjtz.supabase.co/storage/v1/object/sign/fevi_wedding_media/couple/two2.jpg?token=eyJraWQiOiI4ZTg0OTI1MC03MzAyLTQ4OTYtYjgwNS1iZWU3ZTdlNTJkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmZXZpX3dlZGRpbmdfbWVkaWEvY291cGxlL3R3bzIuanBnIiwic2NvcGUiOiJkb3dubG9hZCIsImlhdCI6MTc4ODQxODU2MiwiZXhwIjoxNzkxMDEwNTYyfQ.HELGTS2Lad9GRAYqYGs5E39Lt1wx0WYYcIJAgbKIYzU",
+    src: "/couple/two2.jpg",
     alt: "Feven and Abenezer",
   },
   {
     id: 3,
-    src: "https://ovkrkjdlqqxaqyjcsjtz.supabase.co/storage/v1/object/sign/fevi_wedding_media/couple/three3.jpg?token=eyJraWQiOiI4ZTg0OTI1MC03MzAyLTQ4OTYtYjgwNS1iZWU3ZTdlNTJkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmZXZpX3dlZGRpbmdfbWVkaWEvY291cGxlL3RocmVlMy5qcGciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzg4NDE4NjQ1LCJleHAiOjE3OTEwMTA2NDV9.S3xqwtNCnOZp_fOj2yHP7xWzKAoPufrlSgqqM1mjfkw",
+    src: "/couple/three3.jpg",
     alt: "Feven and Abenezer",
   },
   {
     id: 4,
-    src: "https://ovkrkjdlqqxaqyjcsjtz.supabase.co/storage/v1/object/sign/fevi_wedding_media/couple/four4.jpg?token=eyJraWQiOiI4ZTg0OTI1MC03MzAyLTQ4OTYtYjgwNS1iZWU3ZTdlNTJkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmZXZpX3dlZGRpbmdfbWVkaWEvY291cGxlL2ZvdXI0LmpwZyIsInNjb3BlIjoiZG93bmxvYWQiLCJpYXQiOjE3ODg0MTg2NjksImV4cCI6MTc5MTAxMDY2OX0.lmNF3DUPCk97JhGSIPm2qn8jVnTJzDf2TtqyvvMoOlE",
+    src: "/couple/four4.jpg",
     alt: "Feven and Abenezer",
   },
 ];

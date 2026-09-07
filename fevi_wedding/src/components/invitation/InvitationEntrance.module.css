@@ -105,7 +105,7 @@
       rgba(255, 250, 239, 0.12),
       rgba(235, 215, 181, 0.12)
     ),
-    url("https://ovkrkjdlqqxaqyjcsjtz.supabase.co/storage/v1/object/sign/fevi_wedding_media/ornament/background.jpg?token=eyJraWQiOiI4ZTg0OTI1MC03MzAyLTQ4OTYtYjgwNS1iZWU3ZTdlNTJkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmZXZpX3dlZGRpbmdfbWVkaWEvb3JuYW1lbnQvYmFja2dyb3VuZC5qcGciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzg4Mjk5NTk3LCJleHAiOjE4MDM4NTE1OTd9.c_moB7KonQQG0Col2--WFd1KF1JQYJsh5yD3gBDq0UM")
+    url("/ornaments/background(1).jpg")
       center / cover no-repeat;
 }
 
@@ -378,7 +378,7 @@
   width: min(calc(100% + 36px), 520px);
   height: 18px;
   margin-top: 2px;
-  background: url("https://ovkrkjdlqqxaqyjcsjtz.supabase.co/storage/v1/object/sign/fevi_wedding_media/ornament/gold_band.png?token=eyJraWQiOiI4ZTg0OTI1MC03MzAyLTQ4OTYtYjgwNS1iZWU3ZTdlNTJkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmZXZpX3dlZGRpbmdfbWVkaWEvb3JuYW1lbnQvZ29sZF9iYW5kLnBuZyIsInNjb3BlIjoiZG93bmxvYWQiLCJpYXQiOjE3ODgzNDYxODgsImV4cCI6MTgwMzg5ODE4OH0.sVH9uq5szsxh2KSQEDLAumS1wTQUBiTnfw3genFPbRg") center / cover no-repeat;
+  background: url("/ornaments/gold_band.png") center / cover no-repeat;
   filter: drop-shadow(0 -1px 2px rgba(74, 52, 40, 0.13));
 }
 
@@ -1003,8 +1003,7 @@
         rgba(255, 250, 239, 0.12),
         rgba(235, 215, 181, 0.12)
       ),
-      url("https://ovkrkjdlqqxaqyjcsjtz.supabase.co/storage/v1/object/sign/fevi_wedding_media/ornament/background.jpg?token=eyJraWQiOiI4ZTg0OTI1MC03MzAyLTQ4OTYtYjgwNS1iZWU3ZTdlNTJkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmZXZpX3dlZGRpbmdfbWVkaWEvb3JuYW1lbnQvYmFja2dyb3VuZC5qcGciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzg4Mjk5NTk3LCJleHAiOjE4MDM4NTE1OTd9.c_moB7KonQQG0Col2--WFd1KF1JQYJsh5yD3gBDq0UM")
-      center / cover no-repeat;
+      url("/ornaments/background(1).jpg");
   }
 
   /*

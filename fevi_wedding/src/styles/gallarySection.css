@@ -64,7 +64,7 @@
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  padding: clamp(64px, 8vw, 105px) 30px;
+  padding: clamp(64px, 8vw, 105px) 30px 35px;
 
   background: #f5f0df;
 }
