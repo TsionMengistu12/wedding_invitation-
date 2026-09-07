@@ -51,7 +51,7 @@ export default function InvitationEntrance({
         <div className={styles.opening}>
           <img
             className={styles.cross}
-            src="/couple/cross2.png"
+            src="/couple/cross.svg"
             alt=""
             aria-hidden="true"
           />
