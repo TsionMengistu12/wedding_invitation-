@@ -181,7 +181,10 @@ export default function GatePage() {
         token_value: token,
         arriving_guests: arrivingGuests,
       };
-      let { data, error: rpcError } = await supabase.rpc("check_in_guest", args);
+      let { data, error: rpcError } = await supabase.rpc(
+        "check_in_guest",
+        args,
+      );
 
       // Earlier live deployments used this RPC name. Only use it when the
       // current RPC is absent; real admission errors must not be masked.
@@ -199,7 +202,26 @@ export default function GatePage() {
       setAlreadyCheckedIn(response.already_checked_in + response.arriving);
     } catch (e) {
       console.error(e);
-      setError("Could not complete check-in. Please try again.");
+      const admissionError = e as { code?: string; message?: string };
+      if (
+        admissionError.code === "42501" ||
+        /unauthorized/i.test(admissionError.message ?? "")
+      ) {
+        setError("This account is not authorized to admit guests.");
+      } else if (
+        isMissingCheckInRpc(
+          admissionError as { code?: string; message: string },
+        )
+      ) {
+        setError(
+          "The admission service is not deployed. Run the gate admission SQL repair in Supabase.",
+        );
+      } else {
+        setError(
+          admissionError.message ||
+            "Could not complete check-in. Please try again.",
+        );
+      }
     } finally {
       setCheckingIn(false);
     }
