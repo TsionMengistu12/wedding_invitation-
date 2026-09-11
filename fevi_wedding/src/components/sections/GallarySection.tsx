@@ -398,45 +398,6 @@ export default function GallerySection() {
                 <ChevronLeft size={27} strokeWidth={1.4} />
               </button>
               {/* Main image */}
-              {/* <AnimatePresence mode="wait">
-                <motion.button
-                  key={galleryImages[activeIndex].id}
-                  type="button"
-                  className="gallery-main-photo__button"
-                  onClick={() => openImage(activeIndex)}
-                  initial={{
-                    opacity: 0,
-                    x: `${slideDirection * 7}%`,
-                  }}
-                  animate={{
-                    opacity: 1,
-                    x: 0,
-                  }}
-                  exit={{
-                    opacity: 0,
-                    x: `${slideDirection * -7}%`,
-                  }}
-                  transition={{
-                    duration: 0.65,
-                    ease: "easeInOut",
-                  }}
-                  aria-label={`Open ${galleryImages[activeIndex].alt}`}
-                >
-                  <span className="gallery-main-photo__frame">
-                    <img
-                      src={galleryImages[activeIndex].src}
-                      alt={galleryImages[activeIndex].alt}
-                      className="gallery-main-photo__image"
-                    />
-
-                    {/* Zoom indicator */}
-              {/* <span className="gallery-main-photo__zoom">
-                      <span>↗</span>
-                    </span>
-                  </span>
-                </motion.button>
-              </AnimatePresence> */}{" "}
-              */
               <AnimatePresence initial={false} mode="sync">
                 <motion.button
                   key={galleryImages[activeIndex].id}
@@ -469,6 +430,9 @@ export default function GallerySection() {
                           ? "gallery-main-photo__image gallery-main-photo__image--normal"
                           : "gallery-main-photo__image gallery-main-photo__image--bottom-center"
                       }
+                      loading="eager"
+                      fetchPriority={activeIndex === 0 ? "high" : "auto"}
+                      decoding="async"
                     />
 
                     <span className="gallery-main-photo__zoom">
@@ -524,6 +488,8 @@ export default function GallerySection() {
                       src={image.src}
                       alt=""
                       className="gallery-thumbnail__image"
+                      loading="lazy"
+                      decoding="async"
                     />
                   </span>
                 </motion.button>
@@ -645,6 +611,8 @@ export default function GallerySection() {
                   src={galleryImages[selectedIndex].src}
                   alt={galleryImages[selectedIndex].alt}
                   className="gallery-lightbox__image"
+                  loading="eager"
+                  decoding="async"
                 />
               </motion.div>
             </AnimatePresence>
