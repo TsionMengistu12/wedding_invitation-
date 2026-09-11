@@ -134,12 +134,14 @@ export default function GatePage() {
     // html5-qrcode mounts the camera video inside this element. Make it visible
     // before starting so browsers can attach and play the camera stream.
     setScanning(true);
-    await new Promise<void>((resolve) => requestAnimationFrame(() => resolve()));
+    await new Promise<void>((resolve) =>
+      requestAnimationFrame(() => resolve()),
+    );
     try {
       const scanner = new Html5Qrcode("qr-reader");
       scannerRef.current = scanner;
       await scanner.start(
-        { facingMode: { ideal: "environment" } },
+        { facingMode: "environment" },
         { fps: 10, qrbox: { width: 240, height: 240 } },
         async (text) => {
           if (scanBusyRef.current) return;
