@@ -28,6 +28,13 @@ interface CheckInResult {
   remaining: number;
 }
 
+function isMissingCheckInRpc(error: { code?: string; message: string }) {
+  return (
+    error.code === "PGRST202" ||
+    /could not find the function.*check_in_guest/i.test(error.message)
+  );
+}
+
 export default function GatePage() {
   const navigate = useNavigate();
   const scannerRef = useRef<Html5Qrcode | null>(null);
@@ -170,10 +177,21 @@ export default function GatePage() {
     setCheckingIn(true);
     setError("");
     try {
-      const { data, error: rpcError } = await supabase.rpc("check_in_guest", {
+      const args = {
         token_value: token,
         arriving_guests: arrivingGuests,
-      });
+      };
+      let { data, error: rpcError } = await supabase.rpc("check_in_guest", args);
+
+      // Earlier live deployments used this RPC name. Only use it when the
+      // current RPC is absent; real admission errors must not be masked.
+      if (rpcError && isMissingCheckInRpc(rpcError)) {
+        ({ data, error: rpcError } = await supabase.rpc(
+          "check_in_invitation",
+          args,
+        ));
+      }
+
       if (rpcError) throw rpcError;
       if (!data?.length) throw new Error("No check-in response.");
       const response = data[0] as CheckInResult;
