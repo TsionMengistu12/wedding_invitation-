@@ -5,7 +5,7 @@ import { useWeddingMusic } from "../../hooks/useWeddingMusic";
 import styles from "./WeddingMusic.module.css";
 export default function WeddingMusic() {
   const { isPlaying, isMuted, toggleMute, play } = useWeddingMusic({
-    src: "/music/Yehen_Laderege.mp3",
+    src: "/music/Yhen_Laderege.mp3",
     volume: 0.35,
   });
   useEffect(() => {
