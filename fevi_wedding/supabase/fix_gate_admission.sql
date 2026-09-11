@@ -2,6 +2,11 @@
 -- invitations, roles, or any other application data.
 begin;
 
+-- Keep existing guest rows and invitation tokens unchanged while upgrading
+-- older deployments that do not yet have the check-in timestamp column.
+alter table public.guests
+  add column if not exists checked_in_at timestamptz;
+
 drop function if exists public.check_in_guest(text, integer);
 
 create function public.check_in_guest(token_value text, arriving_guests integer)

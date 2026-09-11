@@ -37,6 +37,9 @@ create table if not exists public.guests (
   created_at timestamptz not null default now()
 );
 
+alter table public.guests
+  add column if not exists checked_in_at timestamptz;
+
 -- Preserve a previous deployment that used the old `invitations` table.
 do $$
 begin
