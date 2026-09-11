@@ -43,25 +43,48 @@ interface GalleryImage {
 // WEDDING PHOTOS
 // ============================================================
 
+// const galleryImages: GalleryImage[] = [
+//   {
+//     id: 1,
+//     src: "https://ovkrkjdlqqxaqyjcsjtz.supabase.co/storage/v1/object/sign/fevi_wedding_media/couple/one1.jpg?token=eyJraWQiOiI4ZTg0OTI1MC03MzAyLTQ4OTYtYjgwNS1iZWU3ZTdlNTJkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmZXZpX3dlZGRpbmdfbWVkaWEvY291cGxlL29uZTEuanBnIiwic2NvcGUiOiJkb3dubG9hZCIsImlhdCI6MTc4ODQxNzg4OCwiZXhwIjoxNzkxMDA5ODg4fQ.ZaQN61twWFSZ2AkN3MONiD-uioRRUNBWAOhYOdfgAco",
+//     alt: "Feven and Abenezer",
+//   },
+//   {
+//     id: 2,
+//     src: "https://ovkrkjdlqqxaqyjcsjtz.supabase.co/storage/v1/object/sign/fevi_wedding_media/couple/two2.jpg?token=eyJraWQiOiI4ZTg0OTI1MC03MzAyLTQ4OTYtYjgwNS1iZWU3ZTdlNTJkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmZXZpX3dlZGRpbmdfbWVkaWEvY291cGxlL3R3bzIuanBnIiwic2NvcGUiOiJkb3dubG9hZCIsImlhdCI6MTc4ODQxODU2MiwiZXhwIjoxNzkxMDEwNTYyfQ.HELGTS2Lad9GRAYqYGs5E39Lt1wx0WYYcIJAgbKIYzU",
+//     alt: "Feven and Abenezer",
+//   },
+//   {
+//     id: 3,
+//     src: "https://ovkrkjdlqqxaqyjcsjtz.supabase.co/storage/v1/object/sign/fevi_wedding_media/couple/three3.jpg?token=eyJraWQiOiI4ZTg0OTI1MC03MzAyLTQ4OTYtYjgwNS1iZWU3ZTdlNTJkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmZXZpX3dlZGRpbmdfbWVkaWEvY291cGxlL3RocmVlMy5qcGciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzg4NDE4NjQ1LCJleHAiOjE3OTEwMTA2NDV9.S3xqwtNCnOZp_fOj2yHP7xWzKAoPufrlSgqqM1mjfkw",
+//     alt: "Feven and Abenezer",
+//   },
+//   {
+//     id: 4,
+//     src: "https://ovkrkjdlqqxaqyjcsjtz.supabase.co/storage/v1/object/sign/fevi_wedding_media/couple/four4.jpg?token=eyJraWQiOiI4ZTg0OTI1MC03MzAyLTQ4OTYtYjgwNS1iZWU3ZTdlNTJkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmZXZpX3dlZGRpbmdfbWVkaWEvY291cGxlL2ZvdXI0LmpwZyIsInNjb3BlIjoiZG93bmxvYWQiLCJpYXQiOjE3ODg0MTg2NjksImV4cCI6MTc5MTAxMDY2OX0.lmNF3DUPCk97JhGSIPm2qn8jVnTJzDf2TtqyvvMoOlE",
+//     alt: "Feven and Abenezer",
+//   },
+// ];
+
 const galleryImages: GalleryImage[] = [
   {
     id: 1,
-    src: "https://ovkrkjdlqqxaqyjcsjtz.supabase.co/storage/v1/object/sign/fevi_wedding_media/couple/one1.jpg?token=eyJraWQiOiI4ZTg0OTI1MC03MzAyLTQ4OTYtYjgwNS1iZWU3ZTdlNTJkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmZXZpX3dlZGRpbmdfbWVkaWEvY291cGxlL29uZTEuanBnIiwic2NvcGUiOiJkb3dubG9hZCIsImlhdCI6MTc4ODQxNzg4OCwiZXhwIjoxNzkxMDA5ODg4fQ.ZaQN61twWFSZ2AkN3MONiD-uioRRUNBWAOhYOdfgAco",
+    src: "/couple/one1.jpg",
     alt: "Feven and Abenezer",
   },
   {
     id: 2,
-    src: "https://ovkrkjdlqqxaqyjcsjtz.supabase.co/storage/v1/object/sign/fevi_wedding_media/couple/two2.jpg?token=eyJraWQiOiI4ZTg0OTI1MC03MzAyLTQ4OTYtYjgwNS1iZWU3ZTdlNTJkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmZXZpX3dlZGRpbmdfbWVkaWEvY291cGxlL3R3bzIuanBnIiwic2NvcGUiOiJkb3dubG9hZCIsImlhdCI6MTc4ODQxODU2MiwiZXhwIjoxNzkxMDEwNTYyfQ.HELGTS2Lad9GRAYqYGs5E39Lt1wx0WYYcIJAgbKIYzU",
+    src: "/couple/two2.jpg",
     alt: "Feven and Abenezer",
   },
   {
     id: 3,
-    src: "https://ovkrkjdlqqxaqyjcsjtz.supabase.co/storage/v1/object/sign/fevi_wedding_media/couple/three3.jpg?token=eyJraWQiOiI4ZTg0OTI1MC03MzAyLTQ4OTYtYjgwNS1iZWU3ZTdlNTJkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmZXZpX3dlZGRpbmdfbWVkaWEvY291cGxlL3RocmVlMy5qcGciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzg4NDE4NjQ1LCJleHAiOjE3OTEwMTA2NDV9.S3xqwtNCnOZp_fOj2yHP7xWzKAoPufrlSgqqM1mjfkw",
+    src: "/couple/three3.jpg",
     alt: "Feven and Abenezer",
   },
   {
     id: 4,
-    src: "https://ovkrkjdlqqxaqyjcsjtz.supabase.co/storage/v1/object/sign/fevi_wedding_media/couple/four4.jpg?token=eyJraWQiOiI4ZTg0OTI1MC03MzAyLTQ4OTYtYjgwNS1iZWU3ZTdlNTJkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmZXZpX3dlZGRpbmdfbWVkaWEvY291cGxlL2ZvdXI0LmpwZyIsInNjb3BlIjoiZG93bmxvYWQiLCJpYXQiOjE3ODg0MTg2NjksImV4cCI6MTc5MTAxMDY2OX0.lmNF3DUPCk97JhGSIPm2qn8jVnTJzDf2TtqyvvMoOlE",
+    src: "/couple/four4.jpg",
     alt: "Feven and Abenezer",
   },
 ];
@@ -375,45 +398,6 @@ export default function GallerySection() {
                 <ChevronLeft size={27} strokeWidth={1.4} />
               </button>
               {/* Main image */}
-              {/* <AnimatePresence mode="wait">
-                <motion.button
-                  key={galleryImages[activeIndex].id}
-                  type="button"
-                  className="gallery-main-photo__button"
-                  onClick={() => openImage(activeIndex)}
-                  initial={{
-                    opacity: 0,
-                    x: `${slideDirection * 7}%`,
-                  }}
-                  animate={{
-                    opacity: 1,
-                    x: 0,
-                  }}
-                  exit={{
-                    opacity: 0,
-                    x: `${slideDirection * -7}%`,
-                  }}
-                  transition={{
-                    duration: 0.65,
-                    ease: "easeInOut",
-                  }}
-                  aria-label={`Open ${galleryImages[activeIndex].alt}`}
-                >
-                  <span className="gallery-main-photo__frame">
-                    <img
-                      src={galleryImages[activeIndex].src}
-                      alt={galleryImages[activeIndex].alt}
-                      className="gallery-main-photo__image"
-                    />
-
-                    {/* Zoom indicator */}
-              {/* <span className="gallery-main-photo__zoom">
-                      <span>↗</span>
-                    </span>
-                  </span>
-                </motion.button>
-              </AnimatePresence> */}{" "}
-              */
               <AnimatePresence initial={false} mode="sync">
                 <motion.button
                   key={galleryImages[activeIndex].id}
@@ -446,6 +430,9 @@ export default function GallerySection() {
                           ? "gallery-main-photo__image gallery-main-photo__image--normal"
                           : "gallery-main-photo__image gallery-main-photo__image--bottom-center"
                       }
+                      loading="eager"
+                      fetchPriority={activeIndex === 0 ? "high" : "auto"}
+                      decoding="async"
                     />
 
                     <span className="gallery-main-photo__zoom">
@@ -501,6 +488,8 @@ export default function GallerySection() {
                       src={image.src}
                       alt=""
                       className="gallery-thumbnail__image"
+                      loading="lazy"
+                      decoding="async"
                     />
                   </span>
                 </motion.button>
@@ -622,6 +611,8 @@ export default function GallerySection() {
                   src={galleryImages[selectedIndex].src}
                   alt={galleryImages[selectedIndex].alt}
                   className="gallery-lightbox__image"
+                  loading="eager"
+                  decoding="async"
                 />
               </motion.div>
             </AnimatePresence>

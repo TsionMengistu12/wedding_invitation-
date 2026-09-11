@@ -51,7 +51,7 @@ export default function InvitationEntrance({
         <div className={styles.opening}>
           <img
             className={styles.cross}
-            src="https://ovkrkjdlqqxaqyjcsjtz.supabase.co/storage/v1/object/sign/fevi_wedding_media/ornament/cross2.png?token=eyJraWQiOiI4ZTg0OTI1MC03MzAyLTQ4OTYtYjgwNS1iZWU3ZTdlNTJkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmZXZpX3dlZGRpbmdfbWVkaWEvb3JuYW1lbnQvY3Jvc3MyLnBuZyIsInNjb3BlIjoiZG93bmxvYWQiLCJpYXQiOjE3ODg0MjY3ODMsImV4cCI6MTc5MTAxODc4M30._4nGjrRJtpo9EaLqZ37WXsjeoAziOpcA51um9XLHBCM"
+            src="/ornaments/cross2.png"
             alt=""
             aria-hidden="true"
           />
@@ -106,7 +106,7 @@ export default function InvitationEntrance({
       <div className={styles.portrait}>
         <CoupleArchFrame
           className={styles.arch}
-          imageSrc="https://ovkrkjdlqqxaqyjcsjtz.supabase.co/storage/v1/object/sign/fevi_wedding_media/couple/front1.jpg?token=eyJraWQiOiI4ZTg0OTI1MC03MzAyLTQ4OTYtYjgwNS1iZWU3ZTdlNTJkNjkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJmZXZpX3dlZGRpbmdfbWVkaWEvY291cGxlL2Zyb250MS5qcGciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzg4NDE5NDIzLCJleHAiOjE3OTEwMTE0MjN9.F7WmjAXpU7w8DTL3SyPWZ69lhx70jOIic7ZZ4w7t484"
+          imageSrc="/couple/front1.jpg"
           alt="Feven and Abenezer"
         />
       </div>
